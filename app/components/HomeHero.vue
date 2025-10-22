@@ -12,34 +12,38 @@
         sizes="100vw"
       /> -->
       <!-- Overlay -->
-      <div class="absolute inset-0 bg-black/30 bg-opacity-10"/>
+      <div class="absolute inset-0 bg-green-900/60 bg-opacity-20"/>
     </div>
 
     <!-- Content -->
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <div class="max-w-4xl mx-auto">
+        <p class="text-md md:text-xl lg:text-xl text-gray-200 mb-2 max-w-2xl mx-auto">
+          <em>Our Vision is Your Vision</em>
+        </p>
         <!-- Main Heading -->
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-          Clear Vision, <span class="text-[#7fc540]">Bright Future</span>
+          Opthamology Specialists
         </h1>
 
         <!-- Subheading -->
-        <p class="text-lg md:text-xl lg:text-2xl text-gray-200 mb-8 max-w-2xl mx-auto">
-          Expert eye care services with state-of-the-art technology and compassionate professionals
+        <p class="text-lg md:text-xl lg:text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
+          We Preserve, Enhance, and Protect Your Vision with Expert Care.
         </p>
+        <div class="flex justify-center items-center text-md md:text-lg lg:text-lg text-gray-200 mb-8 max-w-2xl mx-auto"><UIcon name="i-lucide-map-pin"/><p>Abuja, Nigeria</p></div>
 
         <!-- CTA Buttons -->
         <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <NuxtLink
             to="/contact"
-            class="px-8 py-4 bg-[#7fc540] hover:bg-[#6ab030] text-white font-semibold rounded-lg transition-all duration-200 transform hover:scale-105 shadow-xl text-base md:text-lg w-full sm:w-auto"
+            class="px-8 py-4 bg-[#7fc540] hover:bg-[#6ab030] text-white font-semibold  transition-all duration-200 transform hover:scale-105 shadow-xl text-base md:text-lg w-full sm:w-auto"
           >
             Book a Consultation
           </NuxtLink>
           
           <NuxtLink
             to="/services"
-            class="px-8 py-4 bg-white bg-opacity-10 backdrop-blur-sm hover:bg-opacity-20 text-white font-semibold rounded-lg transition-all duration-200 border-2 border-white w-full sm:w-auto"
+            class="px-8 py-4 bg-white bg-opacity-10 backdrop-blur-sm hover:bg-opacity-20 text-black font-semibold transition-all duration-200 border-2 border-white w-full sm:w-auto"
           >
             Our Services
           </NuxtLink>

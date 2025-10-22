@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="overflow-x-hidden">
     <AppHeader/>
     <HomeHero/>
     <div class="h-[1000px] w-100">
