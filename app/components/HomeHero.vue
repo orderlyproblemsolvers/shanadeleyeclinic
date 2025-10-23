@@ -1,16 +1,7 @@
 <template>
-  <section class="main relative w-full h-[80dvh] flex items-center justify-center overflow-hidden">
+  <section class="main relative w-full h-[80dvh] flex items-center justify-center overflow-hidden mt-[10vh]">
     <!-- Background Image -->
     <div class="absolute inset-0 z-0">
-      <!-- <NuxtImg
-        src="img/hero.jpg"
-        alt="Shanadel Eye Clinic"
-        class="w-full h-full object-cover object-center"
-        format="webp"
-        quality="80"
-        loading="eager"
-        sizes="100vw"
-      /> -->
       <!-- Overlay -->
       <div class="absolute inset-0 bg-green-900/60 bg-opacity-20"/>
     </div>

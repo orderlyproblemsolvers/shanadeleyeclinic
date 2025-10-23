@@ -1,8 +1,7 @@
 <template>
   <header
     :class="[
-      'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-      scrolled ? 'bg-white shadow-md' : 'bg-transparent'
+      'fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white',
     ]"
   >
     <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -10,15 +9,7 @@
         <!-- Logo -->
         <NuxtLink to="/" class="flex items-center flex-shrink-0">
           <NuxtImg
-          v-if="scrolled"
             src="/img/shanadel-lg.png"
-            alt="Shanadel Eye Clinic"
-            class="h-10 md:h-12 w-auto"
-            loading="eager"
-          />
-          <NuxtImg
-          v-else
-            src="/img/shanadel-light.png"
             alt="Shanadel Eye Clinic"
             class="h-10 md:h-12 w-auto"
             loading="eager"
@@ -32,12 +23,9 @@
             :key="link.to"
             :to="link.to"
             :class="[
-              'text-base font-medium transition-colors duration-200',
-              scrolled 
-                ? 'text-gray-700 hover:text-[#7fc540]' 
-                : 'text-white hover:text-[#7fc540]'
+              'text-base font-medium transition-colors duration-200 text-gray-700 hover:text-[#7fc540]',
             ]"
-            active-class="text-[#7fc540] font-semibold"
+            active-class="text-white hover:text-white bg-[#7fc540] h-full p-5 font-semibold"
           >
             {{ link.label }}
           </NuxtLink>
@@ -74,8 +62,7 @@
         <button
           
           :class="[
-            'lg:hidden p-2 rounded-md transition-colors duration-200',
-            scrolled ? 'text-gray-700' : 'text-white'
+            'lg:hidden p-2 rounded-md transition-colors duration-200 text-gray-700',
           ]"
           aria-label="Toggle menu"
           @click="isMenuOpen = !isMenuOpen"
@@ -160,6 +147,7 @@ const isMenuOpen = ref(false)
 const phoneNumber = '+234 (123) 456-7890'
 
 const navLinks = [
+  { label: 'Home', to: '/' },
   { label: 'About', to: '/about' },
   { label: 'Services', to: '/services' },
   { label: 'Team', to: '/team' },
