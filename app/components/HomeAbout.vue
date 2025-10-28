@@ -14,7 +14,7 @@
             <!-- Main image -->
             <div class="relative overflow-hidden rounded-3xl shadow-2xl">
               <img 
-                src="/img/shanadelout.jpg" 
+                src="/img/Shanadelout.jpg" 
                 alt="Dr. Zephyr Alabegbe, founder of Shanadel Eye Clinic" 
                 class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
               >
