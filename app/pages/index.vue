@@ -1,9 +1,11 @@
 <template>
   <div class="overflow-x-hidden">
     <HomeHero/>
-    <div class="h-[1000px] w-100">
-
-    </div>
+    <HomeServices/>
+    <HomeAbout/>
+    <HomeQuiz/>
+    <HomeAppointment/>
+    <HomeBlog/>
   </div>
 </template>
 
