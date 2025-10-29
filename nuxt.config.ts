@@ -11,4 +11,11 @@ export default defineNuxtConfig({
       tailwindcss(),
     ],
   },
+  app: {
+    head: {
+      meta: [
+        { name: 'color-scheme', content: 'light' }
+      ]
+    }
+  }
 })
