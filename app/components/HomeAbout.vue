@@ -8,36 +8,51 @@
       
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         
-        <!-- Image Section with enhanced styling -->
+        <!-- Image Section with enhanced styling and diagonal pattern -->
         <div class="w-full animate-fade-in-left">
-          <div class="relative group">
-            <!-- Main image -->
-            <div class="relative overflow-hidden rounded-3xl shadow-2xl">
-              <img 
-                src="/img/Shanadelout.jpg" 
-                alt="Dr. Zephyr Alabegbe, founder of Shanadel Eye Clinic" 
-                class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
-              >
-              <!-- Gradient overlay -->
-              <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="relative">
+            
+            <!-- Diagonal Lines Pattern Background - Top -->
+            <div class="absolute -top-20 -left-8 -right-8 h-32 overflow-hidden opacity-20 pointer-events-none">
+              <div class="diagonal-pattern-top w-full h-full"></div>
             </div>
             
-            <!-- Decorative elements -->
-            <div class="absolute -top-4 -left-4 w-24 h-24 bg-[#7fc540]/20 rounded-full blur-2xl"></div>
-            <div class="absolute -bottom-4 -right-4 w-32 h-32 bg-orange-500/20 rounded-full blur-2xl"></div>
-            
-            <!-- Floating badge -->
-            <div class="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-2xl p-6 transform group-hover:scale-110 transition-transform duration-300">
-              <div class="flex items-center gap-3">
-                <div class="p-3 bg-[#7fc540]/10 rounded-xl">
-                  <UIcon name="i-lucide-award" class="text-3xl text-[#7fc540]" />
-                </div>
-                <div>
-                  <p class="text-2xl font-bold text-gray-900">15+</p>
-                  <p class="text-sm text-gray-600">Years Experience</p>
+            <!-- Main image container -->
+            <div class="relative group">
+              <!-- Main image -->
+              <div class="relative overflow-hidden rounded-3xl shadow-2xl">
+                <img 
+                  src="/img/Shanadelout.jpg" 
+                  alt="Dr. Zephyr Alabegbe, founder of Shanadel Eye Clinic" 
+                  class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
+                >
+                <!-- Gradient overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              </div>
+              
+              <!-- Decorative elements -->
+              <div class="absolute -top-4 -left-4 w-24 h-24 bg-[#7fc540]/20 rounded-full blur-2xl"></div>
+              <div class="absolute -bottom-4 -right-4 w-32 h-32 bg-orange-500/20 rounded-full blur-2xl"></div>
+              
+              <!-- Floating badge -->
+              <div class="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-2xl p-6 transform group-hover:scale-110 transition-transform duration-300 z-10">
+                <div class="flex items-center gap-3">
+                  <div class="p-3 bg-[#7fc540]/10 rounded-xl">
+                    <UIcon name="i-lucide-award" class="text-3xl text-[#7fc540]" />
+                  </div>
+                  <div>
+                    <p class="text-2xl font-bold text-gray-900">15+</p>
+                    <p class="text-sm text-gray-600">Years Experience</p>
+                  </div>
                 </div>
               </div>
             </div>
+            
+            <!-- Diagonal Lines Pattern Background - Bottom -->
+            <div class="absolute -bottom-20 -left-8 -right-8 h-32 overflow-hidden opacity-20 pointer-events-none">
+              <div class="diagonal-pattern-bottom w-full h-full"></div>
+            </div>
+            
           </div>
         </div>
 
@@ -91,7 +106,7 @@
           <!-- Enhanced CTA Button -->
           <NuxtLink
             to="/about"
-            class="group relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#7fc540] to-[#6ab030] text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-102 shadow-lg hover:shadow-2xl hover:shadow-[#7fc540]/30 text-base md:text-lg overflow-hidden"
+            class="group relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#7fc540] to-[#6ab030] text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl hover:shadow-[#7fc540]/30 text-base md:text-lg overflow-hidden"
           >
             <span class="relative z-10 flex items-center gap-2">
               Meet Dr. Alabegbe & Our Team
@@ -103,15 +118,15 @@
           <!-- Trust indicators -->
           <div class="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-gray-200">
             <div class="text-center group cursor-pointer">
-              <p class="text-3xl md:text-4xl font-bold text-[#7fc540] mb-1 group-hover:scale-105 transition-transform">10K+</p>
+              <p class="text-3xl md:text-4xl font-bold text-[#7fc540] mb-1 group-hover:scale-110 transition-transform">10K+</p>
               <p class="text-sm text-gray-600">Happy Patients</p>
             </div>
             <div class="text-center group cursor-pointer">
-              <p class="text-3xl md:text-4xl font-bold text-[#7fc540] mb-1 group-hover:scale-105 transition-transform">15+</p>
+              <p class="text-3xl md:text-4xl font-bold text-[#7fc540] mb-1 group-hover:scale-110 transition-transform">15+</p>
               <p class="text-sm text-gray-600">Years of Service</p>
             </div>
             <div class="text-center group cursor-pointer">
-              <p class="text-3xl md:text-4xl font-bold text-[#7fc540] mb-1 group-hover:scale-105 transition-transform">98%</p>
+              <p class="text-3xl md:text-4xl font-bold text-[#7fc540] mb-1 group-hover:scale-110 transition-transform">98%</p>
               <p class="text-sm text-gray-600">Satisfaction Rate</p>
             </div>
           </div>
@@ -123,11 +138,49 @@
   </section>
 </template>
 
-<script setup lang="ts">
+<script setup>
 // No script setup needed for this static component
 </script>
 
 <style scoped>
+/* Diagonal pattern for top */
+.diagonal-pattern-top {
+  background-image: 
+    repeating-linear-gradient(
+      45deg,
+      #7fc540 0px,
+      #7fc540 1px,
+      transparent 1px,
+      transparent 12px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      #7fc540 0px,
+      #7fc540 1px,
+      transparent 1px,
+      transparent 12px
+    );
+}
+
+/* Diagonal pattern for bottom */
+.diagonal-pattern-bottom {
+  background-image: 
+    repeating-linear-gradient(
+      45deg,
+      #ff6900 0px,
+      #ff6900 1px,
+      transparent 1px,
+      transparent 12px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      #ff6900 0px,
+      #ff6900 1px,
+      transparent 1px,
+      transparent 12px
+    );
+}
+
 /* Floating animations for background elements */
 @keyframes float {
   0%, 100% {
