@@ -1,5 +1,5 @@
 <template>
-  <section class="relative w-full py-16 lg:py-24" id="services-section">
+  <section id="services-section" class="relative w-full py-16 lg:py-24" >
     <div class="absolute inset-0 z-0">
       <img src="/img/consult.jpg" alt="Shanadel Eye Clinic interior" class="w-full h-full object-cover">
       <div class="absolute inset-0 bg-gray-900/80" />
@@ -46,7 +46,7 @@
       </div>
 
       <div class="mt-16 lg:mt-24">
-        <hr class="border-t border-white/10 max-w-2xl mx-auto mb-16 lg:mb-20" />
+        <hr class="border-t border-white/10 max-w-2xl mx-auto mb-16 lg:mb-20">
 
         <div class="text-center mb-12">
           <h3 class="text-2xl md:text-3xl font-semibold text-white">

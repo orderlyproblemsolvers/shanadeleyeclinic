@@ -217,8 +217,8 @@
               <!-- Mobile Services Dropdown -->
               <div v-else>
                 <button
+                class="w-full flex items-center justify-between px-4 py-3 text-base font-medium text-gray-700 hover:text-[#7fc540] hover:bg-gray-50 rounded-lg transition-colors duration-200"
                   @click="mobileServicesOpen = !mobileServicesOpen"
-                  class="w-full flex items-center justify-between px-4 py-3 text-base font-medium text-gray-700 hover:text-[#7fc540] hover:bg-gray-50 rounded-lg transition-colors duration-200"
                 >
                   <span>{{ link.label }}</span>
                   <svg class="w-4 h-4 transition-transform" :class="{ 'rotate-180': mobileServicesOpen }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -304,17 +304,17 @@ const navLinks = [
 ]
 
 const servicesDropdown = [
-  { label: 'Eye Examination', description: 'Complete vision assessment', to: '/services/eye-examination' },
-  { label: 'Cataract Surgery', description: 'Advanced surgical treatment', to: '/services/cataract-treatment' },
-  { label: 'Vision Correction', description: 'Glasses & contact lenses', to: '/services/vision-correction' },
-  { label: 'Frames & Lenses', description: 'Quality eyewear selection', to: '/services/frames-lenses' }
+  { label: 'Eye Examination', description: 'Complete vision assessment', to: '/services#comprehensive-exam' },
+  { label: 'Pediatric Eye Care', description: 'Advanced Child treatment', to: '/services#pediatric-eye-care' },
+  { label: 'Vision Correction', description: 'Glasses & contact lenses', to: '/services#contact-lens-services' },
+  { label: 'Frames & Lenses', description: 'Quality eyewear selection', to: '/services#optical-dispensing' }
 ]
 
 const conditionsDropdown = [
-  { label: 'Glaucoma', description: 'Pressure-related conditions', to: '/services/glaucoma-management' },
-  { label: 'Myopia', description: 'Nearsightedness treatment', to: '/conditions/myopia' },
-  { label: 'Hyperopia', description: 'Farsightedness care', to: '/conditions/hyperopia' },
-  { label: 'Astigmatism', description: 'Irregular cornea correction', to: '/conditions/astigmatism' }
+  { label: 'Glaucoma', description: 'Pressure-related conditions', to: '/services#glaucoma' },
+  { label: 'Myopia', description: 'Nearsightedness treatment', to: '/services#myopia' },
+  { label: 'Hyperopia', description: 'Farsightedness care', to: '/services#hyperopia' },
+  { label: 'Astigmatism', description: 'Irregular cornea correction', to: '/services#astigmatism' }
 ]
 
 // Handle scroll event
@@ -341,7 +341,7 @@ onUnmounted(() => {
 })
 
 // Close menu on route change
-watch(() => isMenuOpen.value, (newValue) => {
+watch(() => isMenuOpen.value, (newValue: any) => {
   if (newValue) {
     document.body.style.overflow = 'hidden'
   } else {

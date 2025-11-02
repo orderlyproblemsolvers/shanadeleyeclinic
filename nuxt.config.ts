@@ -4,7 +4,14 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  modules: ['@nuxt/eslint', '@nuxt/image', '@nuxt/ui'],
+  modules: [
+    '@nuxt/eslint',
+    '@nuxt/image',
+    '@nuxt/ui',
+    'nuxt-auth-utils',
+    '@nuxtjs/supabase',
+    '@nuxt/icon'
+  ],
   css: ['~/assets/css/main.css'],
   vite: {
     plugins: [
@@ -17,5 +24,16 @@ export default defineNuxtConfig({
         { name: 'color-scheme', content: 'light' }
       ]
     }
+  },
+   runtimeConfig: {
+    supabaseUrl: process.env.SUPABASE_URL,
+    supabaseKey: process.env.SUPABASE_KEY,
+    public: {
+      supabaseUrl: process.env.SUPABASE_URL,
+      supabaseKey: process.env.SUPABASE_KEY,
+    }
+  },
+  supabase: {
+    redirect: false
   }
 })
