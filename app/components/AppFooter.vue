@@ -13,13 +13,10 @@
             Providing exceptional eye care services with cutting-edge technology and compassionate professionals.
           </p>
           <div class="flex gap-4 mt-6">
-            <a href="#" aria-label="Visit our Facebook page" class="text-gray-400 hover:text-[#7fc540] transition-colors duration-200">
+            <a href="https://web.facebook.com/shanadeleyeclinicltd/?_rdc=1&_rdr#" aria-label="Visit our Facebook page" class="text-gray-400 hover:text-[#7fc540] transition-colors duration-200">
               <UIcon name="i-lucide-facebook" class="w-6 h-6" />
             </a>
-            <a href="#" aria-label="Visit our Twitter page" class="text-gray-400 hover:text-[#7fc540] transition-colors duration-200">
-              <UIcon name="i-lucide-twitter" class="w-6 h-6" />
-            </a>
-            <a href="#" aria-label="Visit our Instagram page" class="text-gray-400 hover:text-[#7fc540] transition-colors duration-200">
+            <a href="https://www.instagram.com/shanadeleyecliniclimited/" aria-label="Visit our Instagram page" class="text-gray-400 hover:text-[#7fc540] transition-colors duration-200">
               <UIcon name="i-lucide-instagram" class="w-6 h-6" />
             </a>
           </div>
@@ -72,8 +69,8 @@
             </li>
             <li class="flex items-center gap-2 text-sm">
               <UIcon name="i-lucide-mail" class="w-5 h-5 text-[#7fc540] flex-shrink-0" />
-              <a href="mailto:info@shanadel.com" class="hover:text-[#7fc540] transition-colors duration-200">
-                info@shanadel.com
+              <a href="mailto:shanadeleyeclinic@gmail.com" class="hover:text-[#7fc540] transition-colors duration-200">
+                shanadeleyeclinic@gmail.com
               </a>
             </li>
           </ul>
@@ -85,12 +82,9 @@
           &copy; {{ currentYear }} Shanadel Eye Clinic. All rights reserved.
         </p>
         <div class="flex gap-6">
-          <NuxtLink to="/privacy" class="text-sm text-gray-400 hover:text-[#7fc540] transition-colors duration-200">
-            Privacy Policy
-          </NuxtLink>
-          <NuxtLink to="/terms" class="text-sm text-gray-400 hover:text-[#7fc540] transition-colors duration-200">
-            Terms of Service
-          </NuxtLink>
+          <p class="text-sm text-gray-400 hover:text-[#7fc540] transition-colors duration-200">
+            Powered by OPS
+          </p>
         </div>
       </div>
     </div>

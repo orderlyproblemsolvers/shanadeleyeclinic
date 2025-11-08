@@ -9,7 +9,7 @@
         <!-- Logo -->
         <NuxtLink to="/" class="flex items-center flex-shrink-0">
           <NuxtImg
-            src="/img/shanadel-lg.png"
+            src="/img/shanadel-lg.webp"
             alt="Shanadel Eye Clinic"
             class="h-10 md:h-12 w-auto"
             loading="eager"

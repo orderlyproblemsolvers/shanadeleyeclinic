@@ -80,6 +80,7 @@
 
 <script setup lang="ts">
 const { getPublishedPosts } = useBlog()
+import type{Post} from '~/app/types/blog'
 
 const posts = ref<Post[]>([])
 const loading = ref(true)

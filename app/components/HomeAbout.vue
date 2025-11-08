@@ -118,7 +118,7 @@
           <!-- Trust indicators -->
           <div class="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-gray-200">
             <div class="text-center group cursor-pointer">
-              <p class="text-3xl md:text-4xl font-bold text-[#7fc540] mb-1 group-hover:scale-110 transition-transform">10K+</p>
+              <p class="text-3xl md:text-4xl font-bold text-[#7fc540] mb-1 group-hover:scale-110 transition-transform">1K+</p>
               <p class="text-sm text-gray-600">Happy Patients</p>
             </div>
             <div class="text-center group cursor-pointer">

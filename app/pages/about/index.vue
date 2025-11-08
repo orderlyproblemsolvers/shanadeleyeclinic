@@ -10,7 +10,7 @@
       
       <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div class="inline-flex items-center justify-center mb-6">
-          <img src="/img/shanadel-lg.png" alt="Shanadel Eye Clinic Logo" class="h-20 w-auto">
+          <img src="/img/shanadel-lg.webp" alt="Shanadel Eye Clinic Logo" class="h-20 w-auto">
         </div>
         <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-4 tracking-tight animate-slide-up">
           About Shanadel Eye Clinic
@@ -46,7 +46,7 @@
                   class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
                 >
                 <!-- Gradient overlay -->
-                <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"/>
               </div>
               
               <!-- Decorative elements -->
@@ -299,7 +299,7 @@
                   class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
                 >
                 <!-- Gradient overlay -->
-                <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"/>
               </div>
               
               <!-- Decorative elements -->
@@ -432,7 +432,9 @@
 </template>
 
 <script setup>
-// This component is static, so no script logic is needed.
+defineOgImageComponent('InfoPages', {
+  title:'Quality Eye Care Services'
+})
 </script>
 
 <style scoped>

@@ -365,14 +365,14 @@
               <div class="group">
                 <p class="text-sm text-gray-400 mb-2">Email us</p>
                 <a
-                  href="mailto:info@shanadel.com"
+                  href="mailto:shanadeleyeclinic@gmail.com"
                   class="flex items-center gap-3 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-all border border-white/10 hover:border-[#7fc540]/30"
                 >
                   <div class="p-2 bg-[#7fc540]/20 rounded-lg">
                     <UIcon name="i-lucide-mail" class="text-[#7fc540]" />
                   </div>
                   <div>
-                    <p class="font-semibold text-white">info@shanadel.com</p>
+                    <p class="font-semibold text-white">shanadeleyeclinic@gmail.com</p>
                     <p class="text-sm text-gray-400">We reply within 24hrs</p>
                   </div>
                 </a>
@@ -398,19 +398,19 @@
                 class="flex justify-between items-center text-sm p-3 bg-white/5 rounded-xl"
               >
                 <span class="text-gray-300 font-medium">Monday - Friday</span>
-                <span class="text-white font-semibold">9:00 AM - 6:00 PM</span>
+                <span class="text-white font-semibold">9:00 AM - 6:00 PM WAT</span>
               </div>
               <div
                 class="flex justify-between items-center text-sm p-3 bg-white/5 rounded-xl"
               >
                 <span class="text-gray-300 font-medium">Saturday</span>
-                <span class="text-white font-semibold">10:00 AM - 4:00 PM</span>
+                <span class="text-white font-semibold">8:30 AM - 4:30 PM WAT</span>
               </div>
               <div
                 class="flex justify-between items-center text-sm p-3 bg-white/5 rounded-xl"
               >
                 <span class="text-gray-300 font-medium">Sunday</span>
-                <span class="text-red-500 font-semibold">Closed</span>
+                <span class="text-red-500 font-semibold">Strictly on Appointment</span>
               </div>
               <div class="pt-3 border-t border-white/10 mt-3">
                 <div

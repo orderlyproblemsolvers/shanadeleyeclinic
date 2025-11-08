@@ -1,4 +1,5 @@
 
+import type { Post, PostInput } from '~/app/types/blog'
 export const useBlog = () => {
   const supabase = useSupabaseClient()
   const user = useSupabaseUser()

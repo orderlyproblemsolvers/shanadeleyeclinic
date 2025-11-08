@@ -10,6 +10,9 @@
 </template>
 
 <script setup>
+defineOgImageComponent('InfoPages', {
+  title:'Quality Eye Care Services'
+})
 </script>
 
 <style>

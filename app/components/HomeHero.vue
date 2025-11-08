@@ -75,7 +75,7 @@
       <div class="p-2 bg-white/20 rounded-lg group-hover:bg-white/30 transition-colors">
         <UIcon name="i-lucide-clock" class="text-xl" />
       </div>
-      <p class="text-sm md:text-base">Mon - Fri 8.00 - 18.00, Sat 8.30 - 17.30</p>
+      <p class="text-sm md:text-base">Mon - Fri 8.00am WAT, Sat 8.30am - 17.30pm WAT</p>
     </div>
 
     <div class="relative flex justify-center gap-6 md:gap-8">
@@ -102,7 +102,7 @@
 <style scoped>
 section {
   min-height: 80dvh;
-  background: url('/img/shero.jpg') center center/cover no-repeat;
+  background: url('/img/shero.webp') center center/cover no-repeat;
 }
 
 /* Animated gradient overlay */

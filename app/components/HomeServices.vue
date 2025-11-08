@@ -1,7 +1,7 @@
 <template>
   <section id="services-section" class="relative w-full py-16 lg:py-24" >
     <div class="absolute inset-0 z-0">
-      <img src="/img/consult.jpg" alt="Shanadel Eye Clinic interior" class="w-full h-full object-cover">
+      <img src="/img/consult.webp" alt="Shanadel Eye Clinic interior" class="w-full h-full object-cover">
       <div class="absolute inset-0 bg-gray-900/80" />
     </div>
 
@@ -36,7 +36,7 @@
           </p>
           
           <NuxtLink 
-            :to="`/services/${problem.slug}`"
+            :to="`/services`"
             class="font-semibold text-[#7fc540] hover:text-[#6ab030] transition-colors duration-200 text-sm"
           >
             Find the Solution &rarr;

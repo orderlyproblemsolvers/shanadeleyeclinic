@@ -10,7 +10,7 @@
       
       <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div class="inline-flex items-center justify-center mb-6">
-          <img src="/img/shanadel-lg.png" alt="Shanadel Eye Clinic Logo" class="h-20 w-auto">
+          <img src="/img/shanadel-lg.webp" alt="Shanadel Eye Clinic Logo" class="h-20 w-auto">
         </div>
         <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-4 tracking-tight animate-slide-up">
           Get in Touch
@@ -158,7 +158,7 @@
                     required
                     :min="minDate"
                     class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white focus:outline-none focus:border-[#7fc540] focus:ring-2 focus:ring-[#7fc540]/20 focus:bg-white/15 transition-all"
-                  />
+                  >
                 </div>
               </div>
 
@@ -173,13 +173,13 @@
                     v-for="time in timeSlots"
                     :key="time"
                     type="button"
-                    @click="formData.time = time"
                     :class="[
                       'px-4 py-3 rounded-xl border-2 transition-all duration-300 font-medium',
                       formData.time === time
-                        ? 'bg-[#7fc540] border-[#7fc540] text-white shadow-lg shadow-[#7fc540]/30'
-                        : 'bg-white/10 border-white/20 text-white hover:border-[#7fc540]/50 hover:bg-white/15'
+                      ? 'bg-[#7fc540] border-[#7fc540] text-white shadow-lg shadow-[#7fc540]/30'
+                      : 'bg-white/10 border-white/20 text-white hover:border-[#7fc540]/50 hover:bg-white/15'
                     ]"
+                    @click="formData.time = time"
                   >
                     {{ time }}
                   </button>
@@ -197,16 +197,17 @@
                     v-for="location in locations"
                     :key="location.name"
                     type="button"
-                    @click="formData.location = location.name"
                     :class="[
                       'text-left p-4 rounded-xl border-2 transition-all duration-300',
                       formData.location === location.name
-                        ? 'bg-[#7fc540] border-[#7fc540] text-white shadow-lg shadow-[#7fc540]/30'
-                        : 'bg-white/10 border-white/20 text-white hover:border-[#7fc540]/50 hover:bg-white/15'
+                      ? 'bg-[#7fc540] border-[#7fc540] text-white shadow-lg shadow-[#7fc540]/30'
+                      : 'bg-white/10 border-white/20 text-white hover:border-[#7fc540]/50 hover:bg-white/15'
                     ]"
+                    @click="formData.location = location.name"
                   >
                     <div class="flex items-start gap-3">
-                      <div :class="[
+                      <div 
+                      :class="[
                         'w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all mt-1',
                         formData.location === location.name
                           ? 'border-white bg-white'
@@ -328,14 +329,14 @@
               <div class="group">
                 <p class="text-sm text-gray-400 mb-2">Email us</p>
                 <a
-                  href="mailto:info@shanadel.com"
+                  href="mailto:shanadeleyeclinic@gmail.com"
                   class="flex items-center gap-3 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-all border border-white/10 hover:border-[#7fc540]/30"
                 >
                   <div class="p-2 bg-[#7fc540]/20 rounded-lg">
                     <UIcon name="i-lucide-mail" class="text-[#7fc540]" />
                   </div>
                   <div>
-                    <p class="font-semibold text-white">info@shanadel.com</p>
+                    <p class="font-semibold text-white">shanadeleyeclinic@gmail.com</p>
                     <p class="text-sm text-gray-400">We reply within 24hrs</p>
                   </div>
                 </a>
@@ -354,21 +355,15 @@
             <div class="space-y-3">
               <div class="flex justify-between items-center text-sm p-3 bg-white/5 rounded-xl">
                 <span class="text-gray-300 font-medium">Monday - Friday</span>
-                <span class="text-white font-semibold">9:00 AM - 6:00 PM</span>
+                <span class="text-white font-semibold">8:00 AM - 6:00 PM WAT</span>
               </div>
               <div class="flex justify-between items-center text-sm p-3 bg-white/5 rounded-xl">
                 <span class="text-gray-300 font-medium">Saturday</span>
-                <span class="text-white font-semibold">10:00 AM - 4:00 PM</span>
+                <span class="text-white font-semibold">8:30 AM - 4:30 PM WAT</span>
               </div>
               <div class="flex justify-between items-center text-sm p-3 bg-white/5 rounded-xl">
                 <span class="text-gray-300 font-medium">Sunday</span>
-                <span class="text-red-500 font-semibold">Closed</span>
-              </div>
-              <div class="pt-3 border-t border-white/10 mt-3">
-                <div class="flex items-center gap-2 text-sm text-gray-300 p-3 bg-white/5 rounded-xl">
-                  <UIcon name="i-lucide-zap" class="text-orange-500" />
-                  <span>24/7 Emergency services available</span>
-                </div>
+                <span class="text-red-500 font-semibold">Strictly on appointment</span>
               </div>
             </div>
           </div>
@@ -478,6 +473,9 @@
 
 <script setup>
 import { ref, computed } from "vue";
+defineOgImageComponent('InfoPages', {
+  title:'Quality Eye Care Services'
+})
 
 // Get the Supabase client
 const client = useSupabaseClient();

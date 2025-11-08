@@ -391,6 +391,9 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
+defineOgImageComponent('InfoPages', {
+  title:'Quality Eye Care Services'
+})
 
 interface Service {
   id: string;
