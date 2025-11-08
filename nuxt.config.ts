@@ -10,8 +10,16 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     'nuxt-auth-utils',
     '@nuxtjs/supabase',
-    '@nuxt/icon'
+    '@nuxt/icon',
+    '@nuxtjs/seo'
   ],
+  ogImage: {
+    runtimeCacheStorage: true,
+    defaults: {
+      component: 'BlogOgImage',
+      background: 'linear-gradient(135deg, #009739, #ffffff, #ff7900)', // green-white-orange
+    },
+  },
   css: ['~/assets/css/main.css'],
   vite: {
     plugins: [

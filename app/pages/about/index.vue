@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white">
+  <div class="bg-white overflow-x-hidden">
     <!-- Hero Section with Gradient Background -->
     <section class="relative py-20 lg:py-32 overflow-hidden">
       <div class="absolute inset-0 bg-gradient-to-br from-emerald-50 via-white to-orange-50"/>

@@ -1,6 +1,5 @@
 <template>
   <section class="relative bg-gradient-to-b from-gray-50 via-white to-gray-50 py-20 lg:py-32 overflow-hidden">
-    <!-- Animated background elements -->
     <div class="absolute top-0 right-0 w-96 h-96 bg-[#7fc540]/5 rounded-full blur-3xl animate-float"></div>
     <div class="absolute bottom-0 left-0 w-96 h-96 bg-orange-500/5 rounded-full blur-3xl animate-float-delayed"></div>
     
@@ -8,11 +7,9 @@
       
       <div class="grid lg:grid-cols-3 gap-8">
         
-        <!-- Main Quiz Area -->
         <div class="lg:col-span-2">
           <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100 backdrop-blur-sm">
 
-            <!-- Step 0: Introduction -->
             <div v-if="step === 0" class="p-10 md:p-12 animate-fade-in">
               <div class="flex justify-center mb-6">
                 <div class="relative">
@@ -39,7 +36,6 @@
                 Get a real-time <span class="font-semibold text-gray-900">"Eye Health Score"</span> in just 60 seconds. Take our quick quiz to understand your risks and receive personalized recommendations.
               </p>
 
-              <!-- Benefits Grid -->
               <div class="grid grid-cols-3 gap-3 mb-8">
                 <div class="flex flex-col items-center gap-2 text-sm text-gray-600 bg-gray-50 rounded-xl p-4">
                   <UIcon name="i-lucide-clock" class="text-[#7fc540] text-2xl" />
@@ -57,8 +53,8 @@
               
               <button
                 @click="step = 1"
-                class="group relative w-full inline-flex items-center justify-center gap-3 px-12 py-5 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold text-lg rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl hover:shadow-orange-500/30 overflow-hidden"
-              >
+                class="group relative w-full inline-flex items-center justify-center gap-3 px-12 py-5 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold text-lg rounded-2xl transition-all duration-300 transform hover:scale-105 active:scale-100 shadow-xl hover:shadow-2xl hover:shadow-orange-500/30 overflow-hidden"
+                >
                 <span class="relative z-10 flex items-center gap-2">
                   Start the Quiz
                   <UIcon name="i-lucide-arrow-right" class="group-hover:translate-x-1 transition-transform" />
@@ -69,10 +65,8 @@
               <p class="text-sm text-gray-500 mt-4 text-center">No email required • Free forever</p>
             </div>
 
-            <!-- Steps 1-3: Quiz Questions -->
             <div v-if="step > 0 && step <= 3" class="p-8 md:p-10 animate-fade-in">
               
-              <!-- Progress Bar -->
               <div class="mb-8">
                 <div class="flex justify-between items-center text-sm font-semibold mb-3">
                   <span class="text-[#7fc540] flex items-center gap-2">
@@ -91,7 +85,6 @@
                 </div>
               </div>
 
-              <!-- Section Title -->
               <div class="mb-8">
                 <div class="inline-flex items-center gap-2 px-3 py-1 bg-[#7fc540]/10 rounded-full text-xs font-medium text-[#7fc540] mb-3">
                   Section {{ step }}
@@ -99,7 +92,6 @@
                 <h3 class="text-2xl md:text-3xl font-bold text-gray-900">{{ currentSection.title }}</h3>
               </div>
 
-              <!-- Questions -->
               <div class="space-y-8">
                 <div v-for="(question, qIndex) in currentSection.questions" :key="qIndex" class="animate-fade-in-up" :style="`animation-delay: ${qIndex * 100}ms`">
                   <label class="block text-lg font-semibold text-gray-900 mb-4 flex items-start gap-3">
@@ -114,7 +106,7 @@
                       :key="oIndex"
                       @click="selectAnswer(question.key, option.value)"
                       :class="[
-                        'group relative text-left px-5 py-4 rounded-2xl border-2 transition-all duration-300 transform hover:scale-105',
+                        'group relative text-left px-5 py-4 rounded-2xl border-2 transition-all duration-300 transform hover:scale-105 active:scale-100',
                         answers[question.key] === option.value
                           ? 'bg-gradient-to-br from-[#7fc540] to-[#6ab030] border-[#7fc540] text-white font-semibold shadow-xl shadow-[#7fc540]/30'
                           : 'bg-white border-gray-200 text-gray-700 hover:border-[#7fc540]/50 hover:bg-gray-50 hover:shadow-lg'
@@ -127,7 +119,10 @@
                             ? 'border-white bg-white'
                             : 'border-gray-300 group-hover:border-[#7fc540]'
                         ]">
-                          <div v-if="answers[question.key] === option.value" class="w-2.5 h-2.5 bg-[#7fc540] rounded-full"></div>
+                          <div 
+                            class="w-2.5 h-2.5 bg-[#7fc540] rounded-full transform transition-all duration-300"
+                            :class="answers[question.key] === option.value ? 'scale-100' : 'scale-0'"
+                          ></div>
                         </div>
                         <span class="text-sm">{{ option.text }}</span>
                       </div>
@@ -136,7 +131,6 @@
                 </div>
               </div>
 
-              <!-- Navigation Buttons -->
               <div class="flex justify-between mt-10 pt-6 border-t border-gray-200">
                 <button
                   @click="step--"
@@ -156,23 +150,21 @@
                   :class="[
                     'group flex items-center gap-2 px-8 py-3 rounded-xl font-semibold transition-all transform',
                     isSectionComplete 
-                      ? 'bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white shadow-lg hover:shadow-xl hover:scale-105' 
-                      : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                      ? 'bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white shadow-lg hover:shadow-xl hover:scale-105 active:scale-100' 
+                      : 'bg-gray-300 text-gray-500 cursor-not-allowed',
+                    shakeNextButton ? 'animate-shake' : '' // ✨ NEW: Added shake class
                   ]"
-                  :disabled="!isSectionComplete"
-                >
+                  :disabled="!isSectionComplete && !shakeNextButton" >
                   {{ step === 3 ? 'See My Results' : 'Next' }}
                   <UIcon name="i-lucide-arrow-right" :class="isSectionComplete ? 'group-hover:translate-x-1 transition-transform' : ''" />
                 </button>
               </div>
 
-              <!-- Helper Text -->
               <p class="text-center text-sm text-gray-500 mt-4">
                 {{ questionsAnswered }} of {{ totalQuestions }} questions answered in this section
               </p>
             </div>
 
-            <!-- Step 4: Results -->
             <div v-if="step === 4" class="p-10 md:p-12 animate-fade-in">
               <div class="flex justify-center mb-6">
                 <div class="relative">
@@ -183,10 +175,9 @@
                 </div>
               </div>
 
-              <!-- Score Display -->
               <div class="inline-flex items-center gap-3 px-6 py-3 bg-gray-100 rounded-full mb-4">
                 <span class="text-sm font-medium text-gray-600">Your Score:</span>
-                <span class="text-2xl font-bold" :style="{ color: result.color }">{{ score }}/18</span>
+                <span class="text-2xl font-bold" :style="{ color: result.color }">{{ animatedScore }}/18</span>
               </div>
               
               <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight">
@@ -197,7 +188,6 @@
                 {{ result.description }}
               </p>
 
-              <!-- Recommendations Card -->
               <div class="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-6 mb-8 border border-gray-200">
                 <h3 class="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
                   <UIcon name="i-lucide-lightbulb" class="text-[#7fc540]" />
@@ -211,10 +201,9 @@
                 </ul>
               </div>
 
-              <!-- CTA Button -->
               <NuxtLink
                 to="/contact"
-                class="group relative w-full inline-flex items-center justify-center gap-3 px-12 py-5 text-white font-semibold text-lg rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl mb-6 overflow-hidden"
+                class="group relative w-full inline-flex items-center justify-center gap-3 px-12 py-5 text-white font-semibold text-lg rounded-2xl transition-all duration-300 transform hover:scale-105 active:scale-100 shadow-xl hover:shadow-2xl mb-6 overflow-hidden"
                 :style="{ background: `linear-gradient(to right, ${result.color}, ${result.color}dd)` }"
               >
                 <span class="relative z-10 flex items-center gap-2">
@@ -236,11 +225,9 @@
           </div>
         </div>
 
-        <!-- Sidebar Information -->
         <div class="lg:col-span-1 space-y-6">
           
-          <!-- Why Take This Quiz -->
-          <div class="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 animate-fade-in-up" style="animation-delay: 200ms">
+          <div class="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 animate-fade-in-up transition-all duration-300 hover:shadow-2xl hover:-translate-y-1" style="animation-delay: 200ms">
             <h4 class="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
               <div class="p-2 bg-[#7fc540]/10 rounded-lg">
                 <UIcon name="i-lucide-heart-pulse" class="text-[#7fc540]" />
@@ -281,8 +268,7 @@
             </div>
           </div>
 
-          <!-- Contact Card -->
-          <div class="bg-white rounded-3xl p-8 shadow-xl border border-gray-100">
+          <div class="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
             <h4 class="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
               <div class="p-2 bg-[#7fc540]/10 rounded-lg">
                 <UIcon name="i-lucide-phone-call" class="text-[#7fc540]" />
@@ -309,15 +295,14 @@
 
             <NuxtLink
               to="/contact"
-              class="w-full inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-[#7fc540] to-[#6ab030] hover:from-[#6ab030] hover:to-[#7fc540] text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg"
-            >
+              class="w-full inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-[#7fc540] to-[#6ab030] hover:from-[#6ab030] hover:to-[#7fc540] text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 active:scale-100 shadow-lg"
+              >
               <UIcon name="i-lucide-calendar" />
               Book Appointment
             </NuxtLink>
           </div>
 
-          <!-- Trust Badge -->
-          <div class="bg-white rounded-3xl p-6 shadow-xl border border-gray-100 text-center">
+          <div class="bg-white rounded-3xl p-6 shadow-xl border border-gray-100 text-center transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
             <div class="flex justify-center -space-x-3 mb-4">
               <div class="w-10 h-10 rounded-full bg-[#7fc540] border-2 border-white flex items-center justify-center text-white font-bold text-sm">A</div>
               <div class="w-10 h-10 rounded-full bg-orange-500 border-2 border-white flex items-center justify-center text-white font-bold text-sm">B</div>
@@ -336,7 +321,7 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue' // ✨ NEW: Added watch
 
 const step = ref(0)
 const answers = ref({
@@ -350,6 +335,10 @@ const answers = ref({
   lastExam: null,
   nightVision: null,
 })
+
+// ✨ NEW: Added refs for shake animation and animated score
+const shakeNextButton = ref(false)
+const animatedScore = ref(0)
 
 const sections = [
   {
@@ -474,6 +463,7 @@ function selectAnswer(key, value) {
   answers.value[key] = value
 }
 
+// ✨ NEW: Updated nextStep to include shake feedback
 function nextStep() {
   if (isSectionComplete.value) {
     if (step.value < 3) {
@@ -481,6 +471,12 @@ function nextStep() {
     } else {
       step.value = 4
     }
+  } else {
+    // Trigger shake animation
+    shakeNextButton.value = true
+    setTimeout(() => {
+      shakeNextButton.value = false
+    }, 600) // Match animation duration
   }
 }
 
@@ -497,14 +493,43 @@ function resetQuiz() {
     nightVision: null,
   }
   step.value = 0
+  animatedScore.value = 0 // Reset animated score
 }
 
-const score = computed(() => {
+// ✨ NEW: Renamed `score` to `finalScore`
+const finalScore = computed(() => {
   return Object.values(answers.value).reduce((total, val) => total + (val || 0), 0)
 })
 
+// ✨ NEW: Added a watcher to animate the score when step 4 is reached
+watch(step, (newStep) => {
+  if (newStep === 4) {
+    const target = finalScore.value
+    if (target === 0) {
+      animatedScore.value = 0
+      return
+    }
+    
+    const duration = 800 // Animation duration in ms
+    const intervalTime = 16 // ~60fps
+    const steps = duration / intervalTime
+    const increment = target / steps
+    let current = 0
+
+    const interval = setInterval(() => {
+      current += increment
+      if (current >= target) {
+        animatedScore.value = target
+        clearInterval(interval)
+      } else {
+        animatedScore.value = Math.round(current)
+      }
+    }, intervalTime)
+  }
+})
+
 const result = computed(() => {
-  const s = score.value
+  const s = finalScore.value // ✨ NEW: Use finalScore for calculation
   if (s <= 5) {
     return {
       title: "You're a Bright Eye Champion! 🏆",
@@ -640,5 +665,16 @@ const result = computed(() => {
 
 .animate-shimmer {
   animation: shimmer 2s infinite;
+}
+
+/* ✨ NEW: Shake animation for disabled button */
+@keyframes shake {
+  10%, 90% { transform: translateX(-2px); }
+  20%, 80% { transform: translateX(2px); }
+  30%, 50%, 70% { transform: translateX(-4px); }
+  40%, 60% { transform: translateX(4px); }
+}
+.animate-shake {
+  animation: shake 0.6s ease-in-out;
 }
 </style>

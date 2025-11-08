@@ -277,6 +277,21 @@
                   <p class="text-gray-300 text-sm">We'll contact you within 24 hours to confirm your appointment details.</p>
                 </div>
               </div>
+              <div
+                v-if="showError"
+                class="p-4 bg-red-500/20 border border-red-500/30 rounded-xl flex items-start gap-3 animate-fade-in"
+              >
+                <UIcon
+                  name="i-lucide-alert-triangle"
+                  class="text-red-500 text-xl flex-shrink-0 mt-0.5"
+                />
+                <div>
+                  <h4 class="text-white font-semibold mb-1">
+                    Submission Failed
+                  </h4>
+                  <p class="text-gray-300 text-sm">{{ showError }}</p>
+                </div>
+              </div>
             </form>
           </div>
         </div>
@@ -461,43 +476,46 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import { ref } from 'vue'
+<script setup>
+import { ref, computed } from "vue";
+
+// Get the Supabase client
+const client = useSupabaseClient();
 
 const formData = ref({
-  name: '',
-  email: '',
-  phone: '',
-  service: '',
-  date: '',
-  time: '',
-  location: '',
-  message: '',
-  agreeToTerms: false
-})
+  name: "",
+  phone: "",
+  email: "",
+  service: "",
+  date: "",
+  time: "",
+  location: "",
+  message: "",
+  agreeToTerms: false,
+});
 
-const showSuccess = ref(false)
+const submitting = ref(false);
+const showSuccess = ref(false);
+const showError = ref(""); // Added for error handling
 
-const submitting = ref(false)
-
-const timeSlots = ['Morning', 'Afternoon', 'Evening', 'Flexible']
+const timeSlots = ["Morning", "Afternoon", "Evening", "Flexible"];
 
 const locations = [
   {
-    name: 'Abuja Office',
-    address: 'Suite A4, Triple H Plaza, Wuye, Abuja'
+    name: "Abuja Office",
+    address: "Suite A4, Triple H Plaza, Wuye, Abuja",
   },
   {
-    name: 'Lagos Office',
-    address: '6 Femi Soluade St, Ogudu GRA Lagos'
-  }
-]
+    name: "Lagos Office",
+    address: "6 Femi Soluade St, Ogudu GRA Lagos",
+  },
+];
 
 // Get minimum date (today)
 const minDate = computed(() => {
-  const today = new Date()
-  return today.toISOString().split('T')[0]
-})
+  const today = new Date();
+  return today.toISOString().split("T")[0];
+});
 
 // Check if form is valid
 const isFormValid = computed(() => {
@@ -509,39 +527,67 @@ const isFormValid = computed(() => {
     formData.value.time &&
     formData.value.location &&
     formData.value.agreeToTerms
-  )
-})
+  );
+});
 
 async function handleSubmit() {
-  if (!isFormValid.value) return
-  
-  submitting.value = true
-  
-  // Simulate API call
-  await new Promise(resolve => setTimeout(resolve, 2000))
-  
-  console.log('Form submitted:', formData.value)
-  
-  submitting.value = false
-  showSuccess.value = true
-  
-  // Reset form after 5 seconds
-  setTimeout(() => {
-    formData.value = {
-      name: '',
-      phone: '',
-      email: '',
-      service: '',
-      date: '',
-      time: '',
-      location: '',
-      message: '',
-      agreeToTerms: false
-    }
-    showSuccess.value = false
-  }, 5000)
-}
+  if (!isFormValid.value) return;
 
+  submitting.value = true;
+  showError.value = "";
+  showSuccess.value = false;
+
+  // 1. Prepare data for Supabase
+  // We match the column names from our SQL table
+  const appointmentData = {
+    name: formData.value.name,
+    phone: formData.value.phone,
+    email: formData.value.email || null, // Allow email to be optional
+    service: formData.value.service,
+    preferred_date: formData.value.date,
+    preferred_time: formData.value.time,
+    location: formData.value.location,
+    message: formData.value.message || null,
+    status: "pending", // Default status
+  };
+
+  try {
+    // 2. Insert data into Supabase
+    const { error } = await client.from("appointments").insert(appointmentData);
+
+    if (error) {
+      throw error; // Throw error to be caught by catch block
+    }
+
+    // 3. Handle success
+    showSuccess.value = true;
+
+    // Reset form
+    formData.value = {
+      name: "",
+      phone: "",
+      email: "",
+      service: "",
+      date: "",
+      time: "",
+      location: "",
+      message: "",
+      agreeToTerms: false,
+    };
+
+    // Hide success message after 5 seconds
+    setTimeout(() => {
+      showSuccess.value = false;
+    }, 5000);
+  } catch (error) {
+    // 4. Handle errors
+    console.error("Error submitting appointment:", error.message);
+    showError.value = `Failed to submit appointment: ${error.message}. Please try again.`;
+  } finally {
+    // 5. Stop submitting state
+    submitting.value = false;
+  }
+}
 </script>
 
 <style scoped>
