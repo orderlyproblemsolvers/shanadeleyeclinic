@@ -1,5 +1,16 @@
 <template>
   <section class="main relative w-full h-[80dvh] flex items-center justify-center overflow-hidden mt-[10vh]">
+    <!-- Optimized background image using NuxtImg -->
+    <NuxtImg
+      src="/img/shero.webp"
+      alt="Eye care background"
+      class="absolute inset-0 w-full h-full object-cover z-0"
+      loading="eager"
+      quality="80"
+      format="webp"
+      sizes="100vw"
+    />
+
     <!-- Animated gradient overlay -->
     <div class="absolute inset-0 z-0">
       <div class="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-transparent animate-gradient" />
@@ -100,9 +111,8 @@
 </script>
 
 <style scoped>
-section {
+.main {
   min-height: 80dvh;
-  background: url('/img/shero.webp') center center/cover no-repeat;
 }
 
 /* Animated gradient overlay */
