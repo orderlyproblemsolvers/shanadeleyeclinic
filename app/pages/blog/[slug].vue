@@ -1,132 +1,105 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-b from-gray-50 to-white mt-12">
-    <div v-if="loading" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  <div class="min-h-screen bg-gray-50 pt-12">
+    
+    <div v-if="loading" class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div class="animate-pulse space-y-4">
-        <div class="h-8 bg-gray-200 rounded w-3/4"></div>
+        <div class="h-4 bg-gray-200 rounded w-1/4"></div>
+        <div class="h-10 bg-gray-200 rounded w-3/4"></div>
         <div class="h-4 bg-gray-200 rounded w-1/2"></div>
-        <div class="h-64 bg-gray-200 rounded-xl"></div>
+        <div class="h-80 bg-gray-200 rounded-xl"></div>
       </div>
     </div>
 
-    <div v-else-if="error" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div class="bg-red-50 border border-red-200 rounded-lg p-6">
-        <p class="text-red-800">Error loading post: {{ error.message }}</p>
+    <div v-else-if="error" class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="bg-red-50 border border-red-200 rounded-lg p-6 text-center">
+        <p class="text-red-800 font-medium">Error loading post: {{ error.message }}</p>
       </div>
     </div>
 
     <article v-else-if="post" class="py-12">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <!-- Back Button with Enhanced Styling -->
-        <div class="flex flex-wrap items-center justify-between mb-8">
+      
+      <header class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
+        <div class="mb-6">
           <NuxtLink 
             to="/blog" 
-            class="group inline-flex items-center text-[#5a912d] hover:text-[#487524] font-semibold transition-all duration-300"
+            class="group inline-flex items-center text-gray-600 hover:text-[#5a912d] font-medium transition-colors duration-200"
           >
-            <div class="w-8 h-8 rounded-full bg-[#5a912d]/10 group-hover:bg-[#5a912d]/20 flex items-center justify-center mr-2 transition-all duration-300">
-              <UIcon name="i-lucide-arrow-left" class="w-4 h-4" />
-            </div>
+            <UIcon name="i-lucide-arrow-left" class="w-4 h-4 mr-2 transition-transform duration-200 group-hover:-translate-x-1" />
             <span>Back to Blog</span>
           </NuxtLink>
         </div>
         
-        <!-- Category Badge with Enhanced Design -->
-        <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold mb-6 bg-gradient-to-r from-orange-500 to-orange-600 text-white shadow-md">
+        <span class="inline-block bg-[#5a912d]/10 text-[#5a912d] px-3 py-1 rounded-full text-sm font-semibold mb-4">
           {{ post.category }}
         </span>
 
-        <!-- Title with Gradient Underline -->
-        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+        <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-5 leading-tight">
           {{ post.title }}
         </h1>
-        <div class="w-24 h-1.5 bg-gradient-to-r from-[#5a912d] to-[#7fc540] rounded-full mb-8"></div>
+        
+        <div class="w-24 h-1.5 bg-gradient-to-r from-[#5a912d] to-[#7fc540] rounded-full mb-6"></div>
 
-        <!-- Meta Information with Icons -->
-        <div class="flex flex-wrap items-center gap-4 text-gray-600 text-sm mb-12">
-          <div class="flex items-center bg-white px-4 py-2 rounded-full shadow-sm border border-gray-100">
+        <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-gray-500 text-sm">
+          <div class="flex items-center">
             <UIcon name="i-lucide-calendar" class="w-4 h-4 mr-2 text-[#5a912d]" />
             <time :datetime="post.created_at">{{ formatDate(post.created_at) }}</time>
           </div>
-          <div class="flex items-center bg-white px-4 py-2 rounded-full shadow-sm border border-gray-100">
+          <div class="flex items-center">
             <UIcon name="i-lucide-clock" class="w-4 h-4 mr-2 text-[#5a912d]" />
             <span>{{ readingTime }} min read</span>
           </div>
         </div>
+      </header>
 
-        <!-- Hero Image with Creative Framing -->
-        <div class="relative mb-16">
-          <!-- Decorative Background Shapes -->
-          <div class="absolute -inset-4 bg-gradient-to-br from-[#5a912d]/10 via-[#7fc540]/5 to-orange-500/10 rounded-3xl blur-2xl"></div>
-          <div class="absolute -top-8 -right-8 w-72 h-72 bg-[#5a912d]/20 rounded-full blur-3xl"></div>
-          <div class="absolute -bottom-8 -left-8 w-64 h-64 bg-orange-500/20 rounded-full blur-3xl"></div>
-          
-          <!-- Image Container with Border and Shadow -->
-          <div class="relative">
-            <div class="absolute inset-0 bg-gradient-to-br from-[#5a912d] to-[#7fc540] rounded-2xl transform rotate-1"></div>
-            <div class="relative bg-white p-2 rounded-2xl shadow-2xl transform -rotate-1 hover:rotate-0 transition-transform duration-500">
-              <div class="w-full h-64 sm:h-96 rounded-xl overflow-hidden">
-                <img 
-                  :src="post.image" 
-                  :alt="post.title" 
-                  class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                >
-              </div>
-            </div>
-          </div>
-          
-          <!-- Decorative Corner Elements -->
-          <div class="absolute -top-4 -left-4 w-20 h-20 border-t-4 border-l-4 border-[#5a912d] rounded-tl-3xl"></div>
-          <div class="absolute -bottom-4 -right-4 w-20 h-20 border-b-4 border-r-4 border-orange-500 rounded-br-3xl"></div>
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+        <div class="w-full h-auto max-h-[500px] rounded-2xl overflow-hidden shadow-xl border border-gray-100">
+          <img 
+            :src="post.image" 
+            :alt="post.title" 
+            class="w-full h-full object-cover"
+          >
         </div>
+      </div>
 
-        <!-- Article Content with Enhanced Typography -->
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div 
-          class="prose prose-lg prose-clinic max-w-none mb-16 bg-white rounded-2xl p-8 sm:p-12 shadow-sm border border-gray-100"
+          class="prose prose-lg prose-clinic max-w-none"
           v-html="formattedContent" 
         />
+      </div>
 
-        <!-- Share Section with Modern Design -->
-        <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-8 shadow-sm border border-gray-200">
-          <div class="flex items-center mb-6">
-            <div class="w-1 h-8 bg-gradient-to-b from-[#5a912d] to-[#7fc540] rounded-full mr-4"></div>
-            <h2 class="text-xl font-bold text-gray-900">Share this article</h2>
-          </div>
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
+        <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-gray-100">
+          <h2 class="text-xl font-semibold text-gray-800 mb-5">Share this article</h2>
           
           <div class="flex flex-wrap gap-3">
             <button
               aria-label="Share on Twitter"
-              class="group relative w-12 h-12 flex items-center justify-center bg-white text-gray-700 rounded-xl hover:text-white hover:bg-[#1DA1F2] transition-all duration-300 shadow-sm hover:shadow-md hover:scale-110"
+              class="w-10 h-10 flex items-center justify-center bg-gray-100 text-gray-600 rounded-lg transition-colors hover:bg-[#1DA1F2] hover:text-white"
               @click="shareOnTwitter"
             >
-              <UIcon name="i-lucide-twitter" class="w-5 h-5 relative z-10" />
-              <div class="absolute inset-0 bg-[#1DA1F2] rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <UIcon name="i-lucide-twitter" class="w-5 h-5" />
             </button>
-            
             <button
               aria-label="Share on Facebook"
-              class="group relative w-12 h-12 flex items-center justify-center bg-white text-gray-700 rounded-xl hover:text-white hover:bg-[#4267B2] transition-all duration-300 shadow-sm hover:shadow-md hover:scale-110"
+              class="w-10 h-10 flex items-center justify-center bg-gray-100 text-gray-600 rounded-lg transition-colors hover:bg-[#4267B2] hover:text-white"
               @click="shareOnFacebook"
             >
-              <UIcon name="i-lucide-facebook" class="w-5 h-5 relative z-10" />
-              <div class="absolute inset-0 bg-[#4267B2] rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <UIcon name="i-lucide-facebook" class="w-5 h-5" />
             </button>
-            
             <button
               aria-label="Share on LinkedIn"
-              class="group relative w-12 h-12 flex items-center justify-center bg-white text-gray-700 rounded-xl hover:text-white hover:bg-[#0077B5] transition-all duration-300 shadow-sm hover:shadow-md hover:scale-110"
+              class="w-10 h-10 flex items-center justify-center bg-gray-100 text-gray-600 rounded-lg transition-colors hover:bg-[#0077B5] hover:text-white"
               @click="shareOnLinkedIn"
             >
-              <UIcon name="i-lucide-linkedin" class="w-5 h-5 relative z-10" />
-              <div class="absolute inset-0 bg-[#0077B5] rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <UIcon name="i-lucide-linkedin" class="w-5 h-5" />
             </button>
-            
             <button
               aria-label="Copy link to clipboard"
-              class="group relative w-12 h-12 flex items-center justify-center bg-white text-gray-700 rounded-xl hover:text-white hover:bg-[#5a912d] transition-all duration-300 shadow-sm hover:shadow-md hover:scale-110"
+              class="w-10 h-10 flex items-center justify-center bg-gray-100 text-gray-600 rounded-lg transition-colors hover:bg-[#5a912d] hover:text-white"
               @click="copyLink"
             >
-              <UIcon :name="linkCopied ? 'i-lucide-check' : 'i-lucide-link'" class="w-5 h-5 relative z-10" />
-              <div class="absolute inset-0 bg-[#5a912d] rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <UIcon :name="linkCopied ? 'i-lucide-check' : 'i-lucide-link'" class="w-5 h-5" />
             </button>
           </div>
           
@@ -134,9 +107,6 @@
             enter-active-class="transition-all duration-300"
             enter-from-class="opacity-0 transform -translate-y-2"
             enter-to-class="opacity-100 transform translate-y-0"
-            leave-active-class="transition-all duration-200"
-            leave-from-class="opacity-100"
-            leave-to-class="opacity-0"
           >
             <div 
               v-if="linkCopied" 
@@ -149,53 +119,39 @@
           </transition>
         </div>
       </div>
-      
-      <!-- Recent Posts Section with Card Design -->
-      <div v-if="recentPosts.length > 0" class="mt-20 py-16 bg-gradient-to-b from-gray-50 to-white">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="flex items-center mb-10">
-            <div class="w-1 h-10 bg-gradient-to-b from-[#5a912d] to-[#7fc540] rounded-full mr-4"></div>
-            <h2 class="text-3xl font-bold text-gray-900">Continue Reading</h2>
-          </div>
-          
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <NuxtLink
-              v-for="(recent, index) in recentPosts"
-              :key="recent.id"
-              :to="`/blog/${recent.slug}`"
-              class="group relative bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
-            >
-              <!-- Gradient Overlay on Hover -->
-              <div class="absolute inset-0 bg-gradient-to-br from-[#5a912d]/0 to-[#7fc540]/0 group-hover:from-[#5a912d]/5 group-hover:to-[#7fc540]/5 transition-all duration-500 z-10 pointer-events-none"></div>
+
+    </article>
+    
+    <div v-if="recentPosts.length > 0" class="mt-20 py-16 bg-white border-t border-gray-100">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-gray-900 mb-8">Continue Reading</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <NuxtLink
+            v-for="recent in recentPosts"
+            :key="recent.id"
+            :to="`/blog/${recent.slug}`"
+            class="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100 overflow-hidden"
+          >
+            <div class="p-6">
+              <h3 class="font-bold text-lg text-gray-900 mb-2 group-hover:text-[#5a912d] transition-colors line-clamp-2">
+                {{ recent.title }}
+              </h3>
               
-              <!-- Card Content -->
-              <div class="relative p-6 z-20">
-                <!-- Decorative Number -->
-                <div class="absolute -top-3 -right-3 w-12 h-12 bg-gradient-to-br from-[#5a912d] to-[#7fc540] rounded-full flex items-center justify-center text-white font-bold text-sm shadow-lg">
-                  {{ index + 1 }}
-                </div>
-                
-                <h3 class="font-bold text-xl text-gray-900 mb-3 group-hover:text-[#5a912d] transition-colors duration-300 line-clamp-2">
-                  {{ recent.title }}
-                </h3>
-                
-                <p class="text-gray-600 text-sm line-clamp-3 mb-4">
-                  {{ recent.excerpt }}
-                </p>
-                
-                <div class="flex items-center text-[#5a912d] font-semibold text-sm group-hover:translate-x-2 transition-transform duration-300">
-                  <span>Read more</span>
-                  <UIcon name="i-lucide-arrow-right" class="w-4 h-4 ml-2" />
-                </div>
+              <p class="text-gray-600 text-sm line-clamp-3 mb-4">
+                {{ recent.excerpt }}
+              </p>
+              
+              <div class="flex items-center text-[#5a912d] font-medium text-sm">
+                <span>Read more</span>
+                <UIcon name="i-lucide-arrow-right" class="w-4 h-4 ml-1.5 transition-transform duration-300 group-hover:translate-x-1" />
               </div>
-              
-              <!-- Bottom Border Accent -->
-              <div class="h-1 bg-gradient-to-r from-[#5a912d] to-[#7fc540] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
-            </NuxtLink>
-          </div>
+            </div>
+          </NuxtLink>
         </div>
       </div>
-    </article>
+    </div>
+
   </div>
 </template>
 
