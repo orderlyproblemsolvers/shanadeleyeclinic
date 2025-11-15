@@ -35,14 +35,14 @@ withDefaults(defineProps<{
     <!-- Description Section -->
     <div style="display: flex; flex-direction: column; gap: 24px;">
       <p style="font-size: 40px; font-weight: 600; color: #166534; margin: 0; line-height: 1.5;">
-        Book an appointment at shanadeleyeclinic.com.ng
+        Book an appointment at shanadeleyeclinicltd.com.ng
       </p>
       
       <!-- Decorative line with gradient -->
       <div style="display: flex; align-items: center; gap: 16px;">
         <div style="width: 128px; height: 8px; background: linear-gradient(90deg, #7fc540 0%, #ff6900 100%); border-radius: 9999px;"></div>
         <span style="font-size: 20px; font-weight: 600; color: #15803d; letter-spacing: 0.05em;">
-          See. Learn. Live Better.
+          We Make You Smile
         </span>
       </div>
     </div>

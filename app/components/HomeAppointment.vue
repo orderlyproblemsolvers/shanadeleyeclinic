@@ -529,8 +529,8 @@ const locations = [
     address: "Suite A4, Triple H Plaza, Wuye, Abuja",
   },
   {
-    name: "Lagos Office",
-    address: "6 Femi Soluade St, Ogudu GRA Lagos",
+    name: "Online Consultation",
+    address: "Virtual Appointment via Video Call",
   },
 ];
 

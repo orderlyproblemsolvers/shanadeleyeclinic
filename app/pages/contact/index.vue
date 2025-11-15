@@ -415,7 +415,7 @@
     <!-- Problems Section -->
     <section class="relative w-full py-16 lg:py-24">
       <div class="absolute inset-0 z-0">
-        <img src="/img/consult.jpg" alt="Shanadel Eye Clinic interior" class="w-full h-full object-cover">
+        <img src="/img/consult.webp" alt="Shanadel Eye Clinic interior" class="w-full h-full object-cover">
         <div class="absolute inset-0 bg-gray-900/80" />
       </div>
 
@@ -504,8 +504,8 @@ const locations = [
     address: "Suite A4, Triple H Plaza, Wuye, Abuja",
   },
   {
-    name: "Lagos Office",
-    address: "6 Femi Soluade St, Ogudu GRA Lagos",
+    name: "Online Consultation",
+    address: "Virtual Appointment via Video Call",
   },
 ];
 

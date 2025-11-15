@@ -8,12 +8,16 @@
     <div class="max-w-md w-full relative z-10">
       <!-- Logo/Header -->
       <div class="text-center mb-10">
-        <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-[#5a912d] to-[#7fc540] rounded-2xl mb-6 shadow-lg transform hover:scale-105 transition-transform duration-300">
-          <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-          </svg>
-        </div>
+      <div
+  class="inline-flex items-center justify-center w-24 h-24 bg-white rounded-2xl mb-6 shadow-lg transform hover:scale-105 transition-transform duration-300 p-2"
+>
+  <NuxtImg
+    src="/img/shanadel-lg.png"
+    alt="Shanadel Eye Clinic Logo"
+    class="w-full h-full object-contain"
+  />
+</div>
+
         <h1 class="text-4xl font-bold text-gray-900 mb-2">Shanadel Eye Clinic</h1>
         <div class="flex items-center justify-center gap-2">
           <div class="w-8 h-0.5 bg-gradient-to-r from-transparent to-[#5a912d]"></div>
@@ -80,7 +84,7 @@
                 required
                 autocomplete="email"
                 class="w-full pl-12 pr-4 py-3.5 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#5a912d]/20 focus:border-[#5a912d] outline-none transition-all duration-300"
-                placeholder="admin@shanadeleyeclinic.com"
+                placeholder="admin@shanadeleyeclinicltd.com"
                 @keypress.enter="handleLogin"
               >
             </div>

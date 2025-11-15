@@ -40,7 +40,7 @@
             >
               <button
                 :class="[
-                  'text-base font-medium transition-colors duration-200 text-gray-700 hover:text-[#7fc540] flex items-center gap-1',
+                  'text-base font-medium transition-colors duration-200 text-gray-700 hover:text-[#7fc540] flex items-center gap-1'
                 ]"
               >
                 {{ link.label }}
@@ -286,8 +286,7 @@
   </header>
 </template>
 
-<script setup lang="ts">
-import { ref, onMounted, onUnmounted, watch } from 'vue'
+<script setup>
 const scrolled = ref(false)
 const isMenuOpen = ref(false)
 const showDropdown = ref(false)
@@ -323,8 +322,8 @@ const handleScroll = () => {
 }
 
 // Close menu when clicking outside
-const handleClickOutside = (event: MouseEvent) => {
-  const target = event.target as HTMLElement
+const handleClickOutside = (event) => {
+  const target = event.target
   if (isMenuOpen.value && !target.closest('nav')) {
     isMenuOpen.value = false
   }
@@ -341,7 +340,7 @@ onUnmounted(() => {
 })
 
 // Close menu on route change
-watch(() => isMenuOpen.value, (newValue: any) => {
+watch(() => isMenuOpen.value, (newValue) => {
   if (newValue) {
     document.body.style.overflow = 'hidden'
   } else {

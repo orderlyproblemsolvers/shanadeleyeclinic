@@ -299,8 +299,8 @@ onMounted(() => {
 if (post.value) {
   const pageTitle = `${post.value.title} | Shanadel Eye Clinic`
   const pageDesc = post.value.excerpt || 'Read this article from Shanadel Eye Clinic.'
-  const pageImage = post.value.image || 'https://shanadel.com/default-og-image.jpg'
-  const pageUrl = `https://shanadel.com/blog/${slug}`
+  const pageImage = post.value.image || 'https://shanadeleyeclinicltd.com.ng/default-og-image.jpg'
+  const pageUrl = `https://shanadeleyeclinicltd.com.ng/blog/${slug}`
 
   useSeoMeta({
     title: pageTitle,
@@ -344,14 +344,14 @@ if (post.value) {
           'author': {
             '@type': 'Organization',
             'name': 'Shanadel Eye Clinic',
-            'url': 'https://shanadel.com'
+            'url': 'https://shanadeleyeclinicltd.com.ng'
           },
           'publisher': {
             '@type': 'Organization',
             'name': 'Shanadel Eye Clinic',
             'logo': {
               '@type': 'ImageObject',
-              'url': 'https://shanadel.com/logo.png'
+              'url': 'https://shanadeleyeclinicltd.com.ng/img/shanadel-lg.webp'
             }
           },
           'description': pageDesc,

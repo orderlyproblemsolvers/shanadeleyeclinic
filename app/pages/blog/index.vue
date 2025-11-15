@@ -172,15 +172,15 @@ useHead({
   link: [
     {
       rel: 'canonical',
-      href: 'https://www.shanadeleyeclinic.com.ng/blog'
+      href: 'https://www.shanadeleyeclinicltd.com.ng/blog'
     },{
       rel: 'alternate',
       hreflang: 'en-ng',
-      href: 'https://www.shanadeleyeclinic.com.ng/blog'
+      href: 'https://www.shanadeleyeclinicltd.com.ng/blog'
     },{
       rel: 'alternate',
       hreflang: 'en',
-      href: 'https://www.shanadeleyeclinic.com.ng/blog'
+      href: 'https://www.shanadeleyeclinicltd.com.ng/blog'
     },
   ],
   meta: [
@@ -197,14 +197,14 @@ useHead({
         "@context": "https://schema.org",
         "@type": "Blog",
         "name": "Shanadel Eye Clinic Blog",
-        "url": "https://www.shanadeleyeclinic.com.ng/blog",
+        "url": "https://www.shanadeleyeclinicltd.com.ng/blog",
         "description": "Explore our blog for expert insights, eye care tips, and the latest news in ophthalmology.",
         "publisher": {
           "@type": "Organization",
           "name": "Shanadel Eye Clinic",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://www.shanadeleyeclinic.com.ng/img/shanadel-lg.webp"
+            "url": "https://www.shanadeleyeclinicltd.com.ng/img/shanadel-lg.webp"
           }
         }
       }

@@ -41,7 +41,7 @@
               <!-- Main image -->
               <div class="relative overflow-hidden rounded-3xl shadow-2xl">
                 <img 
-                  src="/img/shero.jpg" 
+                  src="/img/publictreat.webp" 
                   alt="Dr. Zephyr Alabegbe and the Shanadel team" 
                   class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
                 >
@@ -199,7 +199,7 @@
             <div class="w-16 h-16 mx-auto mb-4 bg-[#7fc540] rounded-2xl flex items-center justify-center">
               <UIcon name="i-lucide-calendar-check" class="text-3xl text-white" />
             </div>
-            <span class="block text-5xl font-bold bg-gradient-to-r from-[#7fc540] to-[#6ab030] bg-clip-text text-transparent mb-2">10+</span>
+            <span class="block text-5xl font-bold bg-gradient-to-r from-[#7fc540] to-[#6ab030] bg-clip-text text-transparent mb-2">19+</span>
             <span class="text-gray-700 font-semibold">Years of Service</span>
           </div>
 
@@ -207,7 +207,7 @@
             <div class="w-16 h-16 mx-auto mb-4 bg-[#ff6900] rounded-2xl flex items-center justify-center">
               <UIcon name="i-lucide-glasses" class="text-3xl text-white" />
             </div>
-            <span class="block text-5xl font-bold bg-gradient-to-r from-[#ff6900] to-[#ff8534] bg-clip-text text-transparent mb-2">500+</span>
+            <span class="block text-5xl font-bold bg-gradient-to-r from-[#ff6900] to-[#ff8534] bg-clip-text text-transparent mb-2">1000+</span>
             <span class="text-gray-700 font-semibold">Frame Styles</span>
           </div>
 
@@ -215,7 +215,7 @@
             <div class="w-16 h-16 mx-auto mb-4 bg-[#7fc540] rounded-2xl flex items-center justify-center">
               <UIcon name="i-lucide-users" class="text-3xl text-white" />
             </div>
-            <span class="block text-5xl font-bold bg-gradient-to-r from-[#7fc540] to-[#6ab030] bg-clip-text text-transparent mb-2">10K+</span>
+            <span class="block text-5xl font-bold bg-gradient-to-r from-[#7fc540] to-[#6ab030] bg-clip-text text-transparent mb-2">1K+</span>
             <span class="text-gray-700 font-semibold">Happy Patients</span>
           </div>
 
@@ -294,7 +294,7 @@
               <!-- Main image -->
               <div class="relative overflow-hidden rounded-3xl shadow-2xl">
                 <img 
-                  src="/img/shero.jpg" 
+                  src="/img/indoors.webp" 
                   alt="Inside Shanadel Eye Clinic" 
                   class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
                 >
@@ -404,7 +404,7 @@
           <UIcon name="i-lucide-calendar-check" class="text-4xl text-[#7fc540]" />
         </div>
         <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
-          Your Vision is Our Vision
+          We Make You Smile
         </h2>
         <p class="text-xl text-white text-opacity-95 mb-10 max-w-2xl mx-auto">
           At Shanadel Eye Clinic, we're here for you every step of the way. Because when you see better, you live better. 

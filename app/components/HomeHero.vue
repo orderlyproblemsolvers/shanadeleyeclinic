@@ -15,7 +15,7 @@
         <!-- Badge -->
         <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-white text-sm font-medium animate-fade-in">
           <span class="w-2 h-2 bg-[#7fc540] rounded-full animate-pulse"></span>
-          Trusted Eye Care Since 2010
+          Trusted Eye Care Since 2015
         </div>
 
         <!-- Main heading with stagger animation -->
