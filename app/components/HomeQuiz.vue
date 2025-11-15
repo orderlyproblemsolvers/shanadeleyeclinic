@@ -328,7 +328,7 @@
               <div aria-label="Thousands more" class="w-10 h-10 rounded-full bg-purple-500 border-2 border-white flex items-center justify-center text-white font-bold text-sm">+</div>
             </div>
             <p class="text-sm text-gray-600 font-medium">
-              Join <span class="text-[#5a912d] font-bold">10,000+</span> patients who trust Shanadel Eye Clinic
+              Join <span class="text-[#5a912d] font-bold">thousands of</span> patients who trust Shanadel Eye Clinic
             </p>
           </div>
 

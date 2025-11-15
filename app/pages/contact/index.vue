@@ -321,7 +321,7 @@
                   </div>
                   <div>
                     <p class="font-semibold text-white">+234 902 486 6554</p>
-                    <p class="text-sm text-gray-400">Mon-Fri, 9AM-6PM</p>
+                    <p class="text-sm text-gray-400">Mon-Fri, 8AM-6PM</p>
                   </div>
                 </a>
               </div>
@@ -356,6 +356,10 @@
               <div class="flex justify-between items-center text-sm p-3 bg-white/5 rounded-xl">
                 <span class="text-gray-300 font-medium">Monday - Friday</span>
                 <span class="text-white font-semibold">8:00 AM - 6:00 PM WAT</span>
+              </div>
+              <div class="flex justify-between items-center text-sm p-3 bg-white/5 rounded-xl">
+                <span class="text-gray-300 font-medium">Wednesday</span>
+                <span class="text-white font-semibold">8:00 AM - 5:00 PM WAT</span>
               </div>
               <div class="flex justify-between items-center text-sm p-3 bg-white/5 rounded-xl">
                 <span class="text-gray-300 font-medium">Saturday</span>

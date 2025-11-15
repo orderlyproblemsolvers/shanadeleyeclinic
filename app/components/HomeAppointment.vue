@@ -357,7 +357,7 @@
                   </div>
                   <div>
                     <p class="font-semibold text-white">+234 902 486 6554</p>
-                    <p class="text-sm text-gray-400">Mon-Fri, 9AM-6PM</p>
+                    <p class="text-sm text-gray-400">Mon-Fri, 8AM-6PM</p>
                   </div>
                 </a>
               </div>
@@ -398,7 +398,13 @@
                 class="flex justify-between items-center text-sm p-3 bg-white/5 rounded-xl"
               >
                 <span class="text-gray-300 font-medium">Monday - Friday</span>
-                <span class="text-white font-semibold">9:00 AM - 6:00 PM WAT</span>
+                <span class="text-white font-semibold">8:00 AM - 6:00 PM WAT</span>
+              </div>
+              <div
+                class="flex justify-between items-center text-sm p-3 bg-white/5 rounded-xl"
+              >
+                <span class="text-gray-300 font-medium">Wednesday</span>
+                <span class="text-white font-semibold">8:00 AM - 5:00 PM WAT</span>
               </div>
               <div
                 class="flex justify-between items-center text-sm p-3 bg-white/5 rounded-xl"
@@ -411,14 +417,6 @@
               >
                 <span class="text-gray-300 font-medium">Sunday</span>
                 <span class="text-red-500 font-semibold">Strictly on Appointment</span>
-              </div>
-              <div class="pt-3 border-t border-white/10 mt-3">
-                <div
-                  class="flex items-center gap-2 text-sm text-gray-300 p-3 bg-white/5 rounded-xl"
-                >
-                  <UIcon name="i-lucide-zap" class="text-orange-500" />
-                  <span>24/7 Emergency services available</span>
-                </div>
               </div>
             </div>
           </div>

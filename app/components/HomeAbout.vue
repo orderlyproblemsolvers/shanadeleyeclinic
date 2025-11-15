@@ -41,7 +41,7 @@
                     <UIcon name="i-lucide-award" class="text-3xl text-[#7fc540]" />
                   </div>
                   <div>
-                    <p class="text-2xl font-bold text-gray-900">15+</p>
+                    <p class="text-2xl font-bold text-gray-900">19+</p>
                     <p class="text-sm text-gray-600">Years Experience</p>
                   </div>
                 </div>
@@ -122,7 +122,7 @@
               <p class="text-sm text-gray-600">Happy Patients</p>
             </div>
             <div class="text-center group cursor-pointer">
-              <p class="text-3xl md:text-4xl font-bold text-[#7fc540] mb-1 group-hover:scale-110 transition-transform">15+</p>
+              <p class="text-3xl md:text-4xl font-bold text-[#7fc540] mb-1 group-hover:scale-110 transition-transform">19+</p>
               <p class="text-sm text-gray-600">Years of Service</p>
             </div>
             <div class="text-center group cursor-pointer">

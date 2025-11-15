@@ -75,7 +75,7 @@
       <div class="p-2 bg-white/20 rounded-lg group-hover:bg-white/30 transition-colors">
         <UIcon name="i-lucide-clock" class="text-xl" />
       </div>
-      <p class="text-sm md:text-base">Mon - Fri 8.00am WAT, Sat 8.30am - 17.30pm WAT</p>
+      <p class="text-sm md:text-base">Mon - Fri 8.00am WAT, Sat 8.30am - 4.30pm WAT</p>
     </div>
 
     <div class="relative flex justify-center gap-6 md:gap-8">
