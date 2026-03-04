@@ -1,6 +1,5 @@
 <template>
   <div class="bg-white overflow-x-hidden">
-    <!-- Hero Section with Gradient Background -->
     <section class="relative py-20 lg:py-32 overflow-hidden">
       <div class="absolute inset-0 bg-gradient-to-br from-emerald-50 via-white to-orange-50"/>
       <div class="absolute inset-0 opacity-10">
@@ -16,7 +15,7 @@
           About Shanadel Eye Clinic
         </h1>
         <h2 class="text-3xl md:text-4xl font-semibold bg-gradient-to-r from-[#7fc540] to-[#6ab030] bg-clip-text text-transparent mb-8 animate-slide-up-delayed">
-          Where Expertise Meets Empathy
+          Where Expertise Meets Empathy in Abuja
         </h2>
         <p class="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
           Every great story begins with a vision, and at Shanadel Eye Clinic, ours was simple yet powerful: 
@@ -26,38 +25,32 @@
       </div>
     </section>
 
-    <!-- Story Section with Enhanced Layout -->
     <section class="py-20 lg:py-28">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div class="relative">
-            <!-- Diagonal Lines Pattern Background - Top -->
             <div class="absolute -top-20 -left-8 -right-8 h-32 overflow-hidden opacity-20 pointer-events-none">
               <div class="diagonal-pattern-top w-full h-full"/>
             </div>
             
-            <!-- Main image container -->
             <div class="relative group">
-              <!-- Main image -->
               <div class="relative overflow-hidden rounded-3xl shadow-2xl">
                 <img 
                   src="/img/publictreat.webp" 
-                  alt="Dr. Zephyr Alabegbe and the Shanadel team" 
+                  alt="Dr. Zephyr Alabegbe and the Shanadel team providing eye care" 
+                  loading="lazy"
                   class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
                 >
-                <!-- Gradient overlay -->
                 <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"/>
               </div>
               
-              <!-- Decorative elements -->
               <div class="absolute -top-4 -left-4 w-24 h-24 bg-[#7fc540]/20 rounded-full blur-2xl"/>
               <div class="absolute -bottom-4 -right-4 w-32 h-32 bg-orange-500/20 rounded-full blur-2xl"/>
               
-              <!-- Floating badge -->
               <div class="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-2xl p-6 transform group-hover:scale-110 transition-transform duration-300 z-10">
                 <div class="flex items-center gap-3">
                   <div class="p-3 bg-[#7fc540]/10 rounded-xl">
-                    <UIcon name="i-lucide-award" class="text-3xl text-[#7fc540]" />
+                    <UIcon name="i-lucide-award" class="text-3xl text-[#7fc540]" aria-hidden="true" />
                   </div>
                   <div>
                     <p class="text-2xl font-bold text-gray-900">15+</p>
@@ -67,7 +60,6 @@
               </div>
             </div>
             
-            <!-- Diagonal Lines Pattern Background - Bottom -->
             <div class="absolute -bottom-20 -left-8 -right-8 h-32 overflow-hidden opacity-20 pointer-events-none">
               <div class="diagonal-pattern-bottom w-full h-full"/>
             </div>
@@ -93,7 +85,7 @@
             <div class="space-y-5">
               <div class="flex items-start gap-4 p-4 bg-gradient-to-r from-emerald-50 to-transparent rounded-xl hover:shadow-md transition-all duration-300">
                 <div class="flex-shrink-0 w-12 h-12 bg-[#7fc540] rounded-xl flex items-center justify-center">
-                  <UIcon name="i-lucide-award" class="text-2xl text-white" />
+                  <UIcon name="i-lucide-award" class="text-2xl text-white" aria-hidden="true" />
                 </div>
                 <div>
                   <h3 class="font-bold text-gray-900 mb-1">Clinical Excellence</h3>
@@ -103,7 +95,7 @@
               
               <div class="flex items-start gap-4 p-4 bg-gradient-to-r from-emerald-50 to-transparent rounded-xl hover:shadow-md transition-all duration-300">
                 <div class="flex-shrink-0 w-12 h-12 bg-[#7fc540] rounded-xl flex items-center justify-center">
-                  <UIcon name="i-lucide-heart-handshake" class="text-2xl text-white" />
+                  <UIcon name="i-lucide-heart-handshake" class="text-2xl text-white" aria-hidden="true" />
                 </div>
                 <div>
                   <h3 class="font-bold text-gray-900 mb-1">Patient-Centered Service</h3>
@@ -113,7 +105,7 @@
               
               <div class="flex items-start gap-4 p-4 bg-gradient-to-r from-emerald-50 to-transparent rounded-xl hover:shadow-md transition-all duration-300">
                 <div class="flex-shrink-0 w-12 h-12 bg-[#7fc540] rounded-xl flex items-center justify-center">
-                  <UIcon name="i-lucide-users" class="text-2xl text-white" />
+                  <UIcon name="i-lucide-users" class="text-2xl text-white" aria-hidden="true" />
                 </div>
                 <div>
                   <h3 class="font-bold text-gray-900 mb-1">Community Outreach</h3>
@@ -126,7 +118,6 @@
       </div>
     </section>
 
-    <!-- Mission & Values Section -->
     <section class="relative py-20 lg:py-28 overflow-hidden">
       <div class="absolute inset-0 bg-gradient-to-b from-gray-50 to-white"/>
       
@@ -146,7 +137,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div class="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl text-center transition-all duration-300 border border-gray-100 hover:border-[#7fc540] hover:-translate-y-2">
             <div class="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-[#7fc540] to-[#6ab030] rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
-              <UIcon name="i-lucide-heart" class="text-3xl text-white" />
+              <UIcon name="i-lucide-heart" class="text-3xl text-white" aria-hidden="true" />
             </div>
             <h3 class="text-2xl font-bold text-gray-900 mb-3">Compassion</h3>
             <p class="text-gray-600">We treat every patient with empathy, dignity, and personal attention they deserve.</p>
@@ -154,7 +145,7 @@
           
           <div class="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl text-center transition-all duration-300 border border-gray-100 hover:border-[#7fc540] hover:-translate-y-2">
             <div class="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-[#7fc540] to-[#6ab030] rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
-              <UIcon name="i-lucide-award" class="text-3xl text-white" />
+              <UIcon name="i-lucide-award" class="text-3xl text-white" aria-hidden="true" />
             </div>
             <h3 class="text-2xl font-bold text-gray-900 mb-3">Excellence</h3>
             <p class="text-gray-600">We are committed to using advanced diagnostic tools and modern techniques for optimal care.</p>
@@ -162,7 +153,7 @@
           
           <div class="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl text-center transition-all duration-300 border border-gray-100 hover:border-[#7fc540] hover:-translate-y-2">
             <div class="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-[#7fc540] to-[#6ab030] rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
-              <UIcon name="i-lucide-shield-check" class="text-3xl text-white" />
+              <UIcon name="i-lucide-shield-check" class="text-3xl text-white" aria-hidden="true" />
             </div>
             <h3 class="text-2xl font-bold text-gray-900 mb-3">Accessibility</h3>
             <p class="text-gray-600">We are proudly NHIS-accredited and insurance-friendly, making quality care affordable for all.</p>
@@ -170,7 +161,7 @@
           
           <div class="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl text-center transition-all duration-300 border border-gray-100 hover:border-[#7fc540] hover:-translate-y-2">
             <div class="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-[#7fc540] to-[#6ab030] rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
-              <UIcon name="i-lucide-book-open" class="text-3xl text-white" />
+              <UIcon name="i-lucide-book-open" class="text-3xl text-white" aria-hidden="true" />
             </div>
             <h3 class="text-2xl font-bold text-gray-900 mb-3">Education</h3>
             <p class="text-gray-600">We empower patients with knowledge and guidance to protect their vision for life.</p>
@@ -179,7 +170,6 @@
       </div>
     </section>
 
-    <!-- Journey Milestones Section -->
     <section class="py-20 lg:py-28 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto mb-16">
@@ -197,7 +187,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div class="bg-gradient-to-br from-emerald-50 to-white p-8 rounded-2xl shadow-lg text-center transform hover:-translate-y-2 transition-all duration-300 border border-gray-100">
             <div class="w-16 h-16 mx-auto mb-4 bg-[#7fc540] rounded-2xl flex items-center justify-center">
-              <UIcon name="i-lucide-calendar-check" class="text-3xl text-white" />
+              <UIcon name="i-lucide-calendar-check" class="text-3xl text-white" aria-hidden="true" />
             </div>
             <span class="block text-5xl font-bold bg-gradient-to-r from-[#7fc540] to-[#6ab030] bg-clip-text text-transparent mb-2">19+</span>
             <span class="text-gray-700 font-semibold">Years of Service</span>
@@ -205,7 +195,7 @@
 
           <div class="bg-gradient-to-br from-orange-50 to-white p-8 rounded-2xl shadow-lg text-center transform hover:-translate-y-2 transition-all duration-300 border border-gray-100">
             <div class="w-16 h-16 mx-auto mb-4 bg-[#ff6900] rounded-2xl flex items-center justify-center">
-              <UIcon name="i-lucide-glasses" class="text-3xl text-white" />
+              <UIcon name="i-lucide-glasses" class="text-3xl text-white" aria-hidden="true" />
             </div>
             <span class="block text-5xl font-bold bg-gradient-to-r from-[#ff6900] to-[#ff8534] bg-clip-text text-transparent mb-2">1000+</span>
             <span class="text-gray-700 font-semibold">Frame Styles</span>
@@ -213,7 +203,7 @@
 
           <div class="bg-gradient-to-br from-emerald-50 to-white p-8 rounded-2xl shadow-lg text-center transform hover:-translate-y-2 transition-all duration-300 border border-gray-100">
             <div class="w-16 h-16 mx-auto mb-4 bg-[#7fc540] rounded-2xl flex items-center justify-center">
-              <UIcon name="i-lucide-users" class="text-3xl text-white" />
+              <UIcon name="i-lucide-users" class="text-3xl text-white" aria-hidden="true" />
             </div>
             <span class="block text-5xl font-bold bg-gradient-to-r from-[#7fc540] to-[#6ab030] bg-clip-text text-transparent mb-2">1K+</span>
             <span class="text-gray-700 font-semibold">Happy Patients</span>
@@ -221,7 +211,7 @@
 
           <div class="bg-gradient-to-br from-orange-50 to-white p-8 rounded-2xl shadow-lg text-center transform hover:-translate-y-2 transition-all duration-300 border border-gray-100">
             <div class="w-16 h-16 mx-auto mb-4 bg-[#ff6900] rounded-2xl flex items-center justify-center">
-              <UIcon name="i-lucide-smile" class="text-3xl text-white" />
+              <UIcon name="i-lucide-smile" class="text-3xl text-white" aria-hidden="true" />
             </div>
             <span class="block text-5xl font-bold bg-gradient-to-r from-[#ff6900] to-[#ff8534] bg-clip-text text-transparent mb-2">1000s</span>
             <span class="text-gray-700 font-semibold">Smiles Restored</span>
@@ -230,7 +220,6 @@
       </div>
     </section>
     
-    <!-- Facilities Section -->
     <section class="relative py-20 lg:py-28 overflow-hidden">
       <div class="absolute inset-0 bg-gradient-to-br from-gray-50 to-emerald-50"/>
       
@@ -253,7 +242,7 @@
             <div class="space-y-4">
               <div class="flex items-start gap-4 p-5 bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300">
                 <div class="p-3 bg-[#7fc540]/10 rounded-xl">
-                  <UIcon name="i-lucide-microscope" class="text-2xl text-[#7fc540]" />
+                  <UIcon name="i-lucide-microscope" class="text-2xl text-[#7fc540]" aria-hidden="true" />
                 </div>
                 <div>
                   <h3 class="font-bold text-gray-900 mb-1">Advanced Diagnostic Tools</h3>
@@ -263,7 +252,7 @@
 
               <div class="flex items-start gap-4 p-5 bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300">
                 <div class="p-3 bg-[#7fc540]/10 rounded-xl">
-                  <UIcon name="i-lucide-sparkles" class="text-2xl text-[#7fc540]" />
+                  <UIcon name="i-lucide-sparkles" class="text-2xl text-[#7fc540]" aria-hidden="true" />
                 </div>
                 <div>
                   <h3 class="font-bold text-gray-900 mb-1">Comfortable Environment</h3>
@@ -273,7 +262,7 @@
 
               <div class="flex items-start gap-4 p-5 bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300">
                 <div class="p-3 bg-[#7fc540]/10 rounded-xl">
-                  <UIcon name="i-lucide-eye" class="text-2xl text-[#7fc540]" />
+                  <UIcon name="i-lucide-eye" class="text-2xl text-[#7fc540]" aria-hidden="true" />
                 </div>
                 <div>
                   <h3 class="font-bold text-gray-900 mb-1">Extensive Frame Collection</h3>
@@ -284,30 +273,25 @@
           </div>
           
           <div class="relative">
-            <!-- Diagonal Lines Pattern Background - Top -->
             <div class="absolute -top-20 -left-8 -right-8 h-32 overflow-hidden opacity-20 pointer-events-none">
               <div class="diagonal-pattern-top w-full h-full"/>
             </div>
             
-            <!-- Main image container -->
             <div class="relative group">
-              <!-- Main image -->
               <div class="relative overflow-hidden rounded-3xl shadow-2xl">
                 <img 
                   src="/img/indoors.webp" 
-                  alt="Inside Shanadel Eye Clinic" 
+                  alt="Inside Shanadel Eye Clinic displaying modern facilities" 
+                  loading="lazy"
                   class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
                 >
-                <!-- Gradient overlay -->
                 <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"/>
               </div>
               
-              <!-- Decorative elements -->
               <div class="absolute -top-4 -left-4 w-24 h-24 bg-[#7fc540]/20 rounded-full blur-2xl"/>
               <div class="absolute -bottom-4 -right-4 w-32 h-32 bg-orange-500/20 rounded-full blur-2xl"/>
             </div>
             
-            <!-- Diagonal Lines Pattern Background - Bottom -->
             <div class="absolute -bottom-20 -left-8 -right-8 h-32 overflow-hidden opacity-20 pointer-events-none">
               <div class="diagonal-pattern-bottom w-full h-full"/>
             </div>
@@ -316,7 +300,6 @@
       </div>
     </section>
 
-    <!-- Why Choose Us Section -->
     <section class="py-20 lg:py-28 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto mb-16">
@@ -335,7 +318,7 @@
           <div class="bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition-all duration-300">
             <div class="flex items-start gap-4">
               <div class="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-[#7fc540] to-[#6ab030] rounded-xl flex items-center justify-center">
-                <UIcon name="i-lucide-badge-check" class="text-2xl text-white" />
+                <UIcon name="i-lucide-badge-check" class="text-2xl text-white" aria-hidden="true" />
               </div>
               <div>
                 <h3 class="text-xl font-bold text-gray-900 mb-3">NHIS-Approved & Insurance-Friendly</h3>
@@ -349,7 +332,7 @@
           <div class="bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition-all duration-300">
             <div class="flex items-start gap-4">
               <div class="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-[#ff6900] to-[#ff8534] rounded-xl flex items-center justify-center">
-                <UIcon name="i-lucide-graduation-cap" class="text-2xl text-white" />
+                <UIcon name="i-lucide-graduation-cap" class="text-2xl text-white" aria-hidden="true" />
               </div>
               <div>
                 <h3 class="text-xl font-bold text-gray-900 mb-3">Patient Education & Empowerment</h3>
@@ -363,7 +346,7 @@
           <div class="bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition-all duration-300">
             <div class="flex items-start gap-4">
               <div class="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-[#7fc540] to-[#6ab030] rounded-xl flex items-center justify-center">
-                <UIcon name="i-lucide-baby" class="text-2xl text-white" />
+                <UIcon name="i-lucide-baby" class="text-2xl text-white" aria-hidden="true" />
               </div>
               <div>
                 <h3 class="text-xl font-bold text-gray-900 mb-3">Family-Friendly Care</h3>
@@ -377,7 +360,7 @@
           <div class="bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition-all duration-300">
             <div class="flex items-start gap-4">
               <div class="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-[#ff6900] to-[#ff8534] rounded-xl flex items-center justify-center">
-                <UIcon name="i-lucide-heart-handshake" class="text-2xl text-white" />
+                <UIcon name="i-lucide-heart-handshake" class="text-2xl text-white" aria-hidden="true" />
               </div>
               <div>
                 <h3 class="text-xl font-bold text-gray-900 mb-3">Community Impact</h3>
@@ -391,7 +374,6 @@
       </div>
     </section>
 
-    <!-- CTA Section -->
     <section class="relative py-20 lg:py-28 overflow-hidden">
       <div class="absolute inset-0 bg-gradient-to-r from-[#7fc540] to-[#6ab030]"/>
       <div class="absolute inset-0 opacity-10">
@@ -401,7 +383,7 @@
       
       <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div class="inline-flex items-center justify-center w-20 h-20 bg-white rounded-2xl mb-8 shadow-lg">
-          <UIcon name="i-lucide-calendar-check" class="text-4xl text-[#7fc540]" />
+          <UIcon name="i-lucide-calendar-check" class="text-4xl text-[#7fc540]" aria-hidden="true" />
         </div>
         <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
           We Make You Smile
@@ -413,16 +395,18 @@
         <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <NuxtLink
             to="/contact"
+            title="Book an appointment with Shanadel Eye Clinic"
             class="inline-flex items-center gap-2 px-12 py-5 bg-white hover:bg-gray-50 text-[#7fc540] font-bold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl shadow-xl rounded-2xl"
           >
-            <UIcon name="i-lucide-calendar" />
+            <UIcon name="i-lucide-calendar" aria-hidden="true" />
             Book Your Appointment
           </NuxtLink>
           <a
             href="tel:+2349024866554"
+            aria-label="Call Shanadel Eye Clinic"
             class="inline-flex items-center gap-2 px-12 py-5 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-bold text-lg transition-all duration-300 border-2 border-white rounded-2xl"
           >
-            <UIcon name="i-lucide-phone" />
+            <UIcon name="i-lucide-phone" aria-hidden="true" />
             +234 902 486 6554
           </a>
         </div>
@@ -432,94 +416,49 @@
 </template>
 
 <script setup>
+// 1. Existing OgImage setup
 defineOgImageComponent('InfoPages', {
-  title:'Quality Eye Care Services'
+  title:'Our Story | Shanadel Eye Clinic'
+})
+
+// 2. Comprehensive SEO Meta Tags
+useSeoMeta({
+  title: 'About Us | Shanadel Eye Clinic Abuja',
+  description: 'Learn about Shanadel Eye Clinic, founded by Dr. Zephyr Alabegbe. We provide accessible, high-quality, and compassionate eye care in Abuja, Nigeria.',
+  keywords: 'about Shanadel Eye Clinic, Dr. Zephyr Alabegbe, eye clinic Abuja, optometrist history, vision care Nigeria, NHIS approved eye clinic',
+  ogTitle: 'Our Story & Mission | Shanadel Eye Clinic',
+  ogDescription: 'Discover our journey of making quality eye care accessible to everyone in Abuja and beyond.',
+  ogType: 'website',
+})
+
+// 3. Structured Data (AboutPage + MedicalOrganization)
+useHead({
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        "mainEntity": {
+          "@type": "MedicalOrganization",
+          "name": "Shanadel Eye Clinic",
+          "founder": {
+            "@type": "Person",
+            "name": "Dr. Zephyr Alabegbe",
+            "jobTitle": "Lead Optometrist"
+          },
+          "description": "A premier eye clinic providing comprehensive, compassionate, and accessible vision care.",
+          "location": {
+            "@type": "Place",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Abuja",
+              "addressCountry": "NG"
+            }
+          }
+        }
+      })
+    }
+  ]
 })
 </script>
-
-<style scoped>
-/* Diagonal pattern for top */
-.diagonal-pattern-top {
-  background-image: 
-    repeating-linear-gradient(
-      45deg,
-      #7fc540 0px,
-      #7fc540 1px,
-      transparent 1px,
-      transparent 12px
-    ),
-    repeating-linear-gradient(
-      -45deg,
-      #7fc540 0px,
-      #7fc540 1px,
-      transparent 1px,
-      transparent 12px
-    );
-}
-
-/* Diagonal pattern for bottom */
-.diagonal-pattern-bottom {
-  background-image: 
-    repeating-linear-gradient(
-      45deg,
-      #ff6900 0px,
-      #ff6900 1px,
-      transparent 1px,
-      transparent 12px
-    ),
-    repeating-linear-gradient(
-      -45deg,
-      #ff6900 0px,
-      #ff6900 1px,
-      transparent 1px,
-      transparent 12px
-    );
-}
-
-/* Custom animations for smooth transitions */
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
-}
-
-@keyframes float-delayed {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(20px);
-  }
-}
-
-.animate-float {
-  animation: float 8s ease-in-out infinite;
-}
-
-.animate-float-delayed {
-  animation: float-delayed 10s ease-in-out infinite;
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-slide-up {
-  animation: slideUp 0.8s ease-out forwards;
-}
-
-.animate-slide-up-delayed {
-  opacity: 0;
-  animation: slideUp 0.8s ease-out 0.2s forwards;
-}
-</style>

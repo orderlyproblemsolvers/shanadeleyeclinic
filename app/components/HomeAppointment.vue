@@ -398,19 +398,19 @@
                 class="flex justify-between items-center text-sm p-3 bg-white/5 rounded-xl"
               >
                 <span class="text-gray-300 font-medium">Monday - Friday</span>
-                <span class="text-white font-semibold">8:00 AM - 6:00 PM WAT</span>
+                <span class="text-white font-semibold">8:30 AM - 5:00 PM WAT</span>
               </div>
               <div
                 class="flex justify-between items-center text-sm p-3 bg-white/5 rounded-xl"
               >
                 <span class="text-gray-300 font-medium">Wednesday</span>
-                <span class="text-white font-semibold">8:00 AM - 5:00 PM WAT</span>
+                <span class="text-white font-semibold">8:30 AM - 4:30 PM WAT</span>
               </div>
               <div
                 class="flex justify-between items-center text-sm p-3 bg-white/5 rounded-xl"
               >
                 <span class="text-gray-300 font-medium">Saturday</span>
-                <span class="text-white font-semibold">8:30 AM - 4:30 PM WAT</span>
+                <span class="text-white font-semibold">9:00 AM - 3:00 PM WAT</span>
               </div>
               <div
                 class="flex justify-between items-center text-sm p-3 bg-white/5 rounded-xl"

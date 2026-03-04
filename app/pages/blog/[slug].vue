@@ -24,7 +24,7 @@
             to="/blog" 
             class="group inline-flex items-center text-gray-600 hover:text-[#5a912d] font-medium transition-colors duration-200"
           >
-            <UIcon name="i-lucide-arrow-left" class="w-4 h-4 mr-2 transition-transform duration-200 group-hover:-translate-x-1" />
+            <UIcon name="i-lucide-arrow-left" class="w-4 h-4 mr-2 transition-transform duration-200 group-hover:-translate-x-1" aria-hidden="true" />
             <span>Back to Blog</span>
           </NuxtLink>
         </div>
@@ -41,11 +41,11 @@
 
         <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-gray-500 text-sm">
           <div class="flex items-center">
-            <UIcon name="i-lucide-calendar" class="w-4 h-4 mr-2 text-[#5a912d]" />
+            <UIcon name="i-lucide-calendar" class="w-4 h-4 mr-2 text-[#5a912d]" aria-hidden="true" />
             <time :datetime="post.created_at">{{ formatDate(post.created_at) }}</time>
           </div>
           <div class="flex items-center">
-            <UIcon name="i-lucide-clock" class="w-4 h-4 mr-2 text-[#5a912d]" />
+            <UIcon name="i-lucide-clock" class="w-4 h-4 mr-2 text-[#5a912d]" aria-hidden="true" />
             <span>{{ readingTime }} min read</span>
           </div>
         </div>
@@ -78,28 +78,28 @@
               class="w-10 h-10 flex items-center justify-center bg-gray-100 text-gray-600 rounded-lg transition-colors hover:bg-[#1DA1F2] hover:text-white"
               @click="shareOnTwitter"
             >
-              <UIcon name="i-lucide-twitter" class="w-5 h-5" />
+              <UIcon name="i-lucide-twitter" class="w-5 h-5" aria-hidden="true" />
             </button>
             <button
               aria-label="Share on Facebook"
               class="w-10 h-10 flex items-center justify-center bg-gray-100 text-gray-600 rounded-lg transition-colors hover:bg-[#4267B2] hover:text-white"
               @click="shareOnFacebook"
             >
-              <UIcon name="i-lucide-facebook" class="w-5 h-5" />
+              <UIcon name="i-lucide-facebook" class="w-5 h-5" aria-hidden="true" />
             </button>
             <button
               aria-label="Share on LinkedIn"
               class="w-10 h-10 flex items-center justify-center bg-gray-100 text-gray-600 rounded-lg transition-colors hover:bg-[#0077B5] hover:text-white"
               @click="shareOnLinkedIn"
             >
-              <UIcon name="i-lucide-linkedin" class="w-5 h-5" />
+              <UIcon name="i-lucide-linkedin" class="w-5 h-5" aria-hidden="true" />
             </button>
             <button
               aria-label="Copy link to clipboard"
               class="w-10 h-10 flex items-center justify-center bg-gray-100 text-gray-600 rounded-lg transition-colors hover:bg-[#5a912d] hover:text-white"
               @click="copyLink"
             >
-              <UIcon :name="linkCopied ? 'i-lucide-check' : 'i-lucide-link'" class="w-5 h-5" />
+              <UIcon :name="linkCopied ? 'i-lucide-check' : 'i-lucide-link'" class="w-5 h-5" aria-hidden="true" />
             </button>
           </div>
           
@@ -113,7 +113,7 @@
               class="mt-4 flex items-center text-sm text-[#5a912d] font-medium"
               aria-live="polite"
             >
-              <UIcon name="i-lucide-check-circle" class="w-4 h-4 mr-2" />
+              <UIcon name="i-lucide-check-circle" class="w-4 h-4 mr-2" aria-hidden="true" />
               Link copied to clipboard!
             </div>
           </transition>
@@ -122,7 +122,7 @@
 
     </article>
     
-    <div v-if="recentPosts.length > 0" class="mt-20 py-16 bg-white border-t border-gray-100">
+    <div v-if="recentPosts && recentPosts.length > 0" class="mt-20 py-16 bg-white border-t border-gray-100">
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-3xl font-bold text-gray-900 mb-8">Continue Reading</h2>
         
@@ -144,7 +144,7 @@
               
               <div class="flex items-center text-[#5a912d] font-medium text-sm">
                 <span>Read more</span>
-                <UIcon name="i-lucide-arrow-right" class="w-4 h-4 ml-1.5 transition-transform duration-300 group-hover:translate-x-1" />
+                <UIcon name="i-lucide-arrow-right" class="w-4 h-4 ml-1.5 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
               </div>
             </div>
           </NuxtLink>
@@ -162,15 +162,28 @@ const route = useRoute()
 const { getPostBySlug, getPublishedPosts } = useBlog() 
 const slug = route.params.slug as string
 
+// 1. Fetch main post (Server-Side)
 const { data: post, pending: loading, error } = await useAsyncData(
   `post-${slug}`, 
   async () => {
     const fetchedPost = await getPostBySlug(slug)
     if (!fetchedPost) {
-      throw createError({ statusCode: 404, statusMessage: 'Post not found' })
+      // Adding fatal: true ensures Nuxt renders your 404 page rather than breaking the component
+      throw createError({ statusCode: 404, statusMessage: 'Post not found', fatal: true })
     }
     return fetchedPost as Post
   }
+)
+
+// 2. Fetch recent posts (Server-Side)
+// Moving this to useAsyncData guarantees crawlers see these links in the initial HTML response
+const { data: recentPosts } = await useAsyncData(
+  `recent-posts-${slug}`,
+  async () => {
+    const allRecentPosts = await getPublishedPosts(4)
+    return allRecentPosts.filter((p: Post) => p.slug !== slug).slice(0, 3)
+  },
+  { default: () => [] }
 )
 
 defineOgImageComponent('BlogPost', {
@@ -189,7 +202,6 @@ interface Post {
   published: boolean
 }
 
-const recentPosts = ref<Post[]>([]) 
 const linkCopied = ref(false)
 const postUrl = ref('')
 
@@ -214,17 +226,7 @@ const formatDate = (dateString: string) => {
   })
 }
 
-async function fetchRecentPosts() {
-  if (!post.value) return 
-  try {
-    const allRecentPosts = await getPublishedPosts(4) 
-    const otherPosts = allRecentPosts.filter(p => p.id !== post.value!.id)
-    recentPosts.value = otherPosts.slice(0, 3)
-  } catch (err) {
-    console.error("Failed to fetch recent posts:", err)
-  }
-}
-
+// Social Sharing Functions
 const shareOnTwitter = () => {
   const text = encodeURIComponent(post.value?.title || '')
   window.open(`https://twitter.com/intent/tweet?url=${postUrl.value}&text=${text}`, '_blank')
@@ -248,10 +250,11 @@ const copyLink = async () => {
 }
 
 onMounted(() => {
+  // We keep postUrl inside onMounted because window is undefined on the server
   postUrl.value = window.location.href 
-  fetchRecentPosts()
 })
 
+// Setup SEO Meta Tags
 if (post.value) {
   const pageTitle = `${post.value.title} | Shanadel Eye Clinic`
   const pageDesc = post.value.excerpt || 'Read this article from Shanadel Eye Clinic.'
@@ -286,9 +289,10 @@ if (post.value) {
     script: [
       {
         type: 'application/ld+json',
-        innerHTML: computed(() => JSON.stringify({
+        // Changed to BlogPosting which is slightly more specific and preferred by Google
+        innerHTML: JSON.stringify({
           '@context': 'https://schema.org',
-          '@type': 'Article',
+          '@type': 'BlogPosting',
           'mainEntityOfPage': {
             '@type': 'WebPage',
             '@id': pageUrl,
@@ -311,7 +315,7 @@ if (post.value) {
             }
           },
           'description': pageDesc,
-        }))
+        })
       }
     ]
   })
@@ -320,114 +324,4 @@ if (post.value) {
     title: 'Blog Post Not Found | Shanadel Eye Clinic'
   })
 }
-
 </script>
-
-<style>
-/* Enhanced prose styling */
-.prose-clinic {
-  color: #1f2937;
-}
-
-.prose-clinic h2 {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-top: 2.5em;
-  margin-bottom: 1em;
-  color: #111827;
-  position: relative;
-  padding-bottom: 0.5em;
-}
-
-.prose-clinic h2::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 60px;
-  height: 3px;
-  background: linear-gradient(to right, #5a912d, #7fc540);
-  border-radius: 2px;
-}
-
-.prose-clinic h3 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-top: 2em;
-  margin-bottom: 0.8em;
-  color: #1f2937;
-}
-
-.prose-clinic p {
-  line-height: 1.8;
-  margin-bottom: 1.5em;
-  color: #374151;
-  font-size: 1.0625rem;
-}
-
-.prose-clinic a {
-  color: #5a912d;
-  text-decoration: none;
-  font-weight: 500;
-  border-bottom: 2px solid transparent;
-  transition: border-color 0.3s;
-}
-
-.prose-clinic a:hover {
-  border-bottom-color: #5a912d;
-}
-
-.prose-clinic ul,
-.prose-clinic ol {
-  margin-left: 1.5rem;
-  margin-bottom: 1.5em;
-}
-
-.prose-clinic li {
-  margin-bottom: 0.5em;
-  line-height: 1.8;
-}
-
-.prose-clinic li p {
-  margin-bottom: 0.5em;
-}
-
-.prose-clinic blockquote {
-  border-left: 4px solid #5a912d;
-  padding-left: 1.5rem;
-  font-style: italic;
-  color: #4b5563;
-  margin: 2em 0;
-  background: #f9fafb;
-  padding: 1.5rem;
-  border-radius: 0.5rem;
-}
-
-.prose-clinic strong {
-  color: #111827;
-  font-weight: 600;
-}
-
-.prose-clinic code {
-  background: #f3f4f6;
-  padding: 0.2em 0.4em;
-  border-radius: 0.25rem;
-  font-size: 0.9em;
-  color: #5a912d;
-}
-
-.prose-clinic pre {
-  background: #1f2937;
-  color: #f9fafb;
-  padding: 1.5rem;
-  border-radius: 0.75rem;
-  overflow-x: auto;
-  margin: 2em 0;
-}
-
-.prose-clinic img {
-  border-radius: 0.75rem;
-  margin: 2em 0;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-}
-</style>

@@ -15,7 +15,7 @@
         <!-- Badge -->
         <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-white text-sm font-medium animate-fade-in">
           <span class="w-2 h-2 bg-[#7fc540] rounded-full animate-pulse"></span>
-          Trusted Eye Care Since 2015
+          Trusted Eye Care Since 2019
         </div>
 
         <!-- Main heading with stagger animation -->
@@ -75,7 +75,7 @@
       <div class="p-2 bg-white/20 rounded-lg group-hover:bg-white/30 transition-colors">
         <UIcon name="i-lucide-clock" class="text-xl" />
       </div>
-      <p class="text-sm md:text-base">Mon - Fri 8.00am WAT, Sat 8.30am - 4.30pm WAT</p>
+      <p class="text-sm md:text-base">Mon - Fri 8.30am - 5pm, Sat 9.00am - 3.00pm WAT</p>
     </div>
 
     <div class="relative flex justify-center gap-6 md:gap-8">
