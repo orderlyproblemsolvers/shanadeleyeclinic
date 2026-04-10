@@ -24,7 +24,7 @@
               v-if="!link.hasDropdown"
               :to="link.to"
               :class="[
-                'text-base font-medium transition-colors duration-200',
+                'text-base font-medium transition-colors duration-200 hover:text-[#7fc540]',
               ]"
               active-class="text-[#7fc540]  h-full font-semibold"
             >
@@ -40,7 +40,7 @@
             >
               <button
                 :class="[
-                  'text-base font-medium transition-colors duration-200 text-gray-700 hover:text-[#7fc540] flex items-center gap-1'
+                  'text-base font-medium transition-colors duration-200  hover:text-[#7fc540] flex items-center gap-1'
                 ]"
               >
                 {{ link.label }}

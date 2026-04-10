@@ -6,13 +6,21 @@
         <div class="h-4 bg-gray-200 rounded w-1/4"></div>
         <div class="h-10 bg-gray-200 rounded w-3/4"></div>
         <div class="h-4 bg-gray-200 rounded w-1/2"></div>
-        <div class="h-80 bg-gray-200 rounded-xl"></div>
+        <div class="h-80 bg-gray-200 rounded-xl mt-8"></div>
+        <div class="space-y-3 mt-8">
+          <div class="h-4 bg-gray-200 rounded w-full"></div>
+          <div class="h-4 bg-gray-200 rounded w-full"></div>
+          <div class="h-4 bg-gray-200 rounded w-5/6"></div>
+        </div>
       </div>
     </div>
 
-    <div v-else-if="error" class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div v-else-if="error || (!post && !loading)" class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div class="bg-red-50 border border-red-200 rounded-lg p-6 text-center">
-        <p class="text-red-800 font-medium">Error loading post: {{ error.message }}</p>
+        <p class="text-red-800 font-medium">Error loading post: {{ error?.message || 'Post not found.' }}</p>
+        <NuxtLink to="/blog" class="mt-4 inline-block text-[#5a912d] hover:underline">
+          Return to Blog
+        </NuxtLink>
       </div>
     </div>
 
@@ -52,7 +60,7 @@
       </header>
 
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-        <div class="w-full h-auto max-h-[500px] rounded-2xl overflow-hidden shadow-xl border border-gray-100">
+        <div class="w-full h-auto max-h-[500px] rounded-2xl overflow-hidden shadow-xl border border-gray-100 bg-gray-100">
           <img 
             :src="post.image" 
             :alt="post.title" 
@@ -63,7 +71,7 @@
 
       <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div 
-          class="prose prose-lg prose-clinic max-w-none"
+          class="blog-content"
           v-html="formattedContent" 
         />
       </div>
@@ -156,35 +164,43 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, watch } from 'vue'
 
 const route = useRoute()
 const { getPostBySlug, getPublishedPosts } = useBlog() 
 const slug = route.params.slug as string
 
-// 1. Fetch main post (Server-Side)
-const { data: post, pending: loading, error } = await useAsyncData(
+// 1. Fetch main post (Lazy for client navigation, blocked for SSR SEO)
+const { data: post, pending: loading, error, refresh: refreshPost } = useAsyncData(
   `post-${slug}`, 
   async () => {
     const fetchedPost = await getPostBySlug(slug)
-    if (!fetchedPost) {
-      // Adding fatal: true ensures Nuxt renders your 404 page rather than breaking the component
-      throw createError({ statusCode: 404, statusMessage: 'Post not found', fatal: true })
-    }
-    return fetchedPost as Post
+    return fetchedPost as Post | null
+  },
+  { 
+    lazy: import.meta.client,
+    default: () => null 
   }
 )
 
-// 2. Fetch recent posts (Server-Side)
-// Moving this to useAsyncData guarantees crawlers see these links in the initial HTML response
-const { data: recentPosts } = await useAsyncData(
+// 2. Fetch recent posts (Lazy for client navigation)
+const { data: recentPosts, refresh: refreshRecent } = useAsyncData(
   `recent-posts-${slug}`,
   async () => {
     const allRecentPosts = await getPublishedPosts(4)
     return allRecentPosts.filter((p: Post) => p.slug !== slug).slice(0, 3)
   },
-  { default: () => [] }
+  { 
+    lazy: import.meta.client,
+    default: () => [] 
+  }
 )
+
+onMounted(async () => {
+  postUrl.value = window.location.href 
+  if (!post.value) await refreshPost()
+  if (!recentPosts.value || recentPosts.value.length === 0) await refreshRecent()
+})
 
 defineOgImageComponent('BlogPost', {
   title: computed(() => post.value?.title ? `${post.value.title}` : 'Blog Post | Shanadel Eye Clinic'),
@@ -226,7 +242,7 @@ const formatDate = (dateString: string) => {
   })
 }
 
-// Social Sharing Functions
+// Social Sharing
 const shareOnTwitter = () => {
   const text = encodeURIComponent(post.value?.title || '')
   window.open(`https://twitter.com/intent/tweet?url=${postUrl.value}&text=${text}`, '_blank')
@@ -241,87 +257,196 @@ const copyLink = async () => {
   try {
     await navigator.clipboard.writeText(postUrl.value)
     linkCopied.value = true
-    setTimeout(() => {
-      linkCopied.value = false
-    }, 3000)
+    setTimeout(() => { linkCopied.value = false }, 3000)
   } catch (err) {
     console.error('Failed to copy link:', err)
   }
 }
 
-onMounted(() => {
-  // We keep postUrl inside onMounted because window is undefined on the server
-  postUrl.value = window.location.href 
-})
+// SEO
+watch(post, (newPost) => {
+  if (newPost) {
+    const pageTitle = `${newPost.title} | Shanadel Eye Clinic`
+    const pageDesc = newPost.excerpt || 'Read this article from Shanadel Eye Clinic.'
+    const pageImage = newPost.image || 'https://shanadeleyeclinicltd.com.ng/img/shanadel-lg.webp'
+    const pageUrl = `https://shanadeleyeclinicltd.com.ng/blog/${slug}`
 
-// Setup SEO Meta Tags
-if (post.value) {
-  const pageTitle = `${post.value.title} | Shanadel Eye Clinic`
-  const pageDesc = post.value.excerpt || 'Read this article from Shanadel Eye Clinic.'
-  const pageImage = post.value.image || 'https://shanadeleyeclinicltd.com.ng/default-og-image.jpg'
-  const pageUrl = `https://shanadeleyeclinicltd.com.ng/blog/${slug}`
+    useSeoMeta({
+      title: pageTitle,
+      description: pageDesc,
+      ogTitle: pageTitle,
+      ogDescription: pageDesc,
+      ogImage: pageImage,
+      ogUrl: pageUrl,
+      ogType: 'article',
+      twitterCard: 'summary_large_image',
+      twitterTitle: pageTitle,
+      twitterDescription: pageDesc,
+      twitterImage: pageImage,
+    })
 
-  useSeoMeta({
-    title: pageTitle,
-    description: pageDesc,
-    ogTitle: pageTitle,
-    ogDescription: pageDesc,
-    ogImage: pageImage,
-    ogUrl: pageUrl,
-    ogType: 'article',
-    twitterCard: 'summary_large_image',
-    twitterTitle: pageTitle,
-    twitterDescription: pageDesc,
-    twitterImage: pageImage,
-  })
-
-  useHead({
-    htmlAttrs: {
-      lang: 'en'
-    },
-    link: [
-      { rel: 'canonical', href: pageUrl }
-    ],
-    meta: [
-      { property: 'article:published_time', content: post.value.created_at },
-      { property: 'article:author', content: 'Shanadel Eye Clinic' },
-    ],
-    script: [
-      {
-        type: 'application/ld+json',
-        // Changed to BlogPosting which is slightly more specific and preferred by Google
-        innerHTML: JSON.stringify({
-          '@context': 'https://schema.org',
-          '@type': 'BlogPosting',
-          'mainEntityOfPage': {
-            '@type': 'WebPage',
-            '@id': pageUrl,
-          },
-          'headline': post.value.title,
-          'image': pageImage,
-          'datePublished': post.value.created_at,
-          'dateModified': post.value.created_at,
-          'author': {
-            '@type': 'Organization',
-            'name': 'Shanadel Eye Clinic',
-            'url': 'https://shanadeleyeclinicltd.com.ng'
-          },
-          'publisher': {
-            '@type': 'Organization',
-            'name': 'Shanadel Eye Clinic',
-            'logo': {
-              '@type': 'ImageObject',
-              'url': 'https://shanadeleyeclinicltd.com.ng/img/shanadel-lg.webp'
-            }
-          },
-          'description': pageDesc,
-        })
-      }
-    ]
-  })
-} else {
-  useHead({
-    title: 'Blog Post Not Found | Shanadel Eye Clinic'
-  })
-}
+    useHead({
+      htmlAttrs: { lang: 'en' },
+      link: [{ rel: 'canonical', href: pageUrl }],
+      meta: [
+        { property: 'article:published_time', content: newPost.created_at },
+        { property: 'article:author', content: 'Shanadel Eye Clinic' },
+      ],
+      script: [
+        {
+          type: 'application/ld+json',
+          innerHTML: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BlogPosting',
+            'mainEntityOfPage': {
+              '@type': 'WebPage',
+              '@id': pageUrl,
+            },
+            'headline': newPost.title,
+            'image': pageImage,
+            'datePublished': newPost.created_at,
+            'dateModified': newPost.created_at,
+            'author': {
+              '@type': 'Organization',
+              'name': 'Shanadel Eye Clinic',
+              'url': 'https://shanadeleyeclinicltd.com.ng'
+            },
+            'publisher': {
+              '@type': 'Organization',
+              'name': 'Shanadel Eye Clinic',
+              'logo': {
+                '@type': 'ImageObject',
+                'url': 'https://shanadeleyeclinicltd.com.ng/img/shanadel-lg.webp'
+              }
+            },
+            'description': pageDesc,
+          })
+        }
+      ]
+    })
+  } else {
+    useHead({ title: 'Blog Post Not Found | Shanadel Eye Clinic' })
+  }
+}, { immediate: true })
 </script>
+
+<style scoped>
+/* Custom Rich Text Styling (Alternative to @tailwindcss/typography) */
+.blog-content {
+  font-size: 1.125rem; /* text-lg */
+  line-height: 1.75;
+  color: #374151; /* text-gray-700 */
+}
+
+/* Headings */
+.blog-content :deep(h1), 
+.blog-content :deep(h2), 
+.blog-content :deep(h3), 
+.blog-content :deep(h4), 
+.blog-content :deep(h5), 
+.blog-content :deep(h6) {
+  color: #111827; /* text-gray-900 */
+  font-weight: 700;
+  margin-top: 2em;
+  margin-bottom: 1em;
+  line-height: 1.3;
+}
+
+.blog-content :deep(h1) { font-size: 2.25rem; }
+.blog-content :deep(h2) { font-size: 1.875rem; }
+.blog-content :deep(h3) { font-size: 1.5rem; }
+.blog-content :deep(h4) { font-size: 1.25rem; }
+
+/* Paragraphs & Links */
+.blog-content :deep(p) {
+  margin-bottom: 1.25em;
+}
+
+.blog-content :deep(a) {
+  color: #5a912d;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.blog-content :deep(a:hover) {
+  color: #7fc540;
+}
+
+/* Bold & Italic */
+.blog-content :deep(strong), 
+.blog-content :deep(b) {
+  color: #111827;
+  font-weight: 600;
+}
+
+/* Lists */
+.blog-content :deep(ul) {
+  list-style-type: disc;
+  padding-left: 1.5em;
+  margin-bottom: 1.25em;
+}
+
+.blog-content :deep(ol) {
+  list-style-type: decimal;
+  padding-left: 1.5em;
+  margin-bottom: 1.25em;
+}
+
+.blog-content :deep(li) {
+  margin-bottom: 0.5em;
+}
+
+.blog-content :deep(li::marker) {
+  color: #5a912d; /* Clinic Green */
+}
+
+/* Blockquotes */
+.blog-content :deep(blockquote) {
+  border-left: 4px solid #5a912d;
+  background-color: #f9fafb; /* bg-gray-50 */
+  padding: 1rem 1.5rem;
+  border-radius: 0 0.75rem 0.75rem 0;
+  margin: 1.5em 0;
+  color: #4b5563; /* text-gray-600 */
+  font-style: normal;
+}
+
+.blog-content :deep(blockquote p:last-child) {
+  margin-bottom: 0;
+}
+
+/* Images within content */
+.blog-content :deep(img) {
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  margin: 2em auto;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Code blocks (if you ever post technical content) */
+.blog-content :deep(code) {
+  background-color: #f3f4f6;
+  padding: 0.2em 0.4em;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+  color: #111827;
+}
+
+.blog-content :deep(pre) {
+  background-color: #1f2937;
+  color: #f9fafb;
+  padding: 1.25em;
+  border-radius: 0.75rem;
+  overflow-x: auto;
+  margin: 1.5em 0;
+}
+
+.blog-content :deep(pre code) {
+  background-color: transparent;
+  padding: 0;
+  color: inherit;
+}
+</style>

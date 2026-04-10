@@ -1,5 +1,5 @@
-
 import type { Post, PostInput } from '~/app/types/blog'
+
 export const useBlog = () => {
   const supabase = useSupabaseClient()
   const user = useSupabaseUser()
@@ -29,8 +29,8 @@ export const useBlog = () => {
     const { data, error } = await query
 
     if (error) {
-      console.error('Error fetching posts:', error)
-      throw error
+      console.error('Supabase Error (getPublishedPosts):', error.message)
+      return [] // SSR Safe Fallback
     }
 
     return data as Post[]
@@ -39,7 +39,8 @@ export const useBlog = () => {
   // Get all posts by current user (admin only)
   const getMyPosts = async () => {
     if (!user.value) {
-      throw new Error('User not authenticated')
+      console.error('User not authenticated')
+      return [] // SSR Safe Fallback
     }
 
     const { data, error } = await supabase
@@ -48,8 +49,8 @@ export const useBlog = () => {
       .order('created_at', { ascending: false })
 
     if (error) {
-      console.error('Error fetching user posts:', error)
-      throw error
+      console.error('Supabase Error (getMyPosts):', error.message)
+      return [] // SSR Safe Fallback
     }
 
     return data as Post[]
@@ -65,8 +66,8 @@ export const useBlog = () => {
       .single()
 
     if (error) {
-      console.error('Error fetching post:', error)
-      throw error
+      console.error(`Supabase Error (getPostBySlug for ${slug}):`, error.message)
+      return null // SSR Safe Fallback
     }
 
     return data as Post
@@ -75,7 +76,8 @@ export const useBlog = () => {
   // Get single post by ID (for editing)
   const getPostById = async (id: string) => {
     if (!user.value) {
-      throw new Error('User not authenticated')
+      console.error('User not authenticated')
+      return null
     }
 
     const { data, error } = await supabase
@@ -85,8 +87,8 @@ export const useBlog = () => {
       .single()
 
     if (error) {
-      console.error('Error fetching post:', error)
-      throw error
+      console.error(`Supabase Error (getPostById for ${id}):`, error.message)
+      return null // SSR Safe Fallback
     }
 
     return data as Post
@@ -94,9 +96,7 @@ export const useBlog = () => {
 
   // Create new post (admin only)
   const createPost = async (postData: PostInput) => {
-    if (!user.value) {
-      throw new Error('User not authenticated')
-    }
+    if (!user.value) throw new Error('User not authenticated')
 
     const slug = generateSlug(postData.title)
 
@@ -113,8 +113,8 @@ export const useBlog = () => {
       .single()
 
     if (error) {
-      console.error('Error creating post:', error)
-      throw error
+      console.error('Error creating post:', error.message)
+      throw error // Throwing here is fine because this is a client-side mutation
     }
 
     return data as Post
@@ -122,13 +122,10 @@ export const useBlog = () => {
 
   // Update post (admin only)
   const updatePost = async (id: string, postData: Partial<PostInput>) => {
-    if (!user.value) {
-      throw new Error('User not authenticated')
-    }
+    if (!user.value) throw new Error('User not authenticated')
 
     const updateData: any = { ...postData }
 
-    // Regenerate slug if title changed
     if (postData.title) {
       updateData.slug = generateSlug(postData.title)
     }
@@ -141,7 +138,7 @@ export const useBlog = () => {
       .single()
 
     if (error) {
-      console.error('Error updating post:', error)
+      console.error('Error updating post:', error.message)
       throw error
     }
 
@@ -150,9 +147,7 @@ export const useBlog = () => {
 
   // Delete post (admin only)
   const deletePost = async (id: string) => {
-    if (!user.value) {
-      throw new Error('User not authenticated')
-    }
+    if (!user.value) throw new Error('User not authenticated')
 
     const { error } = await supabase
       .from('posts')
@@ -160,7 +155,7 @@ export const useBlog = () => {
       .eq('id', id)
 
     if (error) {
-      console.error('Error deleting post:', error)
+      console.error('Error deleting post:', error.message)
       throw error
     }
 

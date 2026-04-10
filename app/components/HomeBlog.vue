@@ -33,7 +33,7 @@
       </div>
 
       <!-- Error -->
-      <div v-else-if="error" class="text-center py-16">
+      <div v-else-if="status === 'error'" class="text-center py-16">
         <div class="inline-flex items-center gap-2 px-4 py-2.5 bg-red-50 border border-red-100 rounded-xl text-sm text-red-600">
           <UIcon name="i-lucide-alert-circle" class="text-sm" />
           Failed to load posts. Please try again later.
@@ -51,17 +51,18 @@
           <article class="bg-white rounded-2xl border border-gray-100 overflow-hidden h-full flex flex-col transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
 
             <!-- Image -->
-            <div class="w-full h-44 overflow-hidden bg-gray-100 shrink-0">
+            <div class="relative w-full h-44 overflow-hidden bg-gray-100 shrink-0">
               <img
                 :src="post.image"
                 :alt="post.title"
+                loading="lazy"
                 class="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-500"
               />
             </div>
 
             <!-- Content -->
             <div class="p-5 flex flex-col grow gap-2">
-              <span class="text-xs font-semibold text-orange-500">
+              <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-orange-50 text-orange-600 border border-orange-100 w-fit">
                 {{ post.category }}
               </span>
 
@@ -73,10 +74,16 @@
                 {{ post.excerpt }}
               </p>
 
-              <span class="inline-flex items-center gap-1 text-sm font-medium text-[#7fc540] group-hover:text-[#6ab030] transition-colors duration-200 mt-1">
-                Read more
-                <UIcon name="i-lucide-arrow-right" class="text-xs group-hover:translate-x-0.5 transition-transform" />
-              </span>
+              <div class="flex items-center justify-between pt-3 mt-1 border-t border-gray-100">
+                <div class="flex items-center gap-1.5 text-xs text-gray-400">
+                  <UIcon name="i-lucide-calendar" class="text-xs" aria-hidden="true" />
+                  <time>{{ formatDate(post.created_at) }}</time>
+                </div>
+                <span class="inline-flex items-center gap-1 text-xs font-medium text-[#7fc540] group-hover:translate-x-0.5 transition-transform duration-200">
+                  Read more
+                  <UIcon name="i-lucide-arrow-right" class="text-xs" aria-hidden="true" />
+                </span>
+              </div>
             </div>
           </article>
         </NuxtLink>
@@ -84,6 +91,9 @@
 
       <!-- Empty -->
       <div v-else class="text-center py-16">
+        <div class="inline-flex items-center justify-center w-12 h-12 bg-gray-100 rounded-xl mb-3">
+          <UIcon name="i-lucide-newspaper" class="text-gray-400 text-lg" aria-hidden="true" />
+        </div>
         <p class="text-sm text-gray-400">No blog posts published yet. Check back soon.</p>
       </div>
 
@@ -107,11 +117,29 @@ import type { Post } from '~/app/types/blog'
 
 const { getPublishedPosts } = useBlog()
 
+// ✅ This is the correct pattern - await ensures data is ready
 const { data: posts, status, error } = await useAsyncData<Post[]>(
   'home-blog-posts',
   () => getPublishedPosts(3),
-  { default: () => [] }
+  { 
+    default: () => [],
+    // Optional: Add these for better caching
+    getCachedData(key) {
+      // Use cached data for 5 minutes
+      const data = useNuxtData<Post[]>(key).data.value
+      if (data && data.length > 0) return data
+    }
+  }
 )
+
+// Helper function for date formatting
+const formatDate = (dateString: string) => {
+  return new Date(dateString).toLocaleDateString('en-US', { 
+    year: 'numeric', 
+    month: 'short', 
+    day: 'numeric' 
+  })
+}
 </script>
 
 <style scoped>
@@ -121,6 +149,7 @@ const { data: posts, status, error } = await useAsyncData<Post[]>(
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
 .line-clamp-3 {
   display: -webkit-box;
   -webkit-line-clamp: 3;

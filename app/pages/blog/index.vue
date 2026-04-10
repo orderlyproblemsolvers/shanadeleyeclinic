@@ -1,7 +1,6 @@
 <template>
   <div class="min-h-screen bg-gray-50 pt-20">
 
-    <!-- Hero -->
     <div class="relative bg-gradient-to-br from-[#3d6b1e] via-[#5a912d] to-[#7fc540] text-white py-16 overflow-hidden">
       <div aria-hidden="true" class="absolute top-0 right-0 w-80 h-80 bg-white/8 rounded-full blur-3xl pointer-events-none" />
       <div aria-hidden="true" class="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl pointer-events-none" />
@@ -15,7 +14,6 @@
         <p class="text-base text-white/80 max-w-xl">Expert insights and practical tips for better eye health.</p>
       </div>
 
-      <!-- Wave -->
       <div class="absolute bottom-0 left-0 right-0" aria-hidden="true">
         <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full block">
           <path d="M0 60L1440 60L1440 30C1200 55 960 65 720 55C480 45 240 15 0 30Z" fill="#f9fafb"/>
@@ -25,7 +23,6 @@
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
-      <!-- Back -->
       <button
         class="group inline-flex items-center gap-2 text-sm text-gray-500 hover:text-[#5a912d] font-medium transition-colors mb-10"
         @click="goBack"
@@ -36,8 +33,7 @@
         Back
       </button>
 
-      <!-- Loading -->
-      <div v-if="loading" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div v-if="pending" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <div v-for="i in 6" :key="i" class="animate-pulse bg-white rounded-2xl overflow-hidden border border-gray-100">
           <div class="bg-gray-200 h-48 w-full" />
           <div class="p-5 space-y-3">
@@ -52,15 +48,19 @@
         </div>
       </div>
 
-      <!-- Error -->
       <div v-else-if="error" class="text-center py-20">
         <div class="inline-flex items-center justify-center w-14 h-14 bg-red-50 border border-red-100 rounded-2xl mb-4">
           <UIcon name="i-lucide-alert-circle" class="text-red-500 text-xl" aria-hidden="true" />
         </div>
-        <p class="text-sm font-medium text-red-500">Failed to load posts. Please try again later.</p>
+        <p class="text-sm font-medium text-red-500 mb-4">Failed to load posts. Please try again later.</p>
+        <button 
+          @click="refresh()"
+          class="px-4 py-2 bg-[#5a912d] text-white rounded-lg text-sm font-medium hover:bg-[#4a7d24] transition-colors"
+        >
+          Try Again
+        </button>
       </div>
 
-      <!-- Empty -->
       <div v-else-if="!allPosts || allPosts.length === 0" class="text-center py-24">
         <div class="inline-flex items-center justify-center w-16 h-16 bg-gray-100 rounded-2xl mb-5">
           <UIcon name="i-lucide-newspaper" class="text-gray-400 text-2xl" aria-hidden="true" />
@@ -69,7 +69,6 @@
         <p class="text-sm text-gray-400">Check back soon for expert eye care insights and tips.</p>
       </div>
 
-      <!-- Posts -->
       <div v-else>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <NuxtLink
@@ -80,7 +79,6 @@
           >
             <article class="bg-white rounded-2xl border border-gray-100 overflow-hidden h-full flex flex-col transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
 
-              <!-- Image -->
               <div class="relative w-full h-48 overflow-hidden flex-shrink-0 bg-gray-100">
                 <img
                   :src="post.image"
@@ -90,7 +88,6 @@
                 />
               </div>
 
-              <!-- Content -->
               <div class="p-5 flex flex-col flex-grow gap-2">
                 <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-orange-50 text-orange-600 border border-orange-100 w-fit">
                   {{ post.category }}
@@ -116,13 +113,11 @@
                 </div>
               </div>
 
-              <!-- Bottom accent bar -->
               <div class="h-0.5 bg-gradient-to-r from-[#5a912d] to-[#7fc540] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
             </article>
           </NuxtLink>
         </div>
 
-        <!-- Pagination -->
         <div v-if="totalPages > 1" class="mt-12 flex flex-col sm:flex-row justify-between items-center gap-4">
           <button
             :disabled="currentPage === 1"
@@ -155,14 +150,16 @@
 <script setup lang="ts">
 import { ref, computed, watch } from 'vue'
 
+// Strong SEO Meta
 useSeoMeta({
   title: 'Blog — Shanadely Eye Clinic',
   description: 'Explore expert insights, eye care tips, and the latest in ophthalmology from the team at Shanadely Eye Clinic, Abuja.',
-  ogTitle: 'Blog — Shanadely Eye Clinic',
-  ogDescription: 'Expert insights, eye care tips, and the latest in ophthalmology from Shanadely Eye Clinic.',
+  ogTitle: 'Blog — Shanadely Eye Clinic | Expert Eye Care Tips',
+  ogDescription: 'Expert insights, eye care tips, and the latest in ophthalmology from Shanadely Eye Clinic. Read our latest articles to maintain healthy vision.',
+  ogImage: 'https://www.shanadeleyeclinicltd.com.ng/img/shanadel-lg.webp',
   ogImageAlt: 'Blog — Shanadely Eye Clinic',
-  ogImageWidth: 1200,
-  ogImageHeight: 630,
+  ogType: 'website',
+  twitterCard: 'summary_large_image',
 })
 
 useHead({
@@ -172,7 +169,7 @@ useHead({
     { rel: 'alternate', hreflang: 'en', href: 'https://www.shanadeleyeclinicltd.com.ng/blog' },
   ],
   meta: [
-    { name: 'keywords', content: 'Shanadely Eye Clinic blog, eye care tips, ophthalmology, vision care, eye health, Abuja eye clinic' },
+    { name: 'keywords', content: 'Shanadely Eye Clinic blog, eye care tips, ophthalmology, vision care, eye health, Abuja eye clinic, glaucoma, cataract' },
   ],
   script: [
     {
@@ -196,8 +193,6 @@ useHead({
   ],
 })
 
-defineOgImageComponent('InfoPages', { title: 'Blog — Shanadely Eye Clinic' })
-
 interface Post {
   id: string
   slug: string
@@ -213,11 +208,17 @@ interface Post {
 const { getPublishedPosts } = useBlog()
 const router = useRouter()
 
-const { data: allPosts, pending: loading, error } = await useAsyncData(
+// ✅ FIX: Use useAsyncData without lazy option for consistent behavior
+// Data is fetched server-side for SEO and blocks navigation on client for reliable rendering
+const { data: allPosts, pending, error, refresh } = useAsyncData(
   'blog-posts-list',
-  async () => (await getPublishedPosts()) as Post[],
-  { default: () => [] as Post[] }
+  () => getPublishedPosts(),
+  {
+
+    default: () => [] as Post[]
+  }
 )
+
 
 const goBack = () => router.back()
 
@@ -234,7 +235,17 @@ const paginatedPosts = computed(() => {
 const formatDate = (dateString: string) =>
   new Date(dateString).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })
 
+// Reset to page 1 if the total pages decreases below current page
+watch(totalPages, (newTotal) => {
+  if (currentPage.value > newTotal) {
+    currentPage.value = Math.max(1, newTotal)
+  }
+})
+
+// Smooth scroll to top on page change
 watch(currentPage, () => {
-  if (import.meta.client) window.scrollTo({ top: 0, behavior: 'smooth' })
+  if (import.meta.client) {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
 })
 </script>
