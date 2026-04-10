@@ -54,17 +54,17 @@
           <h3 class="text-white font-semibold text-lg mb-4">Contact Us</h3>
           <ul class="space-y-3">
             <li aria-label="Shanadel Eye Clinic Abuja Location" class="flex items-start gap-2 text-sm">
-              <UIcon name="i-lucide-map-pin" class="w-5 h-5 text-[#7fc540] flex-shrink-0 mt-0.5" />
+              <UIcon name="i-lucide-map-pin" class="w-5 h-5 text-[#7fc540] shrink-0 mt-0.5" />
               <span>Suite A4, Triple H Plaza, Wuye, Abuja</span>
             </li>
             <li class="flex items-center gap-2 text-sm">
-              <UIcon name="i-lucide-phone" class="w-5 h-5 text-[#7fc540] flex-shrink-0" />
+              <UIcon name="i-lucide-phone" class="w-5 h-5 text-[#7fc540] shrink-0" />
               <a aria-label="Shanadel Eye Clinic's Phone Number"  href="tel:+2349024866554" class="hover:text-[#7fc540] transition-colors duration-200">
                 +234 (902) 486-6554
               </a>
             </li>
             <li class="flex items-center gap-2 text-sm">
-              <UIcon name="i-lucide-mail" class="w-5 h-5 text-[#7fc540] flex-shrink-0" />
+              <UIcon name="i-lucide-mail" class="w-5 h-5 text-[#7fc540] shrink-0" />
               <a aria-label="Shanadel Eye Clinic's Email" href="mailto:shanadeleyeclinic@gmail.com" class="hover:text-[#7fc540] transition-colors duration-200">
                 shanadeleyeclinic@gmail.com
               </a>
@@ -78,9 +78,9 @@
           &copy; {{ currentYear }} Shanadel Eye Clinic. All rights reserved.
         </p>
         <div class="flex gap-6">
-          <p class="text-sm text-gray-400 hover:text-[#7fc540] transition-colors duration-200">
-            Powered by OPS
-          </p>
+          <a href="https://orderlyproblemsolvers.com" class="text-sm underline text-gray-400 hover:text-[#7fc540] transition-colors duration-200">
+            Powered by OPS <UIcon name="i-lucide-external-link"/>
+          </a>
         </div>
       </div>
     </div>

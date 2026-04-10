@@ -1,614 +1,125 @@
 <template>
   <div class="bg-white">
-    <section class="relative py-20 lg:py-32 overflow-hidden">
-      <div class="absolute inset-0 bg-gradient-to-br from-emerald-50 via-white to-orange-50"/>
-      <div class="absolute inset-0 opacity-10">
-        <div class="absolute top-20 left-10 w-72 h-72 bg-[#7fc540] rounded-full blur-3xl"/>
-        <div class="absolute bottom-20 right-10 w-96 h-96 bg-[#ff6900] rounded-full blur-3xl"/>
-      </div>
-      
-      <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div class="inline-flex items-center justify-center mb-6">
-          <img src="/img/shanadel-lg.webp" alt="Shanadel Eye Clinic Logo" class="h-20 w-auto">
-        </div>
-        <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-4 tracking-tight animate-slide-up">
-          Contact Shanadel Eye Clinic
-        </h1>
-        <h2 class="text-3xl md:text-4xl font-semibold bg-gradient-to-r from-[#7fc540] to-[#6ab030] bg-clip-text text-transparent mb-8 animate-slide-up-delayed">
-          Book Your Eye Exam in Abuja
-        </h2>
-        <p class="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
-          Have questions about your vision? Ready to book an appointment? 
-          <strong class="text-gray-900">Our friendly team is standing by to assist you.</strong> 
-          Reach out to us through any of the channels below.
-        </p>
-      </div>
-    </section>
 
+    <!-- Top bar -->
     <div class="w-full bg-orange-500">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
         <div class="flex flex-col md:flex-row justify-around items-center gap-4 md:gap-6 text-white">
-          <a href="tel:+2349024866554" aria-label="Call Shanadel Eye Clinic at +234 902 486 6554" class="flex items-center gap-2 font-bold hover:text-gray-100 transition-colors">
-            <UIcon name="i-lucide-phone" class="text-xl" aria-hidden="true" />
-            <span>+234 902 486 6554</span>
+          <a href="tel:+2349024866554" aria-label="Call Shanadel Eye Clinic" class="flex items-center gap-2 text-sm font-semibold hover:text-orange-100 transition-colors">
+            <UIcon name="i-lucide-phone" class="text-base" aria-hidden="true" />
+            +234 902 486 6554
           </a>
-          <a href="mailto:shanadeleyeclinic@gmail.com" aria-label="Email Shanadel Eye Clinic" class="flex items-center gap-2 font-bold hover:text-gray-100 transition-colors">
-            <UIcon name="i-lucide-mail" class="text-xl" aria-hidden="true" />
+          <a href="mailto:shanadeleyeclinic@gmail.com" aria-label="Email Shanadel Eye Clinic" class="flex items-center gap-2 text-sm font-semibold hover:text-orange-100 transition-colors">
+            <UIcon name="i-lucide-mail" class="text-base" aria-hidden="true" />
             <span class="hidden sm:inline">shanadeleyeclinic@gmail.com</span>
             <span class="sm:hidden">Email Us</span>
           </a>
-          <div class="flex items-center gap-2 font-bold">
-            <UIcon name="i-lucide-clock" class="text-xl" aria-hidden="true" />
-            <span>Mon-Fri: 8:00 AM - 6:00 PM</span>
+          <div class="flex items-center gap-2 text-sm font-semibold">
+            <UIcon name="i-lucide-clock" class="text-base" aria-hidden="true" />
+            Mon – Fri: 8:30 AM – 5:00 PM
           </div>
         </div>
       </div>
     </div>
 
-    <section class="relative bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 py-20 lg:py-32 overflow-hidden">
-      <div class="absolute top-0 left-0 w-96 h-96 bg-[#7fc540]/10 rounded-full blur-3xl animate-float"/>
-      <div class="absolute bottom-0 right-0 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl animate-float-delayed"/>
-      <div class="absolute inset-0 opacity-5">
-        <div class="absolute inset-0 bg-[repeating-linear-gradient(45deg,transparent,transparent_10px,rgba(127,197,64,0.3)_10px,rgba(127,197,64,0.3)_20px)]"/>
-      </div>
-      
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        <div class="text-center mb-12 animate-fade-in-up">
-          <h2 class="text-3xl md:text-4xl font-bold text-white mb-3">
-            Schedule Your Appointment
-          </h2>
-          <p class="text-gray-400 max-w-2xl mx-auto">
-            Book a visit with Dr. Alabegbe and our expert optometry team
-          </p>
-        </div>
+    <!-- Booking form -->
+    <HomeAppointment />
 
-        <div class="grid lg:grid-cols-3 gap-8">
-          
-          <div class="lg:col-span-2">
-            <div class="bg-white/5 backdrop-blur-sm rounded-3xl p-8 md:p-10 shadow-2xl border border-white/10 animate-fade-in-up">
-              
-              <form class="space-y-6" @submit.prevent="handleSubmit">
-                <div class="grid md:grid-cols-2 gap-6">
-                  <div class="group">
-                    <label for="fullName" class="block text-white text-sm font-medium mb-2 flex items-center gap-2">
-                      <UIcon name="i-lucide-user" class="text-[#7fc540]" aria-hidden="true" />
-                      Full Name *
-                    </label>
-                    <input
-                      id="fullName"
-                      v-model="formData.name"
-                      type="text"
-                      required
-                      class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-[#7fc540] focus:ring-2 focus:ring-[#7fc540]/20 focus:bg-white/15 transition-all"
-                      placeholder="John Doe"
-                    >
-                  </div>
-
-                  <div class="group">
-                    <label for="phoneNumber" class="block text-white text-sm font-medium mb-2 flex items-center gap-2">
-                      <UIcon name="i-lucide-phone" class="text-[#7fc540]" aria-hidden="true" />
-                      Phone Number *
-                    </label>
-                    <input
-                      id="phoneNumber"
-                      v-model="formData.phone"
-                      type="tel"
-                      required
-                      class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-[#7fc540] focus:ring-2 focus:ring-[#7fc540]/20 focus:bg-white/15 transition-all"
-                      placeholder="+234 800 000 0000"
-                    >
-                  </div>
-                </div>
-
-                <div class="group">
-                  <label for="emailAddress" class="block text-white text-sm font-medium mb-2 flex items-center gap-2">
-                    <UIcon name="i-lucide-mail" class="text-[#7fc540]" aria-hidden="true" />
-                    Email Address
-                  </label>
-                  <input
-                    id="emailAddress"
-                    v-model="formData.email"
-                    type="email"
-                    class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-[#7fc540] focus:ring-2 focus:ring-[#7fc540]/20 focus:bg-white/15 transition-all"
-                    placeholder="john@example.com"
-                  >
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-6">
-                  <div class="group">
-                    <label for="serviceSelect" class="block text-white text-sm font-medium mb-2 flex items-center gap-2">
-                      <UIcon name="i-lucide-stethoscope" class="text-[#7fc540]" aria-hidden="true" />
-                      Select Service *
-                    </label>
-                    <select
-                      id="serviceSelect"
-                      v-model="formData.service"
-                      required
-                      class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white focus:outline-none focus:border-[#7fc540] focus:ring-2 focus:ring-[#7fc540]/20 focus:bg-white/15 transition-all appearance-none cursor-pointer"
-                    >
-                      <option value="" disabled class="text-gray-900">Choose a service</option>
-                      <option value="Eye Examination" class="text-gray-900">Comprehensive Eye Examination</option>
-                      <option value="Cataract Treatment" class="text-gray-900">Cataract Treatment</option>
-                      <option value="Glaucoma Management" class="text-gray-900">Glaucoma Management</option>
-                      <option value="Vision Correction" class="text-gray-900">Vision Correction</option>
-                      <option value="Frames & Lenses" class="text-gray-900">Frames & Lenses Selection</option>
-                      <option value="Community Health" class="text-gray-900">Community Eye Health</option>
-                      <option value="Other" class="text-gray-900">Other / Not Sure</option>
-                    </select>
-                  </div>
-
-                  <div class="group">
-                    <label for="preferredDate" class="block text-white text-sm font-medium mb-2 flex items-center gap-2">
-                      <UIcon name="i-lucide-calendar-days" class="text-[#7fc540]" aria-hidden="true" />
-                      Preferred Date *
-                    </label>
-                    <input
-                      id="preferredDate"
-                      v-model="formData.date"
-                      type="date"
-                      required
-                      :min="minDate"
-                      class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white focus:outline-none focus:border-[#7fc540] focus:ring-2 focus:ring-[#7fc540]/20 focus:bg-white/15 transition-all"
-                    >
-                  </div>
-                </div>
-
-                <div class="group">
-                  <label class="block text-white text-sm font-medium mb-2 flex items-center gap-2">
-                    <UIcon name="i-lucide-clock" class="text-[#7fc540]" aria-hidden="true" />
-                    Preferred Time *
-                  </label>
-                  <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                    <button
-                      v-for="time in timeSlots"
-                      :key="time"
-                      type="button"
-                      :class="[
-                        'px-4 py-3 rounded-xl border-2 transition-all duration-300 font-medium',
-                        formData.time === time
-                        ? 'bg-[#7fc540] border-[#7fc540] text-white shadow-lg shadow-[#7fc540]/30'
-                        : 'bg-white/10 border-white/20 text-white hover:border-[#7fc540]/50 hover:bg-white/15'
-                      ]"
-                      @click="formData.time = time"
-                    >
-                      {{ time }}
-                    </button>
-                  </div>
-                </div>
-
-                <div class="group">
-                  <label class="block text-white text-sm font-medium mb-2 flex items-center gap-2">
-                    <UIcon name="i-lucide-map-pin" class="text-[#7fc540]" aria-hidden="true" />
-                    Preferred Location *
-                  </label>
-                  <div class="grid md:grid-cols-2 gap-4">
-                    <button
-                      v-for="location in locations"
-                      :key="location.name"
-                      type="button"
-                      :class="[
-                        'text-left p-4 rounded-xl border-2 transition-all duration-300',
-                        formData.location === location.name
-                        ? 'bg-[#7fc540] border-[#7fc540] text-white shadow-lg shadow-[#7fc540]/30'
-                        : 'bg-white/10 border-white/20 text-white hover:border-[#7fc540]/50 hover:bg-white/15'
-                      ]"
-                      @click="formData.location = location.name"
-                    >
-                      <div class="flex items-start gap-3">
-                        <div 
-                        :class="[
-                          'w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all mt-1',
-                          formData.location === location.name
-                            ? 'border-white bg-white'
-                            : 'border-gray-300'
-                        ]">
-                          <div v-if="formData.location === location.name" class="w-2.5 h-2.5 bg-[#7fc540] rounded-full"></div>
-                        </div>
-                        <div>
-                          <h4 class="font-semibold mb-1">{{ location.name }}</h4>
-                          <p class="text-sm opacity-90">{{ location.address }}</p>
-                        </div>
-                      </div>
-                    </button>
-                  </div>
-                </div>
-
-                <div class="group">
-                  <label for="additionalNotes" class="block text-white text-sm font-medium mb-2 flex items-center gap-2">
-                    <UIcon name="i-lucide-message-square" class="text-[#7fc540]" aria-hidden="true" />
-                    Additional Notes
-                  </label>
-                  <textarea
-                    id="additionalNotes"
-                    v-model="formData.message"
-                    rows="4"
-                    class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-[#7fc540] focus:ring-2 focus:ring-[#7fc540]/20 focus:bg-white/15 transition-all resize-none"
-                    placeholder="Tell us about any specific concerns, symptoms, or questions you have..."
-                  ></textarea>
-                </div>
-
-                <div class="flex items-start gap-3">
-                  <input
-                    v-model="formData.agreeToTerms"
-                    type="checkbox"
-                    id="terms"
-                    required
-                    class="mt-1 w-5 h-5 rounded border-white/20 bg-white/10 text-[#7fc540] focus:ring-[#7fc540] focus:ring-2"
-                  />
-                  <label for="terms" class="text-sm text-gray-300 leading-relaxed">
-                    I agree to the <a href="/privacy" class="text-[#7fc540] hover:text-[#6ab030] underline">privacy policy</a> and consent to being contacted regarding my appointment.
-                  </label>
-                </div>
-
-                <button
-                  type="submit"
-                  :disabled="!isFormValid"
-                  :class="[
-                    'group relative w-full px-8 py-5 text-white font-semibold text-lg rounded-xl transition-all duration-300 transform shadow-lg overflow-hidden',
-                    isFormValid
-                      ? 'bg-gradient-to-r from-[#7fc540] to-[#6ab030] hover:scale-105 hover:shadow-2xl hover:shadow-[#7fc540]/30'
-                      : 'bg-gray-600 cursor-not-allowed opacity-50'
-                  ]"
-                >
-                  <span class="relative z-10 flex items-center justify-center gap-2">
-                    <UIcon name="i-lucide-calendar-check" :class="isFormValid ? 'group-hover:rotate-12 transition-transform' : ''" aria-hidden="true" />
-                    {{ submitting ? 'Submitting...' : 'Book Appointment' }}
-                  </span>
-                  <div v-if="isFormValid" class="absolute inset-0 bg-gradient-to-r from-[#6ab030] to-[#7fc540] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </button>
-
-                <div v-if="showSuccess" class="p-4 bg-[#7fc540]/20 border border-[#7fc540]/30 rounded-xl flex items-start gap-3 animate-fade-in">
-                  <UIcon name="i-lucide-check-circle" class="text-[#7fc540] text-xl flex-shrink-0 mt-0.5" aria-hidden="true" />
-                  <div>
-                    <h4 class="text-white font-semibold mb-1">Appointment Request Received!</h4>
-                    <p class="text-gray-300 text-sm">We'll contact you within 24 hours to confirm your appointment details.</p>
-                  </div>
-                </div>
-                <div v-if="showError" class="p-4 bg-red-500/20 border border-red-500/30 rounded-xl flex items-start gap-3 animate-fade-in">
-                  <UIcon name="i-lucide-alert-triangle" class="text-red-500 text-xl flex-shrink-0 mt-0.5" aria-hidden="true" />
-                  <div>
-                    <h4 class="text-white font-semibold mb-1">Submission Failed</h4>
-                    <p class="text-gray-300 text-sm">{{ showError }}</p>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-
-          <div class="lg:col-span-1 space-y-6">
-            
-            <div class="bg-white/5 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/10 hover:border-white/20 transition-all duration-300 animate-fade-in-up" style="animation-delay: 200ms">
-              <h4 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
-                <div class="p-2 bg-[#7fc540]/20 rounded-lg">
-                  <UIcon name="i-lucide-phone-call" class="text-[#7fc540]" aria-hidden="true" />
-                </div>
-                Need Help?
-              </h4>
-              
-              <div class="space-y-4">
-                <div class="group">
-                  <p class="text-sm text-gray-400 mb-2">Call us directly</p>
-                  <a href="tel:+2349024866554" class="flex items-center gap-3 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-all border border-white/10 hover:border-[#7fc540]/30">
-                    <div class="p-2 bg-[#7fc540]/20 rounded-lg">
-                      <UIcon name="i-lucide-phone" class="text-[#7fc540]" aria-hidden="true" />
-                    </div>
-                    <div>
-                      <p class="font-semibold text-white">+234 902 486 6554</p>
-                      <p class="text-sm text-gray-400">Mon-Fri, 8AM-6PM</p>
-                    </div>
-                  </a>
-                </div>
-
-                <div class="group">
-                  <p class="text-sm text-gray-400 mb-2">Email us</p>
-                  <a href="mailto:shanadeleyeclinic@gmail.com" class="flex items-center gap-3 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-all border border-white/10 hover:border-[#7fc540]/30">
-                    <div class="p-2 bg-[#7fc540]/20 rounded-lg">
-                      <UIcon name="i-lucide-mail" class="text-[#7fc540]" aria-hidden="true" />
-                    </div>
-                    <div>
-                      <p class="font-semibold text-white">shanadeleyeclinic@gmail.com</p>
-                      <p class="text-sm text-gray-400">We reply within 24hrs</p>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div class="bg-white/5 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/10 hover:border-white/20 transition-all duration-300 animate-fade-in-up" style="animation-delay: 400ms">
-              <h4 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
-                <div class="p-2 bg-[#7fc540]/20 rounded-lg">
-                  <UIcon name="i-lucide-clock" class="text-[#7fc540]" aria-hidden="true" />
-                </div>
-                Office Hours
-              </h4>
-              <div class="space-y-3">
-                <div class="flex justify-between items-center text-sm p-3 bg-white/5 rounded-xl">
-                  <span class="text-gray-300 font-medium">Mon, Tue, Thu, Fri</span>
-                  <span class="text-white font-semibold">8:00 AM - 6:00 PM</span>
-                </div>
-                <div class="flex justify-between items-center text-sm p-3 bg-white/5 rounded-xl">
-                  <span class="text-gray-300 font-medium">Wednesday</span>
-                  <span class="text-white font-semibold">8:00 AM - 5:00 PM</span>
-                </div>
-                <div class="flex justify-between items-center text-sm p-3 bg-white/5 rounded-xl">
-                  <span class="text-gray-300 font-medium">Saturday</span>
-                  <span class="text-white font-semibold">8:30 AM - 4:30 PM</span>
-                </div>
-                <div class="flex justify-between items-center text-sm p-3 bg-white/5 rounded-xl">
-                  <span class="text-gray-300 font-medium">Sunday</span>
-                  <span class="text-red-500 font-semibold">Strictly on appointment</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="bg-white/5 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/10 hover:border-white/20 transition-all duration-300 animate-fade-in-up" style="animation-delay: 600ms">
-              <h4 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
-                <div class="p-2 bg-[#7fc540]/20 rounded-lg">
-                  <UIcon name="i-lucide-info" class="text-[#7fc540]" aria-hidden="true" />
-                </div>
-                What to Expect
-              </h4>
-              <div class="space-y-4">
-                <div class="flex items-start gap-3 group">
-                  <div class="p-2 bg-[#7fc540]/20 rounded-lg flex-shrink-0 group-hover:bg-[#7fc540]/30 transition-colors">
-                    <UIcon name="i-lucide-check-circle-2" class="text-[#7fc540]" aria-hidden="true" />
-                  </div>
-                  <div>
-                    <h5 class="font-semibold text-white mb-1">Comprehensive Exam</h5>
-                    <p class="text-sm text-gray-400">45-60 minute thorough eye examination</p>
-                  </div>
-                </div>
-                <div class="flex items-start gap-3 group">
-                  <div class="p-2 bg-[#7fc540]/20 rounded-lg flex-shrink-0 group-hover:bg-[#7fc540]/30 transition-colors">
-                    <UIcon name="i-lucide-check-circle-2" class="text-[#7fc540]" aria-hidden="true" />
-                  </div>
-                  <div>
-                    <h5 class="font-semibold text-white mb-1">Expert Consultation</h5>
-                    <p class="text-sm text-gray-400">Personalized care from Dr. Alabegbe</p>
-                  </div>
-                </div>
-                <div class="flex items-start gap-3 group">
-                  <div class="p-2 bg-[#7fc540]/20 rounded-lg flex-shrink-0 group-hover:bg-[#7fc540]/30 transition-colors">
-                    <UIcon name="i-lucide-check-circle-2" class="text-[#7fc540]" aria-hidden="true" />
-                  </div>
-                  <div>
-                    <h5 class="font-semibold text-white mb-1">Clear Next Steps</h5>
-                    <p class="text-sm text-gray-400">Detailed treatment plan and recommendations</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </section>
-
+    <!-- FAQ -->
     <section class="relative w-full py-16 lg:py-24">
       <div class="absolute inset-0 z-0">
-        <img src="/img/consult.webp" alt="Shanadel Eye Clinic interior" class="w-full h-full object-cover">
+        <img src="/img/consult.webp" alt="Shanadely Eye Clinic interior" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-gray-900/80" />
       </div>
 
       <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-3xl mx-auto mb-12 lg:mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
-            Frequently Asked Questions
-          </h2>
-          <p class="text-lg text-gray-200">
-            Quick answers to common questions about our services
-          </p>
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 border border-white/15 rounded-full text-xs font-medium text-gray-300 mb-4">
+            <span class="w-1.5 h-1.5 bg-[#7fc540] rounded-full" />
+            Common Questions
+          </span>
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-3">Frequently Asked Questions</h2>
+          <p class="text-sm text-gray-400">Quick answers to common questions about our services.</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          <div class="bg-white/5 backdrop-blur-sm p-6 lg:p-8 rounded-xl shadow-lg border border-white/10 transition-all duration-300 hover:border-[#7fc540] hover:bg-white/10">
-            <div class="mb-4">
-              <UIcon name="i-lucide-help-circle" class="text-4xl text-[#7fc540]" aria-hidden="true" />
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
+          <div
+            v-for="faq in faqs"
+            :key="faq.question"
+            class="bg-white/5 backdrop-blur-sm p-6 rounded-2xl border border-white/10 transition-all duration-300 hover:border-[#7fc540]/50 hover:bg-white/8"
+          >
+            <div class="w-10 h-10 rounded-xl bg-[#7fc540]/15 flex items-center justify-center mb-4">
+              <UIcon :name="faq.icon" class="text-[#7fc540] text-lg" aria-hidden="true" />
             </div>
-            <h3 class="text-xl font-semibold text-white mb-3">
-              How often should I have an eye test?
-            </h3>
-            <p class="text-gray-300 text-sm">
-              We recommend having a comprehensive eye examination at least once every 12-24 months, depending on your age and any existing conditions.
-            </p>
-          </div>
-
-          <div class="bg-white/5 backdrop-blur-sm p-6 lg:p-8 rounded-xl shadow-lg border border-white/10 transition-all duration-300 hover:border-[#7fc540] hover:bg-white/10">
-            <div class="mb-4">
-              <UIcon name="i-lucide-smile" class="text-4xl text-[#7fc540]" aria-hidden="true" />
-            </div>
-            <h3 class="text-xl font-semibold text-white mb-3">
-              Do you treat children?
-            </h3>
-            <p class="text-gray-300 text-sm">
-              Yes! We offer gentle, specialized pediatric eye care for kids of all ages in a comfortable, child-friendly environment.
-            </p>
-          </div>
-
-          <div class="bg-white/5 backdrop-blur-sm p-6 lg:p-8 rounded-xl shadow-lg border border-white/10 transition-all duration-300 hover:border-[#7fc540] hover:bg-white/10">
-            <div class="mb-4">
-              <UIcon name="i-lucide-shield-check" class="text-4xl text-[#7fc540]" aria-hidden="true" />
-            </div>
-            <h3 class="text-xl font-semibold text-white mb-3">
-              Can I use my NHIS or health insurance?
-            </h3>
-            <p class="text-gray-300 text-sm">
-              Absolutely. We are NHIS-approved and accept various insurance plans. Please bring your insurance card for verification.
-            </p>
+            <h3 class="text-base font-semibold text-white mb-2 leading-snug">{{ faq.question }}</h3>
+            <p class="text-sm text-gray-400 leading-relaxed">{{ faq.answer }}</p>
           </div>
         </div>
       </div>
     </section>
+
   </div>
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
-
-// 1. Existing OgImage setup
 defineOgImageComponent('InfoPages', {
-  title:'Contact & Appointments | Shanadel Eye Clinic'
+  title: 'Contact & Appointments | Shanadely Eye Clinic'
 })
 
-// 2. SEO Meta Tags for Search Engines
 useSeoMeta({
-  title: 'Contact Shanadel Eye Clinic | Book an Eye Exam in Abuja',
-  description: 'Book an appointment at Shanadel Eye Clinic in Wuye, Abuja. Schedule a comprehensive eye exam with Dr. Alabegbe, ask questions, or inquire about NHIS coverage.',
+  title: 'Contact Shanadely Eye Clinic | Book an Eye Exam in Abuja',
+  description: 'Book an appointment at Shanadely Eye Clinic in Wuye, Abuja. Schedule a comprehensive eye exam with Dr. Alabegbe, ask questions, or inquire about NHIS coverage.',
   keywords: 'eye clinic Abuja, optometrist near me, book eye exam Abuja, eye doctor Wuye, Shanadel eye clinic contact',
-  ogTitle: 'Book an Appointment | Shanadel Eye Clinic Abuja',
+  ogTitle: 'Book an Appointment | Shanadely Eye Clinic Abuja',
   ogDescription: 'Contact us today to schedule your comprehensive eye examination or pediatric vision screening.',
   ogType: 'website',
 })
 
-// 3. LocalBusiness & MedicalClinic Structured Data (Crucial for Local SEO / Maps)
 useHead({
   script: [
     {
       type: 'application/ld+json',
       innerHTML: JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": ["MedicalClinic", "LocalBusiness"],
-        "name": "Shanadel Eye Clinic",
-        "description": "Premium eye care services, optometry, and optical dispensing in Abuja.",
-        "url": "https://shanadeleyeclinicltd.com.ng/contact", // UPDATE WITH ACTUAL URL
-        "telephone": "+2349024866554",
-        "email": "shanadeleyeclinic@gmail.com",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Suite A4, Triple H Plaza, Wuye",
-          "addressLocality": "Abuja",
-          "addressRegion": "FCT",
-          "addressCountry": "NG"
+        '@context': 'https://schema.org',
+        '@type': ['MedicalClinic', 'LocalBusiness'],
+        name: 'Shanadely Eye Clinic',
+        description: 'Premium eye care services, optometry, and optical dispensing in Abuja.',
+        url: 'https://shanadeleyeclinicltd.com.ng/contact',
+        telephone: '+2349024866554',
+        email: 'shanadeleyeclinic@gmail.com',
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: 'Suite A4, Triple H Plaza, Wuye',
+          addressLocality: 'Abuja',
+          addressRegion: 'FCT',
+          addressCountry: 'NG',
         },
-        // "geo": {
-        //   "@type": "GeoCoordinates",
-        //   "latitude": "9.0558", // Optional: Update with exact Wuye coordinates if available
-        //   "longitude": "7.4526"
-        // },
-        "openingHoursSpecification": [
-          {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday", "Tuesday", "Thursday", "Friday"],
-            "opens": "08:00",
-            "closes": "18:00"
-          },
-          {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": "Wednesday",
-            "opens": "08:00",
-            "closes": "17:00"
-          },
-          {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": "Saturday",
-            "opens": "08:30",
-            "closes": "16:30"
-          }
+        openingHoursSpecification: [
+          { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Thursday', 'Friday'], opens: '08:30', closes: '17:00' },
+          { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Wednesday', opens: '08:30', closes: '16:30' },
+          { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Saturday', opens: '09:00', closes: '15:00' },
         ],
-        "acceptsReservations": "True"
-      })
-    }
-  ]
+        acceptsReservations: 'True',
+      }),
+    },
+  ],
 })
 
-// Get the Supabase client
-const client = useSupabaseClient();
-
-const formData = ref({
-  name: "",
-  phone: "",
-  email: "",
-  service: "",
-  date: "",
-  time: "",
-  location: "",
-  message: "",
-  agreeToTerms: false,
-});
-
-const submitting = ref(false);
-const showSuccess = ref(false);
-const showError = ref(""); 
-
-const timeSlots = ["Morning", "Afternoon", "Evening", "Flexible"];
-
-const locations = [
+const faqs = [
   {
-    name: "Abuja Office",
-    address: "Suite A4, Triple H Plaza, Wuye, Abuja",
+    icon: 'i-lucide-help-circle',
+    question: 'How often should I have an eye test?',
+    answer: 'We recommend a comprehensive eye examination at least once every 12–24 months, depending on your age and any existing conditions.',
   },
   {
-    name: "Online Consultation",
-    address: "Virtual Appointment via Video Call",
+    icon: 'i-lucide-smile',
+    question: 'Do you treat children?',
+    answer: 'Yes! We offer gentle, specialised pediatric eye care for kids of all ages in a comfortable, child-friendly environment.',
   },
-];
-
-const minDate = computed(() => {
-  const today = new Date();
-  return today.toISOString().split("T")[0];
-});
-
-const isFormValid = computed(() => {
-  return (
-    formData.value.name &&
-    formData.value.phone &&
-    formData.value.service &&
-    formData.value.date &&
-    formData.value.time &&
-    formData.value.location &&
-    formData.value.agreeToTerms
-  );
-});
-
-async function handleSubmit() {
-  if (!isFormValid.value) return;
-
-  submitting.value = true;
-  showError.value = "";
-  showSuccess.value = false;
-
-  const appointmentData = {
-    name: formData.value.name,
-    phone: formData.value.phone,
-    email: formData.value.email || null,
-    service: formData.value.service,
-    preferred_date: formData.value.date,
-    preferred_time: formData.value.time,
-    location: formData.value.location,
-    message: formData.value.message || null,
-    status: "pending", 
-  };
-
-  try {
-    const { error } = await client.from("appointments").insert(appointmentData);
-
-    if (error) {
-      throw error;
-    }
-
-    showSuccess.value = true;
-
-    formData.value = {
-      name: "",
-      phone: "",
-      email: "",
-      service: "",
-      date: "",
-      time: "",
-      location: "",
-      message: "",
-      agreeToTerms: false,
-    };
-
-    setTimeout(() => {
-      showSuccess.value = false;
-    }, 5000);
-  } catch (error) {
-    console.error("Error submitting appointment:", error.message);
-    showError.value = `Failed to submit appointment: ${error.message}. Please try again.`;
-  } finally {
-    submitting.value = false;
-  }
-}
+  {
+    icon: 'i-lucide-shield-check',
+    question: 'Can I use my NHIS or health insurance?',
+    answer: 'Absolutely. We are NHIS-approved and accept various insurance plans. Please bring your insurance card for verification.',
+  },
+]
 </script>

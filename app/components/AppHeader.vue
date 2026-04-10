@@ -7,7 +7,7 @@
     <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-20">
         <!-- Logo -->
-        <NuxtLink to="/" class="flex items-center flex-shrink-0">
+        <NuxtLink to="/" class="flex items-center shrink-0">
           <NuxtImg
             src="/img/shanadel-lg.webp"
             alt="Shanadel Eye Clinic"
@@ -24,9 +24,9 @@
               v-if="!link.hasDropdown"
               :to="link.to"
               :class="[
-                'text-base font-medium transition-colors duration-200 text-gray-700 hover:text-[#7fc540]',
+                'text-base font-medium transition-colors duration-200',
               ]"
-              active-class="text-white hover:text-white bg-[#7fc540] h-full p-5 font-semibold"
+              active-class="text-[#7fc540]  h-full font-semibold"
             >
               {{ link.label }}
             </NuxtLink>
@@ -74,7 +74,7 @@
                         :to="service.to"
                         class="flex items-start gap-3 px-2 py-2.5 rounded-md hover:bg-gray-50 transition-colors group"
                       >
-                        <div class="bg-[#7fc540]/10 p-2 rounded-lg mt-0.5 group-hover:bg-[#7fc540]/20 transition-colors flex-shrink-0">
+                        <div class="bg-[#7fc540]/10 p-2 rounded-lg mt-0.5 group-hover:bg-[#7fc540]/20 transition-colors shrink-0">
                           <svg class="w-4 h-4 text-[#7fc540]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                           </svg>
@@ -101,7 +101,7 @@
                         :to="condition.to"
                         class="flex items-start gap-3 px-2 py-2.5 rounded-md hover:bg-gray-50 transition-colors group"
                       >
-                        <div class="bg-orange-500/10 p-2 rounded-lg mt-0.5 group-hover:bg-orange-500/20 transition-colors flex-shrink-0">
+                        <div class="bg-orange-500/10 p-2 rounded-lg mt-0.5 group-hover:bg-orange-500/20 transition-colors shrink-0">
                           <svg class="w-4 h-4 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                           </svg>

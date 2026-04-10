@@ -1,26 +1,5 @@
 <template>
   <div class="bg-white">
-    <section class="relative py-12 sm:py-16 md:py-20 lg:py-32 overflow-hidden md:mt-6 lg:mt-6 mt-10">
-      <div class="absolute inset-0 bg-gradient-to-br from-emerald-50 via-white to-orange-50" />
-      <div class="absolute inset-0 opacity-10">
-        <div class="absolute top-10 sm:top-20 left-5 sm:left-10 w-48 sm:w-72 h-48 sm:h-72 bg-[#7fc540] rounded-full blur-3xl animate-float" />
-        <div class="absolute bottom-10 sm:bottom-20 right-5 sm:right-10 w-64 sm:w-96 h-64 sm:h-96 bg-[#ff6900] rounded-full blur-3xl animate-float-delayed" />
-      </div>
-
-      <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div class="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-white rounded-full mb-4 sm:mb-6 shadow-lg">
-          <span class="text-[#7fc540] font-semibold text-xs sm:text-sm">Complete Eye Care Solutions</span>
-        </div>
-        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 tracking-tight animate-slide-up">
-          Services at Shanadel Eye Clinic
-        </h1>
-        <p class="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto animate-slide-up-delayed">
-          From routine exams to specialized treatments, <strong>Shanadel Eye Clinic</strong> provides complete,
-          compassionate eye care for your entire family. Every service is
-          tailored to your unique vision needs here in Lagos.
-        </p>
-      </div>
-    </section>
 
     <section class="py-12 sm:py-16 md:py-20 lg:py-28">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

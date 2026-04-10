@@ -1,108 +1,117 @@
 <template>
-  <section class="bg-white py-16 lg:py-24">
+  <section class="bg-gray-50 py-16 lg:py-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-3xl mx-auto mb-12 lg:mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+
+      <!-- Header -->
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 bg-[#7fc540]/10 border border-[#7fc540]/20 rounded-full text-xs font-medium text-gray-600 mb-4">
+          <span class="w-1.5 h-1.5 bg-[#7fc540] rounded-full"></span>
+          From Our Blog
+        </span>
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
           See. Learn. Live Better.
         </h2>
-        <p class="text-lg text-gray-600">
-          Expert insights, simple explanations, and real-world tips to help you understand and protect your vision.
+        <p class="text-base text-gray-500 leading-relaxed">
+          Expert insights and real-world tips to help you understand and protect your vision.
         </p>
       </div>
 
-      <!-- Loading State -->
-      <div v-if="loading" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div v-for="i in 3" :key="i" class="animate-pulse">
-          <div class="bg-gray-200 rounded-xl h-80"></div>
+      <!-- Loading -->
+      <div v-if="status === 'pending'" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div v-for="i in 3" :key="i" class="animate-pulse bg-white rounded-2xl overflow-hidden border border-gray-100">
+          <div class="bg-gray-200 h-48 w-full" />
+          <div class="p-5 space-y-3">
+            <div class="h-3 bg-gray-200 rounded w-1/4" />
+            <div class="h-4 bg-gray-200 rounded w-3/4" />
+            <div class="h-4 bg-gray-200 rounded w-1/2" />
+            <div class="space-y-2 pt-1">
+              <div class="h-3 bg-gray-100 rounded" />
+              <div class="h-3 bg-gray-100 rounded w-5/6" />
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Error State -->
-      <div v-else-if="error" class="text-center py-12">
-        <p class="text-red-600">{{ error }}</p>
+      <!-- Error -->
+      <div v-else-if="error" class="text-center py-16">
+        <div class="inline-flex items-center gap-2 px-4 py-2.5 bg-red-50 border border-red-100 rounded-xl text-sm text-red-600">
+          <UIcon name="i-lucide-alert-circle" class="text-sm" />
+          Failed to load posts. Please try again later.
+        </div>
       </div>
 
-      <!-- Posts Grid -->
-      <div v-else-if="posts.length > 0" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <NuxtLink 
-          v-for="post in posts" 
-          :key="post.id" 
+      <!-- Posts grid -->
+      <div v-else-if="posts && posts.length > 0" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <NuxtLink
+          v-for="post in posts"
+          :key="post.id"
           :to="'/blog/' + post.slug"
           class="group block"
         >
-          <article class="bg-white rounded-xl shadow-lg overflow-hidden h-full flex flex-col transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
-            <div class="w-full h-48 overflow-hidden">
-              <img 
-                :src="post.image" 
-                :alt="post.title" 
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              >
+          <article class="bg-white rounded-2xl border border-gray-100 overflow-hidden h-full flex flex-col transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
+
+            <!-- Image -->
+            <div class="w-full h-44 overflow-hidden bg-gray-100 shrink-0">
+              <img
+                :src="post.image"
+                :alt="post.title"
+                class="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-500"
+              />
             </div>
-            
-            <div class="p-6 flex-grow flex flex-col">
-              <span class="text-sm font-semibold mb-2" style="color: #ff6900">
+
+            <!-- Content -->
+            <div class="p-5 flex flex-col grow gap-2">
+              <span class="text-xs font-semibold text-orange-500">
                 {{ post.category }}
               </span>
-              
-              <h3 class="text-xl font-semibold text-gray-900 mb-3 group-hover:text-[#7fc540] transition-colors duration-200 line-clamp-2">
+
+              <h3 class="text-base font-semibold text-gray-900 group-hover:text-[#7fc540] transition-colors duration-200 line-clamp-2 leading-snug">
                 {{ post.title }}
               </h3>
-              
-              <p class="text-gray-600 text-sm leading-relaxed mb-4 flex-grow line-clamp-3">
-                {{ truncateExcerpt(post.excerpt) }}
+
+              <p class="text-sm text-gray-500 leading-relaxed line-clamp-3 grow">
+                {{ post.excerpt }}
               </p>
-              
-              <span class="font-semibold text-[#7fc540] group-hover:text-[#6ab030] transition-colors duration-200">
-                Read More &rarr;
+
+              <span class="inline-flex items-center gap-1 text-sm font-medium text-[#7fc540] group-hover:text-[#6ab030] transition-colors duration-200 mt-1">
+                Read more
+                <UIcon name="i-lucide-arrow-right" class="text-xs group-hover:translate-x-0.5 transition-transform" />
               </span>
             </div>
           </article>
         </NuxtLink>
       </div>
 
-      <!-- Empty State -->
-      <div v-else class="text-center py-12">
-        <p class="text-gray-600 text-lg">No blog posts available yet.</p>
+      <!-- Empty -->
+      <div v-else class="text-center py-16">
+        <p class="text-sm text-gray-400">No blog posts published yet. Check back soon.</p>
       </div>
 
-      <!-- CTA Button -->
-      <div v-if="posts.length > 0" class="text-center mt-16">
+      <!-- CTA -->
+      <div v-if="posts && posts.length > 0" class="text-center mt-12">
         <NuxtLink
           to="/blog"
-          class="inline-block px-8 py-4 bg-[#7fc540] hover:bg-[#6ab030] text-white font-semibold transition-all duration-200 transform hover:scale-105 shadow-lg text-base md:text-lg rounded-lg"
+          class="group inline-flex items-center gap-2 px-7 py-3.5 bg-[#7fc540] hover:bg-[#6ab030] text-white text-sm font-semibold rounded-xl transition-all duration-200 hover:scale-[1.02] shadow-sm hover:shadow-md"
         >
-          Read More on Our Blog
+          View All Articles
+          <UIcon name="i-lucide-arrow-right" class="text-xs group-hover:translate-x-0.5 transition-transform" />
         </NuxtLink>
       </div>
+
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
+import type { Post } from '~/app/types/blog'
+
 const { getPublishedPosts } = useBlog()
-import type{Post} from '~/app/types/blog'
 
-const posts = ref<Post[]>([])
-const loading = ref(true)
-const error = ref('')
-
-// Truncate excerpt to max 150 characters
-const truncateExcerpt = (text: string, maxLength: number = 150): string => {
-  if (!text) return ''
-  if (text.length <= maxLength) return text
-  return text.substring(0, maxLength).trim() + '...'
-}
-
-onMounted(async () => {
-  try {
-    posts.value = await getPublishedPosts(3) // Get latest 3 posts
-  } catch (err: any) {
-    error.value = 'Failed to load blog posts'
-    console.error(err)
-  } finally {
-    loading.value = false
-  }
-})
+const { data: posts, status, error } = await useAsyncData<Post[]>(
+  'home-blog-posts',
+  () => getPublishedPosts(3),
+  { default: () => [] }
+)
 </script>
 
 <style scoped>
@@ -112,7 +121,6 @@ onMounted(async () => {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-
 .line-clamp-3 {
   display: -webkit-box;
   -webkit-line-clamp: 3;

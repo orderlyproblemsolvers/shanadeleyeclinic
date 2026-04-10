@@ -1,8 +1,8 @@
 <template>
   <main class="overflow-x-hidden">
     <HomeHero />
-    <HomeServices />
     <HomeAbout />
+    <HomeServices />
     <HomeQuiz />
     <HomeAppointment />
     <HomeBlog />
@@ -62,20 +62,20 @@ useHead({
         },
         "geo": {
           "@type": "GeoCoordinates",
-          "latitude": "9.0558", // Update with exact coordinates if needed
+          "latitude": "9.0558", 
           "longitude": "7.4526"
         },
         "openingHoursSpecification": [
           {
             "@type": "OpeningHoursSpecification",
             "dayOfWeek": ["Monday", "Tuesday", "Thursday", "Friday"],
-            "opens": "08:00",
-            "closes": "18:00"
+            "opens": "08:30",
+            "closes": "17:00"
           },
           {
             "@type": "OpeningHoursSpecification",
             "dayOfWeek": "Wednesday",
-            "opens": "08:00",
+            "opens": "08:30",
             "closes": "17:00"
           },
           {
