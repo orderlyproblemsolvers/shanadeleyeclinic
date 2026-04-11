@@ -1,7 +1,7 @@
 <template>
   <section id="services-section" class="relative w-full py-16 lg:py-24">
     <div class="absolute inset-0 z-0">
-      <img src="/img/consult.webp" alt="Shanadely Eye Clinic interior" class="w-full h-full object-cover" />
+      <img src="/img/consult.webp" alt="Shanadel Eye Clinic interior" class="w-full h-full object-cover" />
       <div class="absolute inset-0 bg-gray-950/85" />
     </div>
 
@@ -128,8 +128,6 @@ const services = [
   'Digital Eye Strain Solutions',
   'Allergy & Infection Treatment',
   'Specialized Procedures',
-  'Ocular Imaging & Visual Field Testing',
-  'Low Vision Rehabilitation',
   'Outreach & Community Vision Programs',
 ]
 </script>

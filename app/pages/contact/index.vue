@@ -28,7 +28,7 @@
     <!-- FAQ -->
     <section class="relative w-full py-16 lg:py-24">
       <div class="absolute inset-0 z-0">
-        <img src="/img/consult.webp" alt="Shanadely Eye Clinic interior" class="w-full h-full object-cover" />
+        <img src="/img/consult.webp" alt="Shanadel Eye Clinic interior" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-gray-900/80" />
       </div>
 
@@ -63,14 +63,14 @@
 
 <script setup>
 defineOgImageComponent('InfoPages', {
-  title: 'Contact & Appointments | Shanadely Eye Clinic'
+  title: 'Contact & Appointments | Shanadel Eye Clinic'
 })
 
 useSeoMeta({
-  title: 'Contact Shanadely Eye Clinic | Book an Eye Exam in Abuja',
-  description: 'Book an appointment at Shanadely Eye Clinic in Wuye, Abuja. Schedule a comprehensive eye exam with Dr. Alabegbe, ask questions, or inquire about NHIS coverage.',
+  title: 'Contact Shanadel Eye Clinic | Book an Eye Exam in Abuja',
+  description: 'Book an appointment at Shanadel Eye Clinic in Wuye, Abuja. Schedule a comprehensive eye exam with Dr. Alabegbe, ask questions, or inquire about NHIS coverage.',
   keywords: 'eye clinic Abuja, optometrist near me, book eye exam Abuja, eye doctor Wuye, Shanadel eye clinic contact',
-  ogTitle: 'Book an Appointment | Shanadely Eye Clinic Abuja',
+  ogTitle: 'Book an Appointment | Shanadel Eye Clinic Abuja',
   ogDescription: 'Contact us today to schedule your comprehensive eye examination or pediatric vision screening.',
   ogType: 'website',
 })
@@ -82,7 +82,7 @@ useHead({
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': ['MedicalClinic', 'LocalBusiness'],
-        name: 'Shanadely Eye Clinic',
+        name: 'Shanadel Eye Clinic',
         description: 'Premium eye care services, optometry, and optical dispensing in Abuja.',
         url: 'https://shanadeleyeclinicltd.com.ng/contact',
         telephone: '+2349024866554',

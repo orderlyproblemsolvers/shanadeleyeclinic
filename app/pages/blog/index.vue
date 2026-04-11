@@ -8,7 +8,7 @@
       <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-white/15 border border-white/20 rounded-full text-xs font-medium mb-5">
           <span class="w-1.5 h-1.5 bg-white rounded-full" />
-          Shanadely Eye Clinic
+          Shanadel Eye Clinic
         </div>
         <h1 class="text-4xl md:text-5xl font-bold mb-3 leading-tight">Our Blog</h1>
         <p class="text-base text-white/80 max-w-xl">Expert insights and practical tips for better eye health.</p>
@@ -152,12 +152,12 @@ import { ref, computed, watch } from 'vue'
 
 // Strong SEO Meta
 useSeoMeta({
-  title: 'Blog — Shanadely Eye Clinic',
-  description: 'Explore expert insights, eye care tips, and the latest in ophthalmology from the team at Shanadely Eye Clinic, Abuja.',
-  ogTitle: 'Blog — Shanadely Eye Clinic | Expert Eye Care Tips',
-  ogDescription: 'Expert insights, eye care tips, and the latest in ophthalmology from Shanadely Eye Clinic. Read our latest articles to maintain healthy vision.',
+  title: 'Blog — Shanadel Eye Clinic',
+  description: 'Explore expert insights, eye care tips, and the latest in ophthalmology from the team at Shanadel Eye Clinic, Abuja.',
+  ogTitle: 'Blog — Shanadel Eye Clinic | Expert Eye Care Tips',
+  ogDescription: 'Expert insights, eye care tips, and the latest in ophthalmology from Shanadel Eye Clinic. Read our latest articles to maintain healthy vision.',
   ogImage: 'https://www.shanadeleyeclinicltd.com.ng/img/shanadel-lg.webp',
-  ogImageAlt: 'Blog — Shanadely Eye Clinic',
+  ogImageAlt: 'Blog — Shanadel Eye Clinic',
   ogType: 'website',
   twitterCard: 'summary_large_image',
 })
@@ -169,7 +169,7 @@ useHead({
     { rel: 'alternate', hreflang: 'en', href: 'https://www.shanadeleyeclinicltd.com.ng/blog' },
   ],
   meta: [
-    { name: 'keywords', content: 'Shanadely Eye Clinic blog, eye care tips, ophthalmology, vision care, eye health, Abuja eye clinic, glaucoma, cataract' },
+    { name: 'keywords', content: 'Shanadel Eye Clinic blog, eye care tips, ophthalmology, vision care, eye health, Abuja eye clinic, glaucoma, cataract' },
   ],
   script: [
     {
@@ -177,12 +177,12 @@ useHead({
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'Blog',
-        name: 'Shanadely Eye Clinic Blog',
+        name: 'Shanadel Eye Clinic Blog',
         url: 'https://www.shanadeleyeclinicltd.com.ng/blog',
         description: 'Expert insights, eye care tips, and the latest news in ophthalmology.',
         publisher: {
           '@type': 'Organization',
-          name: 'Shanadely Eye Clinic',
+          name: 'Shanadel Eye Clinic',
           logo: {
             '@type': 'ImageObject',
             url: 'https://www.shanadeleyeclinicltd.com.ng/img/shanadel-lg.webp',

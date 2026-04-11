@@ -465,8 +465,6 @@ const eyeConditions = ref<EyeCondition[]>([
 // Specialized Services
 const diagnosticServices = ref([
   "Comprehensive Eye Evaluation",
-  "Visual Acuity Testing",
-  "Intraocular Pressure Measurement",
   "Visual Field Testing",
   "Retinal Examination",
   "Pediatric Vision Assessment",
@@ -478,6 +476,5 @@ const managementServices = ref([
   "Dry Eye Treatment",
   "Infection & Allergy Treatment",
   "Contact Lens Fitting",
-  "Low Vision Rehabilitation",
 ]);
 </script>

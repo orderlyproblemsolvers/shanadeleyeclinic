@@ -1,7 +1,7 @@
 <template>
   <div class="bg-white overflow-x-hidden">
     <section class="relative py-20 lg:py-32 overflow-hidden">
-      <div class="absolute inset-0 bg-gradient-to-br from-emerald-50 via-white to-orange-50"/>
+      <div class="absolute inset-0 bg-linear-to-br from-emerald-50 via-white to-orange-50"/>
       <div class="absolute inset-0 opacity-10">
         <div class="absolute top-20 left-10 w-72 h-72 bg-[#7fc540] rounded-full blur-3xl animate-float"/>
         <div class="absolute bottom-20 right-10 w-96 h-96 bg-[#ff6900] rounded-full blur-3xl animate-float-delayed"/>
@@ -14,7 +14,7 @@
         <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-4 tracking-tight animate-slide-up">
           About Shanadel Eye Clinic
         </h1>
-        <h2 class="text-3xl md:text-4xl font-semibold bg-gradient-to-r from-[#7fc540] to-[#6ab030] bg-clip-text text-transparent mb-8 animate-slide-up-delayed">
+        <h2 class="text-3xl md:text-4xl font-semibold bg-linear-to-r from-[#7fc540] to-[#6ab030] bg-clip-text text-transparent mb-8 animate-slide-up-delayed">
           Where Expertise Meets Empathy in Abuja
         </h2>
         <p class="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
@@ -41,7 +41,7 @@
                   loading="lazy"
                   class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
                 >
-                <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"/>
+                <div class="absolute inset-0 bg-linear-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"/>
               </div>
               
               <div class="absolute -top-4 -left-4 w-24 h-24 bg-[#7fc540]/20 rounded-full blur-2xl"/>
@@ -53,7 +53,7 @@
                     <UIcon name="i-lucide-award" class="text-3xl text-[#7fc540]" aria-hidden="true" />
                   </div>
                   <div>
-                    <p class="text-2xl font-bold text-gray-900">15+</p>
+                    <p class="text-2xl font-bold text-gray-900">19+</p>
                     <p class="text-sm text-gray-600">Years Experience</p>
                   </div>
                 </div>
@@ -73,7 +73,7 @@
               Our Story
             </h2>
             <p class="text-gray-600 leading-relaxed mb-4 text-lg">
-              Founded by <strong class="text-gray-900">Dr. Zephyr Alabegbe</strong>, Shanadel began as a heartfelt response to one question: "What if every person, no matter where they live or what they earn, could see the world clearly?"
+              Founded by <strong class="text-gray-900">Dr. Zephyr</strong>, Shanadel began as a heartfelt response to one question: "What if every person, no matter where they live or what they earn, could see the world clearly?"
             </p>
             <p class="text-gray-600 leading-relaxed mb-4 text-lg">
               From that question grew a mission: to offer exceptional, affordable, and compassionate eye care that transforms lives. What started as a small clinic with a big dream has evolved into a trusted destination for individuals and families seeking not just treatment, but care that feels personal.
@@ -83,8 +83,8 @@
             </p>
             
             <div class="space-y-5">
-              <div class="flex items-start gap-4 p-4 bg-gradient-to-r from-emerald-50 to-transparent rounded-xl hover:shadow-md transition-all duration-300">
-                <div class="flex-shrink-0 w-12 h-12 bg-[#7fc540] rounded-xl flex items-center justify-center">
+              <div class="flex items-start gap-4 p-4 bg-linear-to-r from-emerald-50 to-transparent rounded-xl hover:shadow-md transition-all duration-300">
+                <div class="shrink-0 w-12 h-12 bg-[#7fc540] rounded-xl flex items-center justify-center">
                   <UIcon name="i-lucide-award" class="text-2xl text-white" aria-hidden="true" />
                 </div>
                 <div>
@@ -103,8 +103,8 @@
                 </div>
               </div>
               
-              <div class="flex items-start gap-4 p-4 bg-gradient-to-r from-emerald-50 to-transparent rounded-xl hover:shadow-md transition-all duration-300">
-                <div class="flex-shrink-0 w-12 h-12 bg-[#7fc540] rounded-xl flex items-center justify-center">
+              <div class="flex items-start gap-4 p-4 bg-linear-to-r from-emerald-50 to-transparent rounded-xl hover:shadow-md transition-all duration-300">
+                <div class="shrink-0 w-12 h-12 bg-[#7fc540] rounded-xl flex items-center justify-center">
                   <UIcon name="i-lucide-users" class="text-2xl text-white" aria-hidden="true" />
                 </div>
                 <div>
@@ -119,7 +119,7 @@
     </section>
 
     <section class="relative py-20 lg:py-28 overflow-hidden">
-      <div class="absolute inset-0 bg-gradient-to-b from-gray-50 to-white"/>
+      <div class="absolute inset-0 bg-linear-to-b from-gray-50 to-white"/>
       
       <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto mb-16">
@@ -136,7 +136,7 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div class="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl text-center transition-all duration-300 border border-gray-100 hover:border-[#7fc540] hover:-translate-y-2">
-            <div class="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-[#7fc540] to-[#6ab030] rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
+            <div class="w-16 h-16 mx-auto mb-6 bg-linear-to-br from-[#7fc540] to-[#6ab030] rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
               <UIcon name="i-lucide-heart" class="text-3xl text-white" aria-hidden="true" />
             </div>
             <h3 class="text-2xl font-bold text-gray-900 mb-3">Compassion</h3>
@@ -144,7 +144,7 @@
           </div>
           
           <div class="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl text-center transition-all duration-300 border border-gray-100 hover:border-[#7fc540] hover:-translate-y-2">
-            <div class="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-[#7fc540] to-[#6ab030] rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
+            <div class="w-16 h-16 mx-auto mb-6 bg-linear-to-br from-[#7fc540] to-[#6ab030] rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
               <UIcon name="i-lucide-award" class="text-3xl text-white" aria-hidden="true" />
             </div>
             <h3 class="text-2xl font-bold text-gray-900 mb-3">Excellence</h3>
@@ -152,7 +152,7 @@
           </div>
           
           <div class="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl text-center transition-all duration-300 border border-gray-100 hover:border-[#7fc540] hover:-translate-y-2">
-            <div class="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-[#7fc540] to-[#6ab030] rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
+            <div class="w-16 h-16 mx-auto mb-6 bg-linear-to-br from-[#7fc540] to-[#6ab030] rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
               <UIcon name="i-lucide-shield-check" class="text-3xl text-white" aria-hidden="true" />
             </div>
             <h3 class="text-2xl font-bold text-gray-900 mb-3">Accessibility</h3>
@@ -160,7 +160,7 @@
           </div>
           
           <div class="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl text-center transition-all duration-300 border border-gray-100 hover:border-[#7fc540] hover:-translate-y-2">
-            <div class="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-[#7fc540] to-[#6ab030] rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
+            <div class="w-16 h-16 mx-auto mb-6 bg-linear-to-br from-[#7fc540] to-[#6ab030] rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
               <UIcon name="i-lucide-book-open" class="text-3xl text-white" aria-hidden="true" />
             </div>
             <h3 class="text-2xl font-bold text-gray-900 mb-3">Education</h3>
@@ -185,19 +185,19 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div class="bg-gradient-to-br from-emerald-50 to-white p-8 rounded-2xl shadow-lg text-center transform hover:-translate-y-2 transition-all duration-300 border border-gray-100">
+          <div class="bg-linear-to-br from-emerald-50 to-white p-8 rounded-2xl shadow-lg text-center transform hover:-translate-y-2 transition-all duration-300 border border-gray-100">
             <div class="w-16 h-16 mx-auto mb-4 bg-[#7fc540] rounded-2xl flex items-center justify-center">
               <UIcon name="i-lucide-calendar-check" class="text-3xl text-white" aria-hidden="true" />
             </div>
-            <span class="block text-5xl font-bold bg-gradient-to-r from-[#7fc540] to-[#6ab030] bg-clip-text text-transparent mb-2">19+</span>
+            <span class="block text-5xl font-bold bg-linear-to-r from-[#7fc540] to-[#6ab030] bg-clip-text text-transparent mb-2">19+</span>
             <span class="text-gray-700 font-semibold">Years of Service</span>
           </div>
 
-          <div class="bg-gradient-to-br from-orange-50 to-white p-8 rounded-2xl shadow-lg text-center transform hover:-translate-y-2 transition-all duration-300 border border-gray-100">
+          <div class="bg-linear-to-br from-orange-50 to-white p-8 rounded-2xl shadow-lg text-center transform hover:-translate-y-2 transition-all duration-300 border border-gray-100">
             <div class="w-16 h-16 mx-auto mb-4 bg-[#ff6900] rounded-2xl flex items-center justify-center">
               <UIcon name="i-lucide-glasses" class="text-3xl text-white" aria-hidden="true" />
             </div>
-            <span class="block text-5xl font-bold bg-gradient-to-r from-[#ff6900] to-[#ff8534] bg-clip-text text-transparent mb-2">1000+</span>
+            <span class="block text-5xl font-bold bg-linear-to-r from-[#ff6900] to-[#ff8534] bg-clip-text text-transparent mb-2">1000+</span>
             <span class="text-gray-700 font-semibold">Frame Styles</span>
           </div>
 
@@ -205,15 +205,15 @@
             <div class="w-16 h-16 mx-auto mb-4 bg-[#7fc540] rounded-2xl flex items-center justify-center">
               <UIcon name="i-lucide-users" class="text-3xl text-white" aria-hidden="true" />
             </div>
-            <span class="block text-5xl font-bold bg-gradient-to-r from-[#7fc540] to-[#6ab030] bg-clip-text text-transparent mb-2">1K+</span>
+            <span class="block text-5xl font-bold bg-linear-to-r from-[#7fc540] to-[#6ab030] bg-clip-text text-transparent mb-2">1K+</span>
             <span class="text-gray-700 font-semibold">Happy Patients</span>
           </div>
 
-          <div class="bg-gradient-to-br from-orange-50 to-white p-8 rounded-2xl shadow-lg text-center transform hover:-translate-y-2 transition-all duration-300 border border-gray-100">
+          <div class="bg-linear-to-br from-orange-50 to-white p-8 rounded-2xl shadow-lg text-center transform hover:-translate-y-2 transition-all duration-300 border border-gray-100">
             <div class="w-16 h-16 mx-auto mb-4 bg-[#ff6900] rounded-2xl flex items-center justify-center">
               <UIcon name="i-lucide-smile" class="text-3xl text-white" aria-hidden="true" />
             </div>
-            <span class="block text-5xl font-bold bg-gradient-to-r from-[#ff6900] to-[#ff8534] bg-clip-text text-transparent mb-2">1000s</span>
+            <span class="block text-5xl font-bold bg-linear-to-r from-[#ff6900] to-[#ff8534] bg-clip-text text-transparent mb-2">1000s</span>
             <span class="text-gray-700 font-semibold">Smiles Restored</span>
           </div>
         </div>
@@ -221,7 +221,7 @@
     </section>
     
     <section class="relative py-20 lg:py-28 overflow-hidden">
-      <div class="absolute inset-0 bg-gradient-to-br from-gray-50 to-emerald-50"/>
+      <div class="absolute inset-0 bg-linear-to-br from-gray-50 to-emerald-50"/>
       
       <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -285,7 +285,7 @@
                   loading="lazy"
                   class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
                 >
-                <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"/>
+                <div class="absolute inset-0 bg-linear-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"/>
               </div>
               
               <div class="absolute -top-4 -left-4 w-24 h-24 bg-[#7fc540]/20 rounded-full blur-2xl"/>
@@ -315,9 +315,9 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div class="bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition-all duration-300">
+          <div class="bg-linear-to-br from-gray-50 to-white p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition-all duration-300">
             <div class="flex items-start gap-4">
-              <div class="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-[#7fc540] to-[#6ab030] rounded-xl flex items-center justify-center">
+              <div class="shrink-0 w-14 h-14 bg-linear-to-br from-[#7fc540] to-[#6ab030] rounded-xl flex items-center justify-center">
                 <UIcon name="i-lucide-badge-check" class="text-2xl text-white" aria-hidden="true" />
               </div>
               <div>
@@ -329,9 +329,9 @@
             </div>
           </div>
 
-          <div class="bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition-all duration-300">
+          <div class="bg-linear-to-br from-gray-50 to-white p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition-all duration-300">
             <div class="flex items-start gap-4">
-              <div class="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-[#ff6900] to-[#ff8534] rounded-xl flex items-center justify-center">
+              <div class="shrink-0 w-14 h-14 bg-linear-to-br from-[#ff6900] to-[#ff8534] rounded-xl flex items-center justify-center">
                 <UIcon name="i-lucide-graduation-cap" class="text-2xl text-white" aria-hidden="true" />
               </div>
               <div>
@@ -343,9 +343,9 @@
             </div>
           </div>
 
-          <div class="bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition-all duration-300">
+          <div class="bg-linear-to-br from-gray-50 to-white p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition-all duration-300">
             <div class="flex items-start gap-4">
-              <div class="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-[#7fc540] to-[#6ab030] rounded-xl flex items-center justify-center">
+              <div class="shrink-0 w-14 h-14 bg-linear-to-br from-[#7fc540] to-[#6ab030] rounded-xl flex items-center justify-center">
                 <UIcon name="i-lucide-baby" class="text-2xl text-white" aria-hidden="true" />
               </div>
               <div>
@@ -357,9 +357,9 @@
             </div>
           </div>
 
-          <div class="bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition-all duration-300">
+          <div class="bg-linear-to-br from-gray-50 to-white p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition-all duration-300">
             <div class="flex items-start gap-4">
-              <div class="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-[#ff6900] to-[#ff8534] rounded-xl flex items-center justify-center">
+              <div class="shrink-0 w-14 h-14 bg-linear-to-br from-[#ff6900] to-[#ff8534] rounded-xl flex items-center justify-center">
                 <UIcon name="i-lucide-heart-handshake" class="text-2xl text-white" aria-hidden="true" />
               </div>
               <div>
@@ -375,7 +375,7 @@
     </section>
 
     <section class="relative py-20 lg:py-28 overflow-hidden">
-      <div class="absolute inset-0 bg-gradient-to-r from-[#7fc540] to-[#6ab030]"/>
+      <div class="absolute inset-0 bg-linear-to-r from-[#7fc540] to-[#6ab030]"/>
       <div class="absolute inset-0 opacity-10">
         <div class="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl animate-float"/>
         <div class="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl animate-float-delayed"/>

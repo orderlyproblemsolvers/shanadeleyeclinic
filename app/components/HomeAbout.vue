@@ -19,7 +19,7 @@
             <div class="relative overflow-hidden rounded-2xl shadow-xl">
               <img
                 src="/img/Shanadelout.jpg"
-                alt="Dr. Zephyr Alabegbe, founder of Shanadely Eye Clinic"
+                alt="Dr. Zephyr Alabegbe, founder of Shanadel Eye Clinic"
                 class="w-full h-auto object-cover transform group-hover:scale-[1.03] transition-transform duration-700"
               />
               <div class="absolute inset-0 bg-linear-to-t from-black/15 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -46,7 +46,7 @@
           <!-- Badge -->
           <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-[#7fc540]/10 border border-[#7fc540]/20 rounded-full text-xs font-medium text-gray-600 w-fit">
             <span class="w-1.5 h-1.5 bg-[#7fc540] rounded-full animate-pulse"></span>
-            About Shanadely Eye Clinic
+            About Shanadel Eye Clinic
           </div>
 
           <!-- Heading -->
@@ -57,8 +57,8 @@
 
           <!-- Body -->
           <p class="text-base text-gray-500 leading-relaxed">
-            At Shanadely, you aren't just a number on a chart — you are a story we're privileged to protect. Founded by
-            <span class="font-semibold text-gray-800">Dr. Zephyr Alabegbe</span>, our mission began with a simple question:
+            At Shanadel, you aren't just a number on a chart — you are a story we're privileged to protect. Founded by
+            <span class="font-semibold text-gray-800">Dr. Zephyr</span>, our mission began with a simple question:
             <em>"What if everyone could see the world clearly?"</em>
             We provide patient-centered service where warmth meets professionalism.
           </p>
@@ -87,7 +87,7 @@
               class="group inline-flex items-center gap-2 px-7 py-3.5 bg-linear-to-r from-[#7fc540] to-[#6ab030] text-white font-semibold rounded-xl text-sm transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-[#7fc540]/25 overflow-hidden relative"
             >
               <span class="relative z-10 flex items-center gap-2">
-                Meet Dr. Alabegbe & Our Team
+                Meet Dr. Zephyr & Our Team
                 <UIcon name="i-lucide-arrow-right" class="transition-transform group-hover:translate-x-1" />
               </span>
               <div class="absolute inset-0 bg-linear-to-r from-[#6ab030] to-[#7fc540] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

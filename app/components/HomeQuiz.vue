@@ -282,7 +282,7 @@
               >{{ avatar.initials }}</div>
             </div>
             <p class="text-xs text-gray-500">
-              Join <span class="text-[#5a912d] font-semibold">thousands</span> of patients who trust Shanadely Eye Clinic
+              Join <span class="text-[#5a912d] font-semibold">thousands</span> of patients who trust Shanadel Eye Clinic
             </p>
           </div>
 
