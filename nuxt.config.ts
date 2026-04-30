@@ -37,6 +37,10 @@ export default defineNuxtConfig({
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { charset: 'utf-8' },
         { hid: 'description', name: 'description', content: 'Shanadel Eye Clinic - Quality Eye Care Services' },
+        { 
+          name: 'keywords', 
+          content: 'Shanadel Eye Clinic, Eye clinic Abuja, Optometrist in Abuja, Eye clinic Wuye, Best eye clinic Abuja, Comprehensive eye exam Abuja, Vision care Nigeria, Prescription glasses Abuja, Designer frames Abuja, Contact lenses Abuja, Glaucoma screening Abuja, Cataract evaluation, Pediatric optometry, Eye test near me, Optical services Wuye, Eye health consultation, Affordable glasses Abuja, Computer vision treatment, Dry eye therapy, Astigmatism correction, Myopia control, Reading glasses, Progressive lenses, Photochromic lenses, Anti-reflective glasses, Eye clinic Triple H Plaza, Eye infection treatment, Emergency eye care Abuja, Optical center Abuja, Kids eye test Abuja, Corporate eye tests, Vision therapy, Visual field testing, Refractive error correction, Retinal imaging, Optician in Wuye, Designer sunglasses Abuja, Eye pressure check, Diabetic eye screening, Macular degeneration check, Red eye treatment, Children\'s eye doctor, Family eye care Abuja, Eye care professionals Abuja, Prescription sunglasses, UV protection lenses, Blue light blocking glasses, Low vision aids, Optometry services FCT, Shanadel optical services' 
+        }
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
